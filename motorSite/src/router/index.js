@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import IndexPage from '@/components/indexPage'
+import FormPage from '@/components/formPage'
 
 Vue.use(Router)
 
@@ -8,8 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'indexPage',
+      component: IndexPage
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component: FormPage
     }
   ]
 })

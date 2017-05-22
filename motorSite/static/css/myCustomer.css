@@ -27,7 +27,7 @@ i.fa.fa-chevron-left, i.fa.fa-chevron-right {
     height: 70px;
     color: #fff;
     text-shadow: 2px 2px 2px black;
-    position: relative; 
+    position: relative;
     top: 67px;
     width: 310px;
 }
@@ -42,8 +42,8 @@ i.fa.fa-chevron-left, i.fa.fa-chevron-right {
 
 section.productSection {
     margin: 50px 0px;
-    padding-top: 35px;
-    margin-top: 94px;
+    padding-top: 0px;
+    margin-top: 69px;
 }
 
 .productContentDiv {
@@ -69,7 +69,7 @@ section.productSection {
 }
 
 .buttonProject {
-   
+
 }
 
 footer {
@@ -143,7 +143,7 @@ button.btn.btn-danger.NextButton:hover {
 }
 
 .customerForm .NextButton:hover {
-    
+
     background-color: #d2193e;
     color: white;
     border: none;
@@ -453,13 +453,13 @@ footer p {
 
 nav {
     /* Safari 3-4, iOS 1-3.2, Android 1.6- */
-  -webkit-border-radius: 0px!important; 
+  -webkit-border-radius: 0px!important;
 
   /* Firefox 1-3.6 */
-  -moz-border-radius: 0px!important; 
-  
+  -moz-border-radius: 0px!important;
+
   /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
-  border-radius: 0px!important; 
+  border-radius: 0px!important;
 }
 
 .ccSpan {
@@ -727,7 +727,7 @@ input.form-control {
 }
 
 .buttonProject .btn-lg {
-    background-color:#db4160;
+    background-color: #ccc;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     color: white;
@@ -922,9 +922,9 @@ input.form-control {
 }
 
 .wordWrap {
-   white-space: pre-wrap;      /* CSS3 */   
-   white-space: -moz-pre-wrap; /* Firefox */    
-   white-space: -pre-wrap;     /* Opera <7 */   
-   white-space: -o-pre-wrap;   /* Opera 7 */    
+   white-space: pre-wrap;      /* CSS3 */
+   white-space: -moz-pre-wrap; /* Firefox */
+   white-space: -pre-wrap;     /* Opera <7 */
+   white-space: -o-pre-wrap;   /* Opera 7 */
    word-wrap: break-word;      /* IE */
 }

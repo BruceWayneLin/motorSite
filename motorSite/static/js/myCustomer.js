@@ -26,14 +26,14 @@ $(function() {
 
     $(document).on('click', '#likeToInsured', function(){
         $('html, body').animate({
-            scrollTop: $("#scrollFlag").offset().top - 66
+            scrollTop: $("#myProducts").offset().top - 66
         }, 1000);
     });
-    
+
     $(document).ready(function(){
          var judge = $('#judge').val();
          if(judge == 'true'){
-             $('#logoImg').attr('src', 'css/img/logo.png');
+             $('#logoImg').attr('src', '../static/assets/logoWhite.png');
              $(document).on('scroll', function(){
                 if($(document).scrollTop() > 0){
                     $('.secondPageNav').slideUp();
@@ -47,8 +47,8 @@ $(function() {
                     });
                 }
             });
-         }else if(judge == 'false'){            
-            $(document).on('scroll', function(){               
+         }else if(judge == 'false'){
+            $(document).on('scroll', function(){
                 console.log($(document).scrollTop());
                 if($(document).scrollTop() > 733){
                     $('.navbar-default').css({
@@ -58,10 +58,7 @@ $(function() {
                         "color": "#777",
                         "text-shadow": "2px 2px 2px #fff"
                     });
-                    $('#navbar').css({
-                        "background-color":  "transparent",
-                    })
-                    $('#logoImg').attr('src', 'css/img/logo.png');
+                    $('#logoImg').attr('src', '../static/assets/logoWhite.png');
                 }else{
                     $('.navbar-default').css({
                         "background-color" : "transparent"
@@ -73,10 +70,10 @@ $(function() {
                     $('#navbar').css({
                         "background-color":  "rgba(0, 0, 0, 0.56)",
                     });
-                    $('#logoImg').attr('src', 'css/img/logoWhite.png');
-                } 
+                    $('#logoImg').attr('src', '../static/assets/logoWhite.png');
+                }
             });
-         }      
+         }
     });
 
     //session Detector part
@@ -85,23 +82,23 @@ $(function() {
         document.onmousemove = function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = './index.html';
+                window.location.href = '../../index.html';
             }, 1800000);
         }
-        //for mobile session 
+        //for mobile session
         $(document).on('click', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = './index.html';
+                window.location.href = '../../index.html';
             }, 1800000);
         });
         $(document).on('scroll', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = './index.html';
+                window.location.href = '../../index.html';
             }, 1800000);
         });
     }
     sessionDetector();
-    
+
 });
