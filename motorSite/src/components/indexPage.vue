@@ -54,7 +54,7 @@
             <div class="products col-sm-3 text-center" v-for="(product, key) in products">
 
               <div class="productContentDiv animated" :class="'pic' + product.color">
-                <router-link to="/form">
+                <router-link to="form">
                   <div class="plateColor" @click="productClicked(product, key)" :style="{ backgroundColor: product.color, height: '90px', color: product.textColor }"><span>{{ product.cc }}</span></div>
                   <div class="cardPlateImg"></div>
                   <div class="productContent">
@@ -82,42 +82,51 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a href="#" @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
     </footer>
-    <div class="container">
-      <!-- Modal -->
-      <div class="modal fade" id="secondModal" role="dialog">
-        <div class="modal-dialog" v-bind:class="{'showPDFContentModal': pdfContentToShow}">
-          <!-- Modal content-->
-          <div class="modal-content" >
-            <div class="modal-header text-center">
-              <button type="button" class="close" data-dismiss="modal" :click="toCloseModal">&times;</button>
-              <h4 class="modal-title">CareLine</h4>
-            </div>
-            <div class="modal-body">
-              <object style="width:100%" data="../static/pdf/industryContentPrinciple.pdf" type="application/pdf" width="100%" height="100%">
-                <iframe src="../static/pdf/industryContentPrinciple.pdf#view=fit" type="application/pdf" />
-              </object>
-              <div class="content-modal text-center">
-                <p>{{returnMsg}}</p>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="text-center">
-                <button type="button" :click="toCloseModal" class="btn btn-primary" data-dismiss="modal">關閉</button>
-              </div>
-            </div>
-          </div>
+    <div>
+  </div>
+
+  <div class="modal-mask" v-show="visible">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+
+        <div class="modal-header">
+          <slot name="header">
+           <img class="logo" src="../assets/logo.png"/>
+          </slot>
+        </div>
+
+        <div class="modal-body">
+          <slot name="body">
+            <object v-show="pdfContentToShow" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">
+              <iframe src="" type="application/pdf" />
+            </object>
+          </slot>
+        </div>
+
+        <div class="modal-footer text-center">
+          <slot name="footer">
+            <button class="modal-default-button" @click="closeModal">
+              關閉
+            </button>
+          </slot>
         </div>
       </div>
     </div>
   </div>
+
+  </div>
 </template>
 
 <script>
+var $ = require('jquery')
+window.jQuery = $
+window.$ = $
+
 export default {
   name: 'indexPage',
   data () {
@@ -125,16 +134,20 @@ export default {
       selectedProduct: {},
       isActive: false,
       productText: '1年方案',
+      visible: false,
       products: [
-        {title: '機車強制險', year: 2, price: 735, discountPrice: 'NT$' + 848, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'green', cc: '1-50cc', textColor: 'white'},
-        {title: '機車強制險', year: 2, price: 1200, discountPrice: 'NT$' + 1316, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black'},
-        {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '250-550cc', textColor: 'black'},
-        { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white' }
+          {title: '機車強制險', year: 2, price: 735, discountPrice: 'NT$' + 848, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'green', cc: '1-50cc', textColor: 'white'},
+          {title: '機車強制險', year: 2, price: 1200, discountPrice: 'NT$' + 1316, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black'},
+          {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '250-550cc', textColor: 'black'},
+          { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white' }
 
       ]
     }
   },
   methods: {
+    closeModal: function () {
+      this.visible = false
+    },
     toGoBackIndex: function () {
       window.location.href = './index.html'
     },
@@ -169,26 +182,35 @@ export default {
       ]
     },
     productClicked: function (product, index) {
-      sessionStorage.setItem('productCC', index)
-      sessionStorage.setItem('productYear', product.year)
       this.$parent.secondPageNav = true
-
+      switch (index) {
+        case 0:
+          this.selectedProduct['productCC'] = 'green'
+          break
+        case 1:
+          this.selectedProduct['productCC'] = 'white'
+          break
+        case 2:
+          this.selectedProduct['productCC'] = 'yellow'
+          break
+        case 3:
+          this.selectedProduct['productCC'] = 'red'
+          break
+        default:
+          this.selectedProduct['productCC'] = ''
+      }
       this.selectedProduct['title'] = product.title
       this.selectedProduct['year'] = product.year
       this.selectedProduct['price'] = product.price
       this.selectedProduct['discountPrice'] = product.discountPrice
       this.selectedProduct['content'] = product.content
-      this.$parent.userSelectedProduct = JSON.stringify(this.selectedProduct)
-      console.log(this.$parent)
-      sessionStorage.setItem('userSelectedProduct', JSON.stringify(this.selectedProduct))
-//      window.location.href = './formOne.html'
+      this.$parent.userSelectedProduct = this.selectedProduct
     },
     principleAnnounce: function () {
-//      $('#secondModal').modal('show')
+      this.visible = true
       this.$parent.$data.pdfContentToShow = true
     },
     privateAnnouce: function () {
-//      $('#secondModal').modal('show')
       this.$parent.$data.pdfContentToShow = true
     },
     toCloseModal: function () {
@@ -206,12 +228,18 @@ export default {
     pdfContentToShow: function () {
       return this.$parent.pdfContentToShow
     }
+  },
+  mounted: function () {
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .logo {
+    height: 40px;
+    widht: auto;
+  }
   .carousel {
     position: relative;
     top: -60px;
@@ -225,4 +253,58 @@ export default {
     font-weight: bold;
   }
 
+  /*modal css*/
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .modal-container {
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+
+  .modal-body {
+    margin: 20px 0;
+  }
+
+  .modal-default-button {
+    float: right;
+  }
+
+  .modal-default-button {
+    margin: auto 25%;
+    float: right;
+    background-color: #db4160;
+    border: none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    min-width: 100px;
+    color: white;
+  }
+  /*modal css end*/
 </style>

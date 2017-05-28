@@ -3,8 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from '../node_modules/axios-es6/dist/axios.min.js'
+import VeeValidate from '../node_modules/vee-validate'
 
+Vue.use(VeeValidate)
 Vue.config.productionTip = false
+
+var $ = require('jquery')
+window.jQuery = $
+window.$ = $
 
 /* eslint-disable no-new */
 new Vue({
@@ -34,6 +41,7 @@ new Vue({
     alertMsgs: [],
     dataId: '',
     returnMsg: '',
+    showModal: false,
     userEnteredProdcutCC: '',
     motoSpeedPosition: 0
   },
@@ -44,5 +52,19 @@ new Vue({
   },
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  mounted: function () {
+    axios({
+      method: 'get',
+      url: '/api/motorbike-mbr/journey/initData'
+    }).then((response) => {
+      var result = response.data
+      this.AcityList = result.cityList
+      this.AdistrictList = result.areaList
+      this.IcityList = result.cityList
+      this.IdistrictList = result.areaList
+      this.RelatedList = result.relationshipList
+      this.BrandList = result.brandList
+    })
+  }
 })
