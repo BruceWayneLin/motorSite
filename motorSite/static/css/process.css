@@ -118,6 +118,12 @@
     color: grey!important;
 }
 
+@media screen and (max-width: 789px) and (min-width: 767px) {
+  #navbar .navbar-right ul li p{
+    font-size: 15px;
+  }
+}
+
 #navbar .navbar-right{
     margin-top: 10px;
     color: #808080;
@@ -173,3 +179,12 @@
         display:none;
     }
 }
+
+.processImg img {
+  margin-top: 0px;
+}
+
+input.customerDate[type="text"]:disabled {
+  background-color: white!important;
+}
+

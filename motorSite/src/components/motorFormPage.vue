@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:150px;" src="../../static/assets/logo.png"/></a></div>
+          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" v-bind:class="{secondPageNav: alterChangeNav}">
+        <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
             <li><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></li>
@@ -43,9 +43,9 @@
           <div class="col-sm-5">
             <div class="exampleCarLicense" v-for="( value, index ) in showExamples" :class="'licenseExample' + (index + 1)" v-show="value.isShow"></div>
           </div>
-          <div class="col-sm-7" style="margin-top:0px;">
-            <div class="col-sm-12">
-              <span style="position:relative;top:10px;">選擇車廠:</span>
+          <div class="col-sm-7">
+            <div class="col-sm-12 text-left">
+              <span style="">選擇車廠:</span>
             </div>
           </div>
         </div>
@@ -305,12 +305,7 @@
               </div>
             </div>
           <div class="col-sm-8">
-            <div class='input-group date' id='datetimepicker'>
-              <input @click="callCalendar" id="inputEx" data-date-end-date="0d" placeholder="請選擇" v-bind:class="{errorShow:executionDayInValid}" v-model="executionDay" @change="validateExecution" type='text' class="form-control"/>
-              <span class="input-group-addon" @change="validateExecution">
-                <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
+            <datepicker v-model="executionDay" v-bind:class="{errorShow: executionDayInValid}" :change="validateExecution" language="zh" format="yyyy-MM-dd" input-class="form-control customerDate" placeholder="請選擇保險開始日" :highlighted="state.highlighted" :disabled="state.disabled"></datepicker>
           </div>
         </div>
         </div>
@@ -353,21 +348,95 @@
           </div>
         </div>
       </div>
-
     </div>
+
+    <footer class="text-center">
+      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
+      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
+      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <div class="footer-bottom">
+        <span>© 2017 Careline. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+    <!--modal-->
+    <div class="modal-mask" v-show="visibleError">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+
+          <div class="modal-header">
+            <slot name="header">
+              <img class="logo" src="../assets/logo.png"/>
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              <p>{{errorMsgOfFailSent}}</p>
+            </slot>
+          </div>
+
+          <div class="modal-footer text-center">
+            <slot name="footer">
+              <button class="modal-default-button" @click="closeModal">
+                關閉
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--cc-modal-->
+    <div class="modal-mask" v-show="ccModalShow">
+      <div class="modal-wrapper">
+        <div class="modal-container" style="width:400px;">
+
+          <div class="modal-header" style="padding: 15px 18%;">
+            <slot name="header">
+              <img class="logo" src="../assets/logo.png"/>
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              <span>{{ccErrorMsg}}<p :style="{color:colorTxtOfcc}">{{ccChosen}}</p></span>
+            </slot>
+          </div>
+
+          <div class="modal-footer text-center">
+            <slot name="footer">
+              <button class="modal-default-button" style="margin: auto 35%;" @click="ccModalShow = false">
+                關閉
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-// import axios from '../../node_modules/axios-es6/dist/axios.min.js'
+import axios from '../../node_modules/axios-es6/dist/axios.min.js'
+import Datepicker from 'vuejs-datepicker'
+
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
 
 export default {
   name: 'motorFormPage',
+  components: { Datepicker },
   data () {
     return {
+      ccModalShow: false,
+      visibleError: false,
+      ccChosen: '',
+      ccErrorMsg: '',
+      errorMsgOfFailSent: '',
+      colorTxtOfcc: '',
       MAButton: false,
       MBButton: false,
       MCButton: true,
@@ -414,10 +483,144 @@ export default {
       releaseMotoMonthErrorMsg: '',
       engineNum: '',
       executionDayErrorMsg: '',
-      executionDayInValid: false
+      executionDayInValid: false,
+      state: {
+        highlighted: {
+          to: new Date(2016, 0, 5), // Highlight all dates up to specific date
+          from: new Date(2016, 0, 26), // Highlight all dates after specific date
+          days: [6, 0], // Highlight Saturday's and Sunday's
+          dates: [ // Highlight an array of dates
+            new Date(2017, 7, 16),
+            new Date(2017, 7, 17),
+            new Date(2017, 7, 18)
+          ]
+        },
+        disabled: {
+          to: new Date(),
+          from: new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000), // Disable all dates after specific date
+          dates: [ // Disable an array of dates
+          ]
+        }
+      }
     }
   },
   methods: {
+    toGoBackIndex: function () {
+      window.location.href = './index.html'
+    },
+    toGoQandAPage: function () {
+      window.open('../static/qanda.html', '_blank')
+    },
+    principleAnnounce: function () {
+      this.visible = true
+    },
+    privateAnnouce: function () {
+
+    },
+    closeModal: function () {
+      this.visible = false
+    },
+    readyToCheckInfo: function () {
+      if (this.toValidatePlate() &&
+        this.validateMotoFac() &&
+        this.validateEngineNumb() &&
+        this.validateReleasePlateYear() &&
+        this.validateReleasePlateMonth() &&
+        this.validateReleasePlateDay() &&
+        this.validateMotoYear() &&
+        this.validateMotoMonth() &&
+        this.validateExecution) {
+        if (!this.comparePlateWithEnterCC()) {
+        } else {
+          var motocycleInfo = {}
+          motocycleInfo['productIDFromBackend'] = this.$parent.dataId
+          motocycleInfo['motocycleFactory'] = this.motoMadeFactory
+          motocycleInfo['plateEng'] = this.plateNumberFirstArea
+          motocycleInfo['plateNum'] = this.plateNumberSecondArea
+          motocycleInfo['isNewPlate'] = this.newPlate
+          motocycleInfo['motoBrand'] = this.motoBrand === '' ? this.motoMadeFactoryItem.name : this.motoBrand
+          var rY = parseInt(this.releasePlateYearDate.slice(2, 4)) + 1911
+          var rM = parseInt(this.releasePLateMonthDate.slice(0, 1))
+          var rD = parseInt(this.releasePlateDayDate.slice(0, 1))
+          var mY = parseInt(this.releaseMotoYearDate.slice(0, 4))
+          var mM = parseInt(this.releaseMotoMonthDate.slice(0, 1))
+
+          motocycleInfo['releasePlateYear'] = rY
+          motocycleInfo['releasePlateMonth'] = rM
+          motocycleInfo['releasePlateDay'] = rD
+          motocycleInfo['motoReleasePlateDateForCheck'] = this.releasePlateYearDate + ',' + this.releasePLateMonthDate + ',' + this.releasePlateDayDate
+          motocycleInfo['motoFactoryDateForCheck'] = this.releaseMotoYearDate + ',' + this.releaseMotoMonthDate
+          motocycleInfo['motoFactoryMadeYear'] = mY
+          motocycleInfo['motoFactoryMadeMonth'] = mM
+          motocycleInfo['engineNumber'] = this.engineNum
+          motocycleInfo['executionDay'] = this.formatDate(this.executionDay)
+          motocycleInfo['motocycleCC'] = this.userEnteredProdcutCC
+          this.$parent.motocycleInfo = motocycleInfo
+          console.log(motocycleInfo)
+          sessionStorage.setItem('motorInfo', JSON.stringify(motocycleInfo))
+          var postObj = {}
+          postObj['motocycleInfo'] = motocycleInfo
+          axios({
+            url: 'http://210.242.7.164/motorbike-mbr/journey/saveMotorbikeInfo',
+            method: 'post',
+            params: {
+              data: JSON.stringify(postObj)
+            }
+          }).then(function (response) {
+            if (response.data.isEx === true) {
+              var text = response.data.msgs
+              let msg = ''
+              for (var i = 0; i < text.length; i++) {
+                msg = text[i]
+              }
+              alert(msg)
+              console.log('backend', msg)
+              return false
+            } else {
+              var dataId = response.data.dataId
+              console.log(dataId)
+              window.location.href = './#/infoPage'
+            }
+          }).catch(function (error) {
+            console.log(error)
+          })
+        }
+      } else {
+        console.log('1', this.toValidatePlate())
+        console.log('2', this.validateMotoFac())
+        console.log('3', this.comparePlateWithEnterCC())
+        console.log('4', this.validateEngineNumb())
+        console.log('5', this.validateEngineNumb())
+        console.log('6', this.validateReleasePlateYear())
+        console.log('7', this.validateReleasePlateMonth())
+        console.log('8', this.validateReleasePlateDay())
+        console.log('9', this.validateMotoYear())
+        console.log('10', this.validateMotoMonth())
+        console.log('11', this.validateExecution())
+
+        this.toValidatePlate()
+        this.validateMotoFac()
+        this.comparePlateWithEnterCC()
+        this.validateEngineNumb()
+        this.validateReleasePlateYear()
+        this.validateReleasePlateMonth()
+        this.validateReleasePlateDay()
+        this.validateMotoYear()
+        this.validateMotoMonth()
+        this.validateExecution()
+      }
+    },
+    formatDate: function (date) {
+      let d = new Date(date)
+      let month = '' + (d.getMonth() + 1)
+      let day = '' + d.getDate()
+      let year = d.getFullYear()
+
+      if (month.length < 2) month = '0' + month
+      if (day.length < 2) day = '0' + day
+
+      return [year, month, day].join('-')
+    },
     showEngineNumbExampmles: function () {
       this.engineNumExample = true
       this.airProduceExample = false
@@ -606,8 +809,6 @@ export default {
       }
     },
     validateExecution: function () {
-      this.executionDay = $('#datetimepicker').find('input').val()
-      $('#inputEx').val($('#datetimepicker').find('input').val())
       if (this.executionDay === '') {
         this.executionDayInValid = true
         this.executionDayErrorMsg = '請選擇強制險生效日。'
@@ -618,62 +819,112 @@ export default {
       }
     },
     comparePlateWithEnterCC: function () {
-      var selectProductCC = sessionStorage.getItem('productCC')
+      var selectProductCC = this.$parent.userSelectedProduct['productCC']
       if (this.motoMadeFactoryItem.code === 'MH') {
         this.$parent.isMH = true
-        if (selectProductCC === '0') {
+        if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 1.34) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'green'
+            this.ccChosen = '綠牌(HP <= 5)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '1') {
+        } else if (selectProductCC === 'white') {
           if (this.userEnteredProdcutCC > 1.34 && this.userEnteredProdcutCC <= 5) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'black'
+            this.ccChosen = '白牌(5 < HP <= 40)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '2') {
+        } else if (selectProductCC === 'yellow') {
           if (this.userEnteredProdcutCC > 5 && this.userEnteredProdcutCC <= 40) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'rgb(224, 88, 0)'
+            this.ccChosen = '紅黃牌(HP > 40)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '3') {
+        } else if (selectProductCC === 'red') {
           if (this.userEnteredProdcutCC > 40) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'red'
+            this.ccChosen = '紅黃牌(HP > 40)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
         } else {
+          this.ProductCCInValid = true
           return false
         }
       } else {
-        if (selectProductCC === '0') {
+        if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 50) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'green'
+            this.ccChosen = '綠牌(1-50cc)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '1') {
+        } else if (selectProductCC === 'white') {
           if (this.userEnteredProdcutCC > 50 && this.userEnteredProdcutCC <= 250) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'black'
+            this.ccChosen = '白牌(51-250cc)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '2') {
+        } else if (selectProductCC === 'yellow') {
           if (this.userEnteredProdcutCC > 250 && this.userEnteredProdcutCC <= 550) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'rgb(224, 88, 0)'
+            this.ccChosen = '黃牌(251-550)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
-        } else if (selectProductCC === '3') {
+        } else if (selectProductCC === 'red') {
           if (this.userEnteredProdcutCC > 550) {
+            this.ProductCCInValid = false
             return true
           } else {
+            this.ccModalShow = true
+            this.colorTxtOfcc = 'red'
+            this.ccChosen = '紅牌(551cc+)'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ProductCCInValid = true
             return false
           }
         } else {
+          this.ProductCCInValid = true
           return false
         }
       }
@@ -690,10 +941,14 @@ export default {
   },
   computed: {
     productCC: function () {
-      return sessionStorage.getItem('productCC')
+      if (this.executionDay) {
+        alert('1')
+        this.validateExecution()
+      }
+      return this.$parent.userSelectedProduct['productCC']
     },
     productYear: function () {
-      return sessionStorage.getItem('productYear')
+      return this.$parent.userSelectedProduct['year']
     },
     taiwanYearRelease: function () {
       var date = new Date()
@@ -780,6 +1035,38 @@ export default {
         }
       }
     }
+  },
+  mounted () {
+    window.scrollTo(0, 0)
+    var motorInfo = JSON.parse(sessionStorage.getItem('motorInfo'))
+    if (motorInfo) {
+      this.plateNumberFirstArea = motorInfo['plateEng']
+      this.plateNumberSecondArea = motorInfo['plateNum']
+      this.newPlate = motorInfo['isNewPlate']
+      var motoRPD = motorInfo['motoReleasePlateDateForCheck'].split(',')
+      for (let i = 0; i < motoRPD.length; i++) {
+        if (i === 0) {
+          this.releasePlateYearDate = motoRPD[i]
+        } else if (i === 1) {
+          this.releasePLateMonthDate = motoRPD[i]
+        } else {
+          this.releasePlateDayDate = motoRPD[i]
+        }
+      }
+      var motoFDC = motorInfo['motoFactoryDateForCheck'].split(',')
+      for (let i = 0; i < motoFDC.length; i++) {
+        if (i === 0) {
+          this.releaseMotoYearDate = motoFDC[i]
+        } else if (i === 1) {
+          this.releaseMotoMonthDate = motoFDC[i]
+        }
+      }
+      this.newPlate = motorInfo['isNewPlate']
+      this.engineNum = motorInfo['engineNumber']
+      this.executionDay = motorInfo['executionDay']
+      this.userEnteredProdcutCC = motorInfo['motocycleCC']
+    } else {
+    }
   }
 }
 </script>
@@ -809,5 +1096,64 @@ export default {
   }
   .processImg {
     padding-top: 18px;
+  }
+
+  /*modal css*/
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .modal-container {
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+
+  .modal-body {
+    margin: 20px 0;
+  }
+
+  .modal-default-button {
+    float: right;
+  }
+
+  .modal-default-button {
+    margin: auto 25%;
+    float: right;
+    background-color: #db4160;
+    border: none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    min-width: 100px;
+    color: white;
+  }
+  /*modal css end*/
+
+  span.errorMessage.motoErrorMsg {
+    padding-right: 540px;
   }
 </style>

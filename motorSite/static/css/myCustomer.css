@@ -1,458 +1,471 @@
 .logo {
-    margin: 15px;
-    float:left;
+  margin: 15px;
+  float:left;
 }
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
 
 .navbar.navbar-default {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 i.fa.fa-chevron-left, i.fa.fa-chevron-right {
-    margin-top: 160px;
+  margin-top: 160px;
 }
 
 .products.col-sm-3 {
-    height: 300px;
-    padding: 0px;
-    margin: 0px;
+  height: 300px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .priceDiv {
-    height: 70px;
-    color: #fff;
-    text-shadow: 2px 2px 2px black;
-    position: relative;
-    top: 67px;
-    width: 310px;
+  height: 70px;
+  color: #fff;
+  text-shadow: 2px 2px 2px black;
+  position: relative;
+  top: 67px;
+  width: 310px;
 }
 
 .priceDiscount {
-    position: relative;
-    top: -80px;
-    left: 28%;
-    text-decoration: line-through;
-    font-size: 18px;
+  position: relative;
+  top: -80px;
+  left: 28%;
+  text-decoration: line-through;
+  font-size: 18px;
 }
 
 section.productSection {
-    margin: 50px 0px;
-    padding-top: 0px;
-    margin-top: 69px;
+  margin-top: 64px;
 }
 
 .productContentDiv {
-    margin-top: 10px;
-    padding: 10px 3px;
-    padding-bottom: 40px;
-    height: 440px;
-    cursor:pointer;
-    border: 1px solid #ccc;
-    position: relative;
-    top: -180px;
+  margin-top: 10px;
+  padding: 10px 3px;
+  padding-bottom: 40px;
+  height: 440px;
+  cursor:pointer;
+  border: 1px solid #ccc;
+  position: relative;
+  top: -180px;
 }
 
 .productContentDiv:hover {
-    border-color: #db4160;
+  border-color: #e84466;
 }
 
-
-
 .productTwoContentDiv {
-    border: 1px solid black;
-    padding: 40px 0px;
+  border: 1px solid black;
+  padding: 40px 0px;
 }
 
 .buttonProject {
-
+  margin-bottom: 30px;
 }
 
 footer {
-    padding-top: 40px;
-    background-color: #4e4949;
-    color: white;
+  padding-top: 20px;
+  background-image: url(./img/footer.jpg);
+  width: 100%;
+  background-size: contain;
+  position: relative;
+  bottom: 0px;
+  z-index: -3333;
 }
 
 footer a {
-    color: #bedeef;
+  color: #bedeef;
 }
 
 .buttonProject .col-sm-6 {
-    margin: 30px 0px;
+  margin: 30px 0px;
 }
 
 .customerForm input {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .customerForm strong {
-    margin: 0;
-    margin-bottom: 0.5em;
-    color: #000000;
-    font-size: 24px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.2;
-    text-rendering: optimizeLegibility;
-    text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
 }
 
 .gender {
-    padding: 10px 15px;
+  padding: 10px 15px;
+  padding-right: 170px;
 }
 
 .birthSpan {
-    padding: 26px 0px 0px 15px;
-    font-size: 16px;
-    font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;
-    font-weight: 600;
-    color:#808080;
+  padding: 26px 0px 0px 15px;
+  font-size: 16px;
+  font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;
+  font-weight: 600;
+  color:#808080;
 }
 
 button.btn.btn-danger.NextButton {
-    margin: 10px 15px 0px 0px;
-    float: right;
-    background-color: white;
-    border: 1px solid #ccc;
-    color: #808080;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
+  margin: 10px 15px 0px 0px;
+  float: right;
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #808080;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  min-width: 100px;
 }
 
 button.btn.btn-danger.NextButton:hover {
-    color: white;
-    background-color: #808080;
+  color: white;
+  background-color: #808080;
 }
 
 .customerForm .NextButton {
-    margin: 10px 15px 0px 0px;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
+  margin: 10px 15px 0px 0px;
+  float: right;
+  background-color: #e84466;
+  border: none;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  min-width: 100px;
 }
 
 .customerForm .NextButton:hover {
-
-    background-color: #d2193e;
-    color: white;
-    border: none;
+  background-color: #d2193e;
+  color: white;
+  border: none;
 }
 
 .customerForm {
-    margin-bottom: 60px;
-    margin-top: 5%;
+  margin-bottom: 60px;
+  margin-top: 5%;
 }
 
 .customerForm .addr {
-    padding-right: 15px;
-    padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .checkboxSpan {
-    margin-left: 15px;
-    font-size: 18px;
+  margin-left: 15px;
+  font-size: 18px;
 }
 
 .spanLine {
-    border-bottom: 1px solid #eeeeee;
-    height: 50px;
+  border-bottom: 1px solid #eeeeee;
+  height: 50px;
 }
 
 #datetimepicker input {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 #datetimepicker {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .spanPosi {
-    position: relative;
-    top: 20px;
+  position: relative;
+  top: 20px;
 }
 
 .customerForm button {
-    margin: 13px 0px;
-    margin-top: 10px;
-    height: 53px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    border: 1px solid #ccc;
+  margin: 13px 0px;
+  margin-top: 10px;
+  height: 53px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
 }
 
 .slideOutLeft {
-    display: none;
+  display: none;
 }
 
 .customerInfo .container-fluid {
-    margin: 60px 0px;
-    margin-top: 230px;
+  margin: 5% 0px;
+  margin-top: 0px;
 }
 
 .customerInfo .title {
-    margin: 10px 0px 20px 0px;
+  margin: 10px 0px 20px 0px;
 }
 
 .customerInfo {
-    background: white;
-    border: 1px solid #eeeeee;
-    padding: 0px 80px 80px 80px;
+  background: white;
+  border: 1px solid #eeeeee;
+  padding: 0px 80px 80px 80px;
 }
 
 .customerInfo h4, h3 {
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
 }
 
 .customerInfo strong {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @media screen and (min-width: 500px) {
-    .customerInfo {
-        padding: 0px;
-    }
+  .customerInfo {
+    padding: 0px;
+  }
 }
 
 .thanksPage .col-sm-12 {
-    margin-bottom: 20px;
 }
 
 .thanksPage .thanksDiv {
-    padding: 0px 45px;
-    margin: 40px 0px;
+  padding: 45px;
+  margin: 40px 0px;
+  height: 400px;
+  padding-top: 55px;
+  padding-bottom: 35px;
 }
 
 .paymentCreditCardArea {
-    height: 350px;
-    background: #dddddd;
+  height: 350px;
+  background: #dddddd;
 }
 
 .buttonPaymentPage {
-    margin: 25px 0px;
+  margin: 25px 0px;
 }
 
 .modal-dialog {
-    top: 30%;
+  top: 30%;
 }
 
 .content-modal {
-    padding: 0px 60px;
+  padding: 0px 60px;
 }
 
 .qandaCon .row {
-    margin: 20px 0px;
+  margin: 20px 0px;
 }
 
 .timePeriod {
-    margin: 20px 0px 10px 20px;
+  margin: 20px 0px 10px 20px;
 }
 
 .customerForm p {
-    font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;
-    color: #808080;
-    font-size: 15px;
-    line-height: 1.5;
+  font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;
+  color: #808080;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+html *
+{
+  font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif!important;
+}
+
+i.fa {
+  font-family: FontAwesome!important;
 }
 
 .customerForm span {
-    /*font-family: "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;*/
-    color: #808080;
-    font-size: 15px;
-    line-height: 1.5;
+  color: #808080;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
 }
 
 .errorMessage {
-    padding-top: 10px;
-    color: #DF280A!important;
-    font-size: 14px;
-    white-space: nowrap;
-    padding-top: 20px;
-    padding-bottom: 15px;
-    display:block;
-    left:70px;
-    position:relative;
+  padding-top: 10px;
+  color: #DF280A!important;
+  font-size: 14px;
+  white-space: nowrap;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  display:block;
+  left:70px;
+  position:relative;
 }
 
 .iconErrorMessage {
-    background: url('img/errormsg.png');
-    background-size: 30px;
-    height: 50px;
-    background-repeat: no-repeat;
-    margin-left: 15px;
-    margin-top: 8px;
-    width: 30px;
+  background: url('img/errormsg.png');
+  background-size: 30px;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-left: 15px;
+  margin-top: 8px;
+  width: 30px;
 }
 
 .iconErrorMessageBack {
-    background: url('img/errormsg.png');
-    background-size: 100%;
-    height: 50px;
-    background-repeat: no-repeat;
-    margin-left: 15px;
-    margin-top: 11px;
-    position: absolute;
-    left: -17px;
-    top: 53px;
-    width: 60px;
-    margin-bottom: 5px;
+  background: url('img/errormsg.png');
+  background-size: 100%;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-left: 15px;
+  margin-top: 11px;
+  position: absolute;
+  left: -17px;
+  top: 53px;
+  width: 60px;
+  margin-bottom: 5px;
 }
 
 .errorMsg {
-    position: relative;
-    top: 15px;
+  position: relative;
+  top: 15px;
 }
 
 .errorShow, .errorShow:hover, .errorShow:focus, .errorShow:active {
-    border-color: #f32a2a!important;
+  border-color: #f32a2a!important;
 }
 
 .motoOwl {
-    top: -107px;
-    z-index: 13;
-    left: 230px;
+  top: -107px;
+  z-index: 13;
+  left: 230px;
 }
 
 .innerClass {
-    padding: 0px;
+  padding: 0px;
 }
 
 .ishidden {
-    display: none;
+  display: none;
 }
 
 .productContentDiv .yearTitle {
-    position: relative;
-    top: 29px;
-    left: -74px;
-    font-size: 18px;
+  position: relative;
+  top: 29px;
+  left: -74px;
+  font-size: 18px;
 }
 
 .title span {
-    padding-left: 20px;
-    bottom: -94px;
-    position: relative;
-    left: -40px;
-    font-size: 18px;
-    color: #fff;
-    text-shadow: 2px 2px 2px black;
+  padding-left: 20px;
+  bottom: -94px;
+  position: relative;
+  left: -40px;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 2px 2px 2px black;
 }
 
 .title {
-    padding: 15px;
+  padding: 15px;
 }
 
 .cardPlateImg {
-    /*background: url(../css/img/carPlate.png);*/
-    /*width: 100%;
-    height: 95px;
-    background-size: 87%;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 16px;
-    left: 20px;*/
+  /*background: url(../css/img/carPlate.png);*/
+  /*width: 100%;
+  height: 95px;
+  background-size: 87%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 16px;
+  left: 20px;*/
 }
 
 .plateColor span {
-    position: relative;
-    top: 23px;
-    font-size: 30px;
+  position: relative;
+  top: 23px;
+  font-size: 30px;
 }
 
 .plateColor {
-    border-radius: 11px;
-    -moz-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    background: url('../css/img/carPlate.png') no-repeat;
-    top: 113px;
-    width: 90%;
-    margin: 0 auto;
-    background-size: 100% 91px;
-    position: relative;
-    z-index: 999;
-    max-width: 300px;
+  border-radius: 11px;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  background: url('../css/img/carPlate.png') no-repeat;
+  top: 113px;
+  width: 90%;
+  margin: 0 auto;
+  background-size: 100% 91px;
+  position: relative;
+  z-index: 999;
+  max-width: 250px;
 }
 
 .productContent {
-    /*position: relative;
-    top: -100px;*/
-    max-width:330px;
-    margin: 0 auto;
+  /*position: relative;
+  top: -100px;*/
+  max-width:330px;
+  margin: 0 auto;
 }
 
 .carPlateLineText {
-    border-top: 4px solid black;
-    position: absolute;
-    top: 30px;
-    left: 8px;
-    width: 60%;
+  border-top: 4px solid black;
+  position: absolute;
+  top: 30px;
+  left: 8px;
+  width: 60%;
 }
 
 .yearTitle p {
-    color:red;
-    text-shadow: 2px 2px 2px black;
-    position: relative;
-    top: 100px;
-    left: -18px;
+  color:red;
+  text-shadow: 2px 2px 2px black;
+  position: relative;
+  top: 100px;
+  left: -18px;
 }
 
 .priceNormal {
-    font-size: 40px;
-    color:#fff;
-    text-shadow: 2px 2px 2px black;
+  font-size: 40px;
+  color:#fff;
+  text-shadow: 2px 2px 2px black;
 }
 
 .footer-bottom {
-    padding: 10px 0px;
-    background-color: #f2f2f2;
-    color: #808080;
-    width: 100%;
-    height: 37px;
+  padding: 10px 0px;
+  background-image: url(./img/footerBottom.jpg);
+  color: #808080;
+  width: 100%;
+  height: 37px;
 }
 
 footer p {
-    padding: 0px;
+  padding: 0px;
+  color: #fff
 }
 
 .showPDFContent {
-    height: 500px!important;
+  height: 500px!important;
 }
 
 .showPDFContentModal {
-    top: 5%;
+  top: 5%;
 }
 
 .modal-dialog.pdfShow {
-    top: 15%;
+  top: 15%;
 }
 
 .navbar.navbar-default {
-    width: 100%;
-    background-color: transparent;
-    position: fixed;
-    z-index: 11;
-    top:0;
-    border:none;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  border: none;
+  height: 75px;
 }
 
 #navbar a {
-    color: white;
+  color: white;
 }
 
 nav {
-    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  /* Safari 3-4, iOS 1-3.2, Android 1.6- */
   -webkit-border-radius: 0px!important;
 
   /* Firefox 1-3.6 */
@@ -464,189 +477,189 @@ nav {
 
 .ccSpan {
   position: absolute;
-    z-index: 5;
-    right: -10px;
-    top: 25px;
-    font-size: 18px;
+  z-index: 5;
+  right: -10px;
+  top: 25px;
+  font-size: 18px;
 }
 
 .licenseExample1 {
-    background-image: url(./img/carLicense/airProduce.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/airProduce.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 .licenseExample2 {
-    background-image: url(./img/carLicense/carLicensePlate.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/carLicensePlate.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 .licenseExample3 {
-    background-image: url(./img/carLicense/engineNum.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/engineNum.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 .licenseExample4 {
-    background-image: url(./img/carLicense/factoryDate.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/factoryDate.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 .licenseExample5 {
-    background-image: url(./img/carLicense/issuedDay.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/issuedDay.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 .licenseExample6 {
-    background-image: url(./img/carLicense/motorBrand.png);
-    height: 500px;
-    width: 100%;
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-    top: 10px;
+  background-image: url(./img/carLicense/motorBrand.png);
+  height: 500px;
+  width: 100%;
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 10px;
 }
 
 /* mobile css */
 @media screen and (max-width: 767px) {
-    .customerForm {
-        margin-top: 100px;
-    }
-    .exampleCarLicense {
-        display:none;
-    }
-    .iconErrorMessageBack {
-        top: -15px;
-    }
-    .ccSpan {
-        top: 18px;
-    }
-    .carPlateLineText {
-        display:none;
-    }
-    .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-        width: 100%;
-        margin: auto;
-        min-height: 500px;
-    }
-    .products.col-sm-3 {
-        height: auto;
-        padding: 15px;
-        margin-bottom: -40px;
-    }
-   .buttonProject .text-center {
-        width: 50%;
-        float: left;
-    }
-    footer {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    .footer-bottom {
-        position: relative;
-        left: -15px;
-        width:110%;
-    }
-    .customerInfo {
-        padding: 0px;
-    }
-    .customerInfo ul{
-        padding: 0px;
-    }
-    .navbar-default .navbar-toggle {
-        margin-top: 18px;
-    }
-    .hoverDiv {
-        top: -155px!important;
-    }
-    #myProducts {
-        padding:0px;
-        margin:0px;
-        margin-top: 95px;
-    }
-    #myProducts .col-sm-12 {
-        padding:0px;
-    }
-    .titleButton button {
-        position: relative;
-        top: 100px;
-        left: -63%;
-    }
-    .btn.btn-lg.isActiveButton {
-        position: relative;
-        top: -85px;
-        left: 44%;
-    }
-    .buttonProject .btn-lg {
-        position: relative;
-        top: -85px;
-        left: 44%;
-    }
-    .iconErrorMessageBack {
+  .customerForm {
+    margin-top: 100px;
+  }
+  .exampleCarLicense {
+    display:none;
+  }
+  .iconErrorMessageBack {
+    top: -15px;
+  }
+  .ccSpan {
+    top: 18px;
+  }
+  .carPlateLineText {
+    display:none;
+  }
+  .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+    min-height: 500px;
+  }
+  .products.col-sm-3 {
+    height: auto;
+    padding: 15px;
+    margin-bottom: -40px;
+  }
+  .buttonProject .text-center {
+    width: 50%;
+    float: left;
+  }
+  footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .footer-bottom {
+    position: relative;
+    left: -15px;
+    width:110%;
+  }
+  .customerInfo {
+    padding: 0px;
+  }
+  .customerInfo ul{
+    padding: 0px;
+  }
+  .navbar-default .navbar-toggle {
+    margin-top: 18px;
+  }
+  .hoverDiv {
+    top: -155px!important;
+  }
+  #myProducts {
+    padding:0px;
+    margin:0px;
+    margin-top: 50px;
+  }
+  #myProducts .col-sm-12 {
+    padding:0px;
+  }
+  .titleButton button {
+    position: relative;
+    top: 100px;
+    left: -63%;
+  }
+  .btn.btn-lg.isActiveButton {
+    position: relative;
+    top: -85px;
+    left: 44%;
+  }
+  .buttonProject .btn-lg {
+    position: relative;
+    top: -85px;
+    left: 44%;
+  }
+  .iconErrorMessageBack {
     top: 44px;
-    }
+  }
 }
 
 @media screen and (max-width:495px){
-    .navbar-default .navbar-toggle {
-        left:-40px;
-    }
+  .navbar-default .navbar-toggle {
+    left:-40px;
+  }
 }
 
 @media screen and (max-width:767px) and (min-width:495px){
-    .plateColor {
-        width:48%;
-        position: relative;
-        left: 0%;
-    }
+  .plateColor {
+    width:48%;
+    position: relative;
+    left: 0%;
+  }
 }
 
 @media screen and (max-width:1120px) and (min-width:1013px){
-    .priceDiv {
-        left: -8%;
-    }
+  .priceDiv {
+    left: -8%;
+  }
 }
 
 @media screen and (max-width:1013px) and (min-width:938px){
-    .priceDiv {
-        left: -17%;
-    }
+  .priceDiv {
+    left: -17%;
+  }
 }
 
 @media screen and (max-width:938px) and (min-width:879px){
-    .priceDiv {
-        left: -24%;
-    }
+  .priceDiv {
+    left: -24%;
+  }
 }
 
 
 @media screen and (max-width:879px) and (min-width:767px){
-    .priceDiv {
-        left: -30%;
-    }
+  .priceDiv {
+    left: -30%;
+  }
 }
 
 /*.yamahaIcon {
@@ -671,13 +684,13 @@ nav {
 }*/
 
 .buttonActive {
-    border: 1px solid #db4160 !important;
-    color: #db4160;
+  border: 1px solid #e84466 !important;
+  color: #e84466;
 }
 
 .form-control:focus {
-    border-color: #ef9485!important;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 126, 126, 0.53);
+  border-color: #ef9485!important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(236, 126, 126, 0.53);
 }
 
 select.form-control {
@@ -688,20 +701,20 @@ select.form-control {
 }
 
 input.form-control {
-    font-size: 16px;
-    border-style: solid;
-    border-width: 1px;
-    text-align: left;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-    -webkit-box-shadow: 0;
-    -moz-box-shadow: 0;
-    box-shadow: 0;
-    padding: 6px 15px;
-    border-color: #ccc;
-    box-shadow: none !important;
-    height: 50px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  text-align: left;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0;
+  -moz-box-shadow: 0;
+  box-shadow: 0;
+  padding: 6px 15px;
+  border-color: #ccc;
+  box-shadow: none !important;
+  height: 50px;
 }
 
 .selectWrapper{
@@ -717,49 +730,66 @@ input.form-control {
 }
 
 .navbar-header .icon-bar {
-    background-color: #fff!important;
+  background-color: #fff;
 }
 
 @media screen and (max-width:992px) and (min-width:768px){
-    .plateColor span {
-        font-size:24px;
-    }
+  .plateColor span {
+    font-size:24px;
+  }
 }
 
 .buttonProject .btn-lg {
-    background-color: #ccc;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    color: white;
-    border-radius: 10px;
-    width: 220px;
-    border-color: #ccc;
+  background-color:#e84466;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  color: white;
+  border-radius: 10px;
+  width: 220px;
+  border-color: #ccc;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  border-radius: 36px;
 }
 
 .buttonProject .btn-lg:hover {
-    background-color: #d23051;
+  background-color: white;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  color:black;
+  border-radius: 36px;
 }
 
 .btn.btn-lg.isActiveButton {
-    background-color: #ccc;
-    color:white;
-    margin-top: 10px;
-    min-width: 220px;
-    border-color:#ccc;
+  color: black;
+  background-color: #fff;
+  border-color: #ccc;
+  cursor: pointer;
+  margin-top: 10px;
+  min-width: 220px;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  border-radius: 36px;
+}
+
+.btn.btn-lg.isActiveButton:hover {
+  color: #e84466;
+  border-color: #e84466;
+  background-color: #fff!important;
 }
 
 .moneySign {
-    position: relative;
-    top: -115px;
-    left: 14%;
-    color: #fff;
-    text-shadow: 2px 2px 2px black;
-    font-size:18px;
+  position: relative;
+  top: -115px;
+  left: 14%;
+  color: #fff;
+  text-shadow: 2px 2px 2px black;
+  font-size:18px;
 }
 
 .nav.navbar-nav.navbar-right {
-    font-size: 16px;
-    margin-top: 10px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 /*.col-sm-6, .col-sm-7 {
@@ -767,164 +797,373 @@ input.form-control {
 }*/
 
 .titleDivH4{
-    position: absolute;
-    color: #fff;
-    top: 20%;
-    left: 42%;
-    letter-spacing: 13px;
+  position: absolute;
+  color: #fff;
+  top: 20%;
+  left: 42%;
+  letter-spacing: 13px;
 }
 
 .titleButton{
-    position: absolute;
-    top: 45%;
-    left: 56%;
+  position: absolute;
+  top: 33%;
+  left: 59%;
 }
 
 .titleButton button {
-    background-color: white;
-    color: #db4160;
-    height: 60px;
-    width: 250px;
-    -webkit-border-radius: 36px;
-    -moz-border-radius: 36px;
-    border-radius: 36px;
-    letter-spacing: 13px;
-    font-size: 20px;
-    cursor: pointer;
-    border: 2px solid rgba(216, 91, 116, 0.68);
+  position: relative;
+  left: 35%;
+  background-color: white;
+  color: #e84466;
+  height: 60px;
+  width: 250px;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  border-radius: 36px;
+  letter-spacing: 13px;
+  font-size: 20px;
+  cursor: pointer;
+  border: 2px solid rgba(216, 91, 116, 0.68);
+  margin-top: 45px;
 }
 
 .titleButton button:hover {
-    background-color:rgba(255, 255, 255, 0.76);
-    border: 2px solid rgba(255, 255, 255, 0.83);
-    color: black;
+  background-color:rgba(255, 255, 255, 0.76);
+  border: 2px solid rgba(255, 255, 255, 0.83);
+  color: black;
 }
 
 #navbar {
-    background-color: rgba(0, 0, 0, 0.56);
-    margin-left: -15px;
-    margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.56);
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 75px!important;
 }
 
 .shadowUse {
-    background-color: rgba(255, 255, 255, 0.16);
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 65px;
+  background-color: rgba(255, 255, 255, 0.16);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 65px;
 }
 
 .inner {
-    position: absolute;
-    bottom: 45%;
-    z-index: 999;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    left: 20%;
+  position: absolute;
+  bottom: 45%;
+  z-index: 999;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  left: 20%;
 }
 
 .picred {
-    background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picred.jpg') no-repeat 100% 100%;
-    height: 440px;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picred.jpg') no-repeat 72% 100%;
+  height: 440px;
+  background-size: cover;
 }
 
 .picyellow {
-    background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picyellow.jpg') no-repeat 100% 100%;
-    height: 440px;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picyellow.jpg') no-repeat 70% 100%;
+  height: 440px;
+  background-size: cover;
 }
 
 .picwhite {
-    background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picwhite.jpg') no-repeat 100% 100%;
-    height: 440px;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picwhite.jpg') no-repeat 18% 100%;
+  height: 440px;
+  background-size: cover;
 }
 
 .picgreen {
-    background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picgreen.jpg') no-repeat 100% 100%;
-    height: 440px;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30) ), url('../images/picgreen.jpg') no-repeat 53% 100%;
+  height: 440px;
+  background-size: cover;
 }
 
 .hoverDiv {
-    background-color: rgba(0, 0, 0, 0.40);
-    z-index: 20;
-    position: absolute;
-    height: 440px;
-    top: -170px;
-    width: 100%;
+  background-color: rgba(0, 0, 0, 0.40);
+  z-index: 20;
+  position: absolute;
+  height: 440px;
+  top: -170px;
+  width: 100%;
 }
 
 .hoverDiv:hover {
-    background-color: rgba(255, 255, 255, 0);
-    cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
 .isActiveButton:hover {
-    background-color: #c5072d!important;
+  background-color: #c5072d!important;
 }
 
 #productContainerDiv {
-    padding: 0px;
-    margin: 0px;
-    min-width: 300px;
+  padding: 0px;
+  margin: 0px;
+  min-width: 300px;
 }
 
 .selectProduct {
-    position: relative;
-    top: -80px;
-    z-index: 999;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    font-size:20px;
+  font-size: 24px!important;
+  position: relative;
+  top: -80px;
+  z-index: 999;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-size:20px;
 }
 
 .customerInfo .btn-primary {
-    margin: 10px 15px 0px 0px;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    height: 50px;
+  margin: 10px 15px 0px 0px;
+  float: right;
+  background-color: #e84466;
+  border: none;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  min-width: 100px;
+  height: 50px;
 }
 
 .customerInfo .btn-primary:hover {
-    margin: 10px 15px 0px 0px;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    height: 50px;
+  margin: 10px 15px 0px 0px;
+  float: right;
+  background-color: #e84466;
+  border: none;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  min-width: 100px;
+  height: 50px;
 }
 
 .customerInfo .btn-danger {
-    height: 50px;
+  height: 50px;
 }
 
 .customerInfo ul{
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .motoErrorIcon{
-    top: -8px;
-    left: 20px;
+  top: -8px;
+  left: 20px;
 }
 
 .motoErrorMsg {
-    left: 95px;
+  left: 95px;
 }
 
 .wordWrap {
-   white-space: pre-wrap;      /* CSS3 */
-   white-space: -moz-pre-wrap; /* Firefox */
-   white-space: -pre-wrap;     /* Opera <7 */
-   white-space: -o-pre-wrap;   /* Opera 7 */
-   word-wrap: break-word;      /* IE */
+  white-space: pre-wrap;      /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap;     /* Opera <7 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  word-wrap: break-word;      /* IE */
+}
+
+@media screen and (min-width: 1300px) {
+  .titleButton {
+    position: absolute;
+    top: 32%;
+    left: 59%;
+  }
+}
+
+.first-slide {
+  background: url(./img/banner.jpg);
+  position: relative;
+  height: auto!important;
+  background-repeat: no-repeat;
+  width: 100%;
+  top: 0px;
+  background-size: cover;
+}
+
+.textDiv {
+  background: url(./img/word.png);
+  position: absolute;
+  height: 150px;
+  background-repeat: no-repeat;
+  width: 800px;
+  background-size: contain;
+  z-index: 9999999999999999;
+  left: 16%;
+  top: 30%;
+}
+
+@media screen and (max-width: 1120px) {
+  .titleButton {
+    position: absolute;
+    top: 33%;
+    left: 62%;
+  }
+}
+
+@media screen and (max-width: 920px) and (min-width: 767px)  {
+  .titleButton {
+    position: absolute;
+    top: 33%;
+    left: 67%;
+  }
+}
+
+@media screen and (max-width: 1378px) {
+  .textDiv {
+    left: 9%;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 698px) {
+  .textDiv {
+    margin-bottom: 10px;
+  }
+  .titleButton {
+    margin-top: 10px;
+    left: -25%;
+  }
+  .titleButton button {
+    position: relative;
+    top: 137px;
+    left: 150%;
+  }
+}
+
+@media screen and (max-width: 698px) and (min-width: 500px) {
+  .titleButton button {
+    left: -93%;
+    top: 130px;
+  }
+  .textDiv {
+    left: -7%;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 375px){
+  .textDiv {
+    width:400px;
+    left: -103%;
+  }
+  .titleButton button {
+    left: -80%;
+  }
+  .first-slide {
+    background-position: 25%;
+  }
+}
+
+@media screen and (max-width: 405px) and (min-width: 320px){
+  .textDiv {
+    width:360px;
+    left: -2%;
+  }
+  .titleButton button {
+    left: -67%;
+  }
+  .first-slide {
+    background-position: 25%;
+  }
+}
+
+@media screen and (max-width: 320px) and (min-width: 0px){
+  .textDiv {
+    width:360px;
+    left: -8%;
+  }
+  .titleButton button {
+    left: -67%;
+  }
+  .first-slide {
+    background-position: 25%;
+  }
+}
+
+a:focus, a:hover {
+  color:#e84466;
+}
+
+html,body
+{
+  /*width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;*/
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 860px) and (min-width: 767px) {
+  .textDiv {
+    left: 0%;
+    width: 500px;
+  }
+  .titleButton Button {
+    left: -85%;
+    top: 85px;
+  }
+  .priceNormal {
+    font-size: 33px;
+  }
+  .priceDiscount {
+    top: -69px;
+    left: 19%;
+    font-size: 15px;
+  }
+  .moneySign {
+    font-size: 16px;
+    top: -100px;
+    left: 8%;
+  }
+  .title span {
+    font-size: 16px;
+    bottom: -92px;
+    left: -33px;
+
+  }
+  .yearTitle p {
+    left: -3px;
+    margin-bottom: 13px;
+  }
+  .plateColor {
+    height: 62px!important;
+    background-size: contain;
+  }
+  .plateColor span {
+    top: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 500px){
+  .textDiv {
+    left: -22%;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 375px){
+  .textDiv {
+    width:400px;
+    left: -6%;
+  }
+  .titleButton button {
+    left: -70%;
+  }
+  .first-slide {
+    background-position: 25%;
+  }
+}
+
+#defaultIndex {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  border: none;
+  height: 75px;
+}
+
+input.form-control.text-center.btn-sm.isActiveBtnAbove {
+  background-color: #e84466!important;
+  color: white!important;
 }

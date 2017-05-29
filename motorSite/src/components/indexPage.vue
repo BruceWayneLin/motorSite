@@ -1,9 +1,9 @@
 <template>
   <div class="indexPage">
-    <nav class="navbar navbar-default">
+    <nav id="defaultIndex" class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:150px;" src="../../static/assets/logoWhite.png"/></a></div>
+          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../assets/logoStand.png"/></a></div>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -25,13 +25,12 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <div class="inner">
-            <h1>投保機車強制險</h1>
-            <h1>就送150元全家禮物卡</h1>
           </div>
           <div class="shadowUse">
           </div>
           <img class="first-slide" src="../assets/banner.jpg" alt="First slide">
           <div class="titleDivH4" v-show="false"><h2>CareLine</h2></div>
+          <div class="textDiv"></div>
           <div class="titleButton"><button id="likeToInsured">我要投保<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button></div>
           <div class="container">
             <div class="carousel-caption">
@@ -39,7 +38,6 @@
           </div>
         </div>
       </div>
-      <input id="judge" type="text" value="false" class="hidden"/>
     </div>
 
     <section id="myProducts" class="productSection animated" v-bind:class="{fadeInUp: isActive, fadeInDown: !isActive,}">
@@ -52,9 +50,8 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="products col-sm-3 text-center" v-for="(product, key) in products">
-
+              <router-link class="productAhref" to="form">
               <div class="productContentDiv animated" :class="'pic' + product.color">
-                <router-link to="form">
                   <div class="plateColor" @click="productClicked(product, key)" :style="{ backgroundColor: product.color, height: '90px', color: product.textColor }"><span>{{ product.cc }}</span></div>
                   <div class="cardPlateImg"></div>
                   <div class="productContent">
@@ -64,9 +61,9 @@
                       <p class="priceDiscount">{{ product.discountPrice }}<div v-show="isActive" class="moneySign"></div><p/>
                     </div>
                   </div>
-                </router-link>
               </div>
               <div class="hoverDiv" @click="productClicked(product, key)"></div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -82,7 +79,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p style="cursor:pointer;"><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -132,7 +129,7 @@ export default {
   data () {
     return {
       selectedProduct: {},
-      isActive: false,
+      isActive: true,
       productText: '1年方案',
       visible: false,
       products: [
@@ -140,7 +137,6 @@ export default {
           {title: '機車強制險', year: 2, price: 1200, discountPrice: 'NT$' + 1316, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black'},
           {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '250-550cc', textColor: 'black'},
           { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white' }
-
       ]
     }
   },
@@ -152,7 +148,7 @@ export default {
       window.location.href = './index.html'
     },
     toGoQandAPage: function () {
-      window.open('../static/qanda.html', '_blank')
+      window.open('qPage', '_blank')
     },
     whichProductToShow: function () {
       if (this.isActive) {
@@ -230,12 +226,16 @@ export default {
     }
   },
   mounted: function () {
+    window.scrollTo(0, 0)
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .productAhref:hover {
+    color: transparent;
+  }
   .logo {
     height: 40px;
     widht: auto;

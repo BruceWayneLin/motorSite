@@ -56,7 +56,7 @@ new Vue({
   mounted: function () {
     axios({
       method: 'get',
-      url: '/api/motorbike-mbr/journey/initData'
+      url: 'http://210.242.7.164/motorbike-mbr/journey/initData'
     }).then((response) => {
       var result = response.data
       this.AcityList = result.cityList

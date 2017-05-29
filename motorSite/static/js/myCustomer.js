@@ -10,20 +10,6 @@ $(function() {
             console.warn = function(){};
         }
 
-        $(document).on('scroll', function(){
-            if($(document).scrollTop() > 0){
-                $('.secondPageNav').slideUp();
-                $('.timeLine-wrap').css({
-                    "top" : "0px"
-                });
-            }else{
-                $('secondPageNav').slideDown();
-                $('.timeLine-wrap').css({
-                    "top" : "68px"
-                });
-            }
-        });
-
     $(document).on('click', '#likeToInsured', function(){
         $('html, body').animate({
             scrollTop: $("#myProducts").offset().top - 66
@@ -31,49 +17,26 @@ $(function() {
     });
 
     $(document).ready(function(){
-         var judge = $('#judge').val();
-         if(judge == 'true'){
-             $('#logoImg').attr('src', '../static/assets/logoWhite.png');
-             $(document).on('scroll', function(){
-                if($(document).scrollTop() > 0){
-                    $('.secondPageNav').slideUp();
-                    $('.timeLine-wrap').css({
-                        "top" : "0px"
-                    });
-                }else{
-                    $('secondPageNav').slideDown();
-                    $('.timeLine-wrap').css({
-                        "top" : "68px"
-                    });
-                }
-            });
-         }else if(judge == 'false'){
-            $(document).on('scroll', function(){
-                console.log($(document).scrollTop());
-                if($(document).scrollTop() > 733){
-                    $('.navbar-default').css({
-                        "background-color" : "white",
-                    });
-                    $('#navbar ul li a').css({
-                        "color": "#777",
-                        "text-shadow": "2px 2px 2px #fff"
-                    });
-                    $('#logoImg').attr('src', '../static/assets/logoWhite.png');
-                }else{
-                    $('.navbar-default').css({
-                        "background-color" : "transparent"
-                    });
-                    $('#navbar ul li a').css({
-                        "color": "#fff",
-                        "text-shadow": "2px 2px 2px black"
-                    });
-                    $('#navbar').css({
-                        "background-color":  "rgba(0, 0, 0, 0.56)",
-                    });
-                    $('#logoImg').attr('src', '../static/assets/logoWhite.png');
-                }
-            });
-         }
+        $(document).on('scroll', function(){
+            console.log($(document).scrollTop());
+            if($(document).scrollTop() > 600){
+                $('#defaultIndex').css({
+                    "background-color" : "white",
+                });
+                $('#defaultIndex ul li p').css({
+                    "color": "#777"
+                });
+                $('#defaultIndex img').attr('src', '../static/assets/logo.png');
+            }else{
+                $('#defaultIndex').css({
+                    "background-color" : "transparent"
+                });
+                $('#defaultIndex ul li p').css({
+                    "color": "#fff",
+                });
+                $('#defaultIndex img').attr('src', '../static/assets/logoWhite.png');
+            }
+        });
     });
 
     //session Detector part
@@ -82,23 +45,22 @@ $(function() {
         document.onmousemove = function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../index.html';
+                window.location.href = '../../../index.html';
             }, 1800000);
         }
         //for mobile session
         $(document).on('click', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../index.html';
+                window.location.href = '../../../index.html';
             }, 1800000);
         });
         $(document).on('scroll', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../index.html';
+                window.location.href = '../../../index.html';
             }, 1800000);
         });
     }
     sessionDetector();
-
 });

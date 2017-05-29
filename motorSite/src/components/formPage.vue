@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:150px;" src="../../static/assets/logo.png"/></a></div>
+          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -23,7 +23,7 @@
 
     <div class="row">
       <div class="img processImg">
-        <img src="../assets/route991.png" class="img-responsive" alt="">
+        <img src="../assets/route991.png" class="img-responsive" style="margin-top:15px;" alt="">
       </div>
     </div>
 
@@ -40,7 +40,7 @@
             <div class="col-sm-6">
               <div class="innerClass col-sm-12">
                 <input v-model="applicantLastName" maxlength="2" v-bind:class="{errorShow:applicantLastNameInValid}" v-bind="toComputedData" @change="toCheckNameVal('lastName')" class="form-control" name="lastName" type="text" placeholder="姓" required>
-                <span  class="errorMessage" v-show="applicantNameInValid">{{ nameErrorMsg }}</span>
+                <span  class="errorMessage" style="padding-right: 370px;" v-show="applicantNameInValid">{{ nameErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="applicantNameInValid"></div>
               </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="col-sm-12">
               <div class="innerClass col-sm-12">
                 <input style="text-transform:uppercase" v-model="applicantPid" v-bind:class="{errorShow:pidInValid}"  @change="checkPid" maxlength="10" class="form-control" type="text" name="id" placeholder="身分證字號" required>
-                <span  class="errorMessage" style="" v-show="pidInValid">{{ pidErrorMsg }}</span>
+                <span  class="errorMessage" style="padding-right: 400px;" v-show="pidInValid">{{ pidErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="pidInValid"></div>
               </div>
             </div>
@@ -129,9 +129,9 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm-12">
-              <div style="top:-12px;" class="iconErrorMessageBack" v-show="BYearInValid || BMonthInValid || BDayInValid">
+              <div style="top:-12px;left: -4px;" class="iconErrorMessageBack" v-show="BYearInValid || BMonthInValid || BDayInValid">
               </div>
-              <span class="errorMessage" v-show="BYearInValid || BMonthInValid || BDayInValid">{{ BYearErrorMsg }}</span>
+              <span class="errorMessage" style="padding-right:780px" v-show="BYearInValid || BMonthInValid || BDayInValid">{{ BYearErrorMsg }}</span>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <input @click="checkBirthAgain"  maxlength="100" @change="checkEmail" v-bind:class="{errorShow:emailInValid}" class="form-control" v-model="applicantEmail" type="text" name="email" placeholder="E-mail" required>
-              <span class="errorMessage" v-show="emailInValid">{{ emailErrorMsg }}</span>
+              <span class="errorMessage" style="padding-right: 560px;" v-show="emailInValid">{{ emailErrorMsg }}</span>
               <div style="left:0px;" class="iconErrorMessageBack" v-show="emailInValid"></div>
             </div>
           </div>
@@ -159,7 +159,7 @@
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
                 <input @change="checkMobile" v-bind:class="{errorShow:mobileInValid}"  class="form-control" maxlength="10" v-model="applicantMobile" type="text" name="mobile" placeholder="0912345678" required>
-                <span class="errorMessage" v-show="mobileInValid">{{ mobileErrorMsg }}</span>
+                <span class="errorMessage" style="padding-right: 380px;" v-show="mobileInValid">{{ mobileErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="mobileInValid">
                 </div>
               </div>
@@ -185,7 +185,7 @@
               <div class="selectWrapper" v-bind:class="{errorShow:addrAreaInValid}">
                 <select @change="checkArea" v-model="applicantLivingDistrict" :disabled="applicantLivingCity == ''" class="form-control" id="city" required>
                   <option value="">區</option>
-                  <option v-for=" area in newAreaList" :value="area" >{{ area.name }}</option>
+                  <option v-for=" area in applicantAreaList" :value="area" >{{ area.name }}</option>
                 </select>
               </div>
             </div>
@@ -205,7 +205,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:-6px; top: -8px;" class="iconErrorMessageBack" v-show="addrCityInValid || addrAreaInValid"></div>
-              <span class="errorMessage" style="top:5px;" v-show="addrCityInValid || addrAreaInValid">{{ addrCityErrorMsg }}{{ addrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+              <span class="errorMessage" style="top:5px;padding-right:320px;" v-show="addrCityInValid || addrAreaInValid">{{ addrCityErrorMsg }}{{ addrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
             </div>
           </div>
         </div>
@@ -232,7 +232,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:-6px; top: -8px;" class="iconErrorMessageBack" v-show="addrInValid"></div>
-              <span class="errorMessage" style="top:5px;" v-show="addrInValid">{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+              <span class="errorMessage" style="top:5px;padding-right:320px" v-show="addrInValid">{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
             </div>
           </div>
         </div>
@@ -256,9 +256,13 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="col-sm-12 text-left">
-              <input @change="insuredSameAsApplicant" v-model="ischecked" type="checkbox" name="sameAsApplicant">
-              <span class="checkboxSpan">車主資料同上</span>
+            <div class="col-sm-12">
+              <div class="col-sm-4 innerClass">
+                <input @click="insuredSameAsApplicant" style="padding: 0 20%;" v-model="isSameAsAboveTxt" class="form-control text-center btn-sm" :class="{isActiveBtnAbove: ischecked}" type="button" name="sameAsApplicant">
+                <span class="checkboxSpan" v-show="false">車主資料同上</span>
+              </div>
+              <div class="col-sm-8">
+              </div>
             </div>
           </div>
         </div>
@@ -271,13 +275,13 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div class="selectWrapper" v-bind:class="{errorShow:relationshipInValid}">
-                <select @change="relationShipVali(event)" v-bind:class="{errorShow:relationshipInValid}" v-model="withInsuredRelationShipItem"  required class="form-control">
+                <select @change="relationShipVali()" v-bind:class="{errorShow:relationshipInValid}" v-model="withInsuredRelationShipItem"  required class="form-control">
                   <option value="0">請選擇與車主關係</option>
                   <option v-for="item in relationShipList" :value="item">{{ item.text }}</option>
                 </select>
               </div>
-              <span class="errorMessage" style="left:75px;" v-show="relationshipInValid">{{ relationshipErrorMsg }}</span>
-              <div class="iconErrorMessageBack" style="right: -25px; left: 0px;" v-show="relationshipInValid"></div>
+              <span class="errorMessage" style="padding-right: 420px;" v-show="relationshipInValid">{{ relationshipErrorMsg }}</span>
+              <div class="iconErrorMessageBack" style="right: -25px; left: 0px;margin-top:20px;" v-show="relationshipInValid"></div>
             </div>
           </div>
         </div>
@@ -308,7 +312,7 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm-12">
-              <span style="" class="errorMessage" v-show="insuredLastNameInValid || insuredFirstNameInValid">{{ insuredFirstNameErrorMsg }}</span>
+              <span style="" class="errorMessage" style="padding-right: 420px;" v-show="insuredLastNameInValid || insuredFirstNameInValid">{{ insuredFirstNameErrorMsg }}</span>
               <div style="left:0px;" class="iconErrorMessageBack motoErrorIcon" v-show="insuredFirstNameInValid || insuredLastNameInValid"></div>
             </div>
           </div>
@@ -322,7 +326,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <input style="text-transform:uppercase" class="form-control" :disabled="ischecked" @change="checkInsuredPid" v-model="insuredPid" v-bind:class="{errorShow:insuredPidInValid}" maxlength="10" type="text" name="id" placeholder="身分證字號" required>
-              <span  class="errorMessage" style="left:76px;" v-show="insuredPidInValid">{{ insuredPidErrorMsg }}</span>
+              <span  class="errorMessage" style="padding-right: 420px;" v-show="insuredPidInValid">{{ insuredPidErrorMsg }}</span>
               <div class="iconErrorMessageBack" style="right: -25px;left: 0px;" v-show="insuredPidInValid"></div>
             </div>
           </div>
@@ -374,7 +378,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:0px;" class="iconErrorMessageBack motoErrorIcon" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid"></div>
-              <span class="errorMessage" style="left:76px;" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid">{{ insuredBYearErrorMsg }}</span>
+              <span class="errorMessage" style="padding-right: 420px;" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid">{{ insuredBYearErrorMsg }}</span>
             </div>
           </div>
         </div>
@@ -398,7 +402,7 @@
           </div>
           <div class="col-sm-6">
             <div class="iconErrorMessageBack" v-show="insuredEmailInValid" style="right:-25px;left:14px;top:-5px;"></div>
-            <span class="errorMessage" style="padding-left:15px;" v-show="insuredEmailInValid">{{ insuredEmailErrorMsg }}</span>
+            <span class="errorMessage" style="padding-right: 420px;margin-left: 15px;" v-show="insuredEmailInValid">{{ insuredEmailErrorMsg }}</span>
           </div>
         </div>
       </div>
@@ -411,7 +415,7 @@
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
                 <input @change="insuredCheckMobile" :disabled="ischecked"  v-bind:class="{errorShow:insuredMobileInValid}"  class="form-control" maxlength="10" v-model="insuredMobile" type="text" name="mobile" placeholder="0912345678" required>
-                <span class="errorMessage" v-show="insuredMobileInValid">{{ insuredMobileErrorMsg }}</span>
+                <span class="errorMessage" style="padding-right: 420px;" v-show="insuredMobileInValid">{{ insuredMobileErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="insuredMobileInValid">
                 </div>
               </div>
@@ -453,7 +457,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
-            <span class="errorMessage" style="padding-left:15px; top:5px;" v-show="insuredaddrCityInValid || insuredaddrAreaInValid">{{ insuredaddrCityErrorMsg }}{{ insuredaddrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+            <span class="errorMessage" style="padding-right: 420px;top:5px;margin-left:15px;" v-show="insuredaddrCityInValid || insuredaddrAreaInValid">{{ insuredaddrCityErrorMsg }}{{ insuredaddrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
             <div style="left:11px;top:-8px;" class="iconErrorMessageBack" v-show="insuredaddrCityInValid || insuredaddrAreaInValid"></div>
           </div>
         </div>
@@ -477,7 +481,7 @@
           </div>
           <div class="col-sm-6">
             <div class="iconErrorMessageBack" style="top:-7px;left:9px;" v-show="insuredaddrInValid" ></div>
-            <span class="errorMessage" style="padding-left:15px; top:5px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+            <span class="errorMessage" style="padding-left:15px; top:5px; padding-right:420px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
           </div>
         </div>
       </div>
@@ -505,8 +509,16 @@
           </div>
         </div>
       </div>
-
     </div>
+
+    <footer class="text-center">
+      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
+      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
+      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <div class="footer-bottom">
+        <span>© 2017 Careline. All Rights Reserved.</span>
+      </div>
+    </footer>
 
     <div class="modal-mask" v-show="visible">
       <div class="modal-wrapper">
@@ -520,7 +532,7 @@
 
           <div class="modal-body">
             <slot name="body">
-              <h3>{{errorMsgOfFailSent}}</h3>
+              <p>{{errorMsgOfFailSent}}</p>
               <!--<object v-show="pdfContentToShow" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">-->
               <!--<iframe src="" type="application/pdf" />-->
               <!--</object>-->
@@ -553,6 +565,8 @@ export default {
     return {
       // determine if the form slide
       isSlide: false,
+      // is same as above text
+      isSameAsAboveTxt: '車主資料同上',
       // applicant data
       applicantFirstNameInValid: false,
       applicantLastNameInValid: false,
@@ -592,6 +606,7 @@ export default {
       applicantLivingCityId: '',
       applicantLivingDistrict: '',
       applicantAddr: '',
+      applicantAreaList: [],
 
       // from here is the insured value
       ischecked: false,
@@ -617,7 +632,7 @@ export default {
       insuredLastName: '',
       insuredFirstName: '',
       insuredPid: '',
-      insuredgender: '',
+      insuredGender: '',
       insuredBirthYear: '',
       insuredBirthMonth: '',
       insuredBirthDay: '',
@@ -646,11 +661,22 @@ export default {
     }
   },
   methods: {
-    relationShipVali: function (event) {
+    showWebAnnouce: function () {
+      this.visible = true
+    },
+    personalPdfAnnouce: function () {
+      this.visible = true
+    },
+    principleAnnounce: function () {
+      this.visible = true
+    },
+    privateAnnouce: function () {
+
+    },
+    relationShipVali: function () {
       if (!this.withInsuredRelationShipItem || this.withInsuredRelationShipItem === '' || this.withInsuredRelationShipItem === '0') {
         this.relationshipErrorMsg = '被保人關係是必選欄位'
         this.relationshipInValid = true
-        this.$parent.isCompleted = false
         return false
       } else if (this.withInsuredRelationShipItem.value === 'SELF') {
         this.ischecked = true
@@ -668,19 +694,28 @@ export default {
     },
     // check Applicant name
     toCheckNameVal: function (val) {
-      if (val === 'lastName' || this.applicantLastName) {
-        if (this.applicantLastName) {
-          if (this.applicantLastName.match(/[^\u3447-\uFA29]/ig)) {
-            this.applicantLastName = ''
-            this.applicantNameInValid = true
-            this.applicantLastNameInValid = true
-            this.nameErrorMsg = '請輸入正確的中文姓名'
-            return false
-          } else {
-            this.applicantNameInValid = false
-            this.applicantLastNameInValid = false
-            this.nameErrorMsg = ''
-            return true
+      if (this.applicantLastName === '' || this.applicantFirstName === '') {
+        this.applicantNameInValid = true
+        this.applicantFirstNameInValid = true
+        this.applicantLastNameInValid = true
+        this.nameErrorMsg = '請輸入正確的中文姓名'
+        return false
+      } else {
+        if (val === 'lastName' || this.applicantLastName) {
+          if (this.applicantLastName) {
+            if (this.applicantLastName.match(/[^\u3447-\uFA29]/ig)) {
+              this.applicantLastName = ''
+              this.applicantNameInValid = true
+              this.applicantLastNameInValid = true
+              this.nameErrorMsg = '請輸入正確的中文姓名'
+              return false
+            } else {
+              this.applicantNameInValid = false
+              this.applicantLastNameInValid = false
+              this.applicantFirstNameInValid = false
+              this.nameErrorMsg = ''
+              return true
+            }
           }
         } else {
           this.applicantLastName = ''
@@ -689,27 +724,27 @@ export default {
           this.nameErrorMsg = '請輸入正確的中文姓名'
           return false
         }
-      }
-      if (val === 'firstName' || this.applicantFirstName) {
-        if (this.applicantFirstName) {
-          if (this.applicantFirstName.match(/[^\u3447-\uFA29]/ig)) {
+        if (val === 'firstName' || this.applicantFirstName) {
+          if (this.applicantFirstName) {
+            if (this.applicantFirstName.match(/[^\u3447-\uFA29]/ig)) {
+              this.applicantFirstName = ''
+              this.applicantNameInValid = true
+              this.applicantFirstNameInValid = true
+              this.nameErrorMsg = '請輸入正確的中文姓名'
+              return false
+            } else {
+              this.applicantNameInValid = false
+              this.applicantFirstNameInValid = false
+              this.nameErrorMsg = ''
+              return true
+            }
+          } else {
             this.applicantFirstName = ''
             this.applicantNameInValid = true
             this.applicantFirstNameInValid = true
             this.nameErrorMsg = '請輸入正確的中文姓名'
             return false
-          } else {
-            this.applicantNameInValid = false
-            this.applicantFirstNameInValid = false
-            this.nameErrorMsg = ''
-            return true
           }
-        } else {
-          this.applicantFirstName = ''
-          this.applicantNameInValid = true
-          this.applicantFirstNameInValid = true
-          this.nameErrorMsg = '請輸入正確的中文姓名'
-          return false
         }
       }
     },
@@ -836,7 +871,6 @@ export default {
       }
     },
     checkCity: function () {
-      this.applicantLivingDistrict = ''
       if (!this.applicantLivingCity || this.applicantLivingCity === '') {
         this.addrCityInValid = true
         this.addrCityErrorMsg = ''
@@ -860,19 +894,19 @@ export default {
     areaList: function () {
       var districtList = this.$parent.$parent.AdistrictList
       this.applicantLivingCityId = this.applicantLivingCity.id
-      var returnNewAreaList = []
+      let returnNewAreaList = []
       for (var i = 0; i < districtList.length; i++) {
         if (districtList[i].cityId === this.applicantLivingCityId) {
           returnNewAreaList.push((districtList[i]))
         }
       }
-      this.newAreaList = returnNewAreaList
+      this.applicantAreaList = returnNewAreaList
     },
     insuredAreaList: function () {
-      var districtList = this.$parent.$parent.AdistrictList
+      var districtList = this.$parent.$parent.IdistrictList
       this.insuredDistrictId = this.insuredCity.id
       var returnNewAreaList = []
-      for (var i = 0; i < districtList.length; i++) {
+      for (let i = 0; i < districtList.length; i++) {
         if (districtList[i].cityId === this.insuredDistrictId) {
           returnNewAreaList.push((districtList[i]))
         }
@@ -902,15 +936,13 @@ export default {
 
     // insured data from here
     insuredSameAsApplicant: function (event) {
+      this.ischecked = !this.ischecked
       if (event) {
-        if (event.target.checked === false && this.withInsuredRelationShipItem.value === 'SELF') {
-          this.ischecked = false
+        if (this.withInsuredRelationShipItem.value === 'SELF') {
           this.withInsuredRelationShipItem.value = '0'
-        } else if (event.target.checked === true) {
-          this.ischecked = true
+        } else if (this.ischecked) {
           this.withInsuredRelationShipItem.value = 'SELF'
         } else {
-          this.ischecked = false
           this.withInsuredRelationShipItem.value = '0'
         }
       }
@@ -919,7 +951,7 @@ export default {
         this.insuredLastName = this.applicantLastName
         this.insuredFirstName = this.applicantFirstName
         this.insuredPid = this.applicantPid
-        this.insuredgender = this.gender
+        this.insuredGender = this.gender
         this.insuredBirthYear = this.applicantBirthYear
         this.insuredBirthMonth = this.applicantBirthMonth
         this.insuredBirthDay = this.applicantBirthDay
@@ -949,7 +981,7 @@ export default {
         this.insuredLastName = ''
         this.insuredFirstName = ''
         this.insuredPid = ''
-        this.insuredgender = ''
+        this.insuredGender = ''
         this.insuredBirthYear = ''
         this.insuredBirthMonth = ''
         this.insuredBirthDay = ''
@@ -1024,8 +1056,20 @@ export default {
           this.insuredPidErrorMsg = '身分證字號格式錯誤'
           return false
         } else {
-          this.insuredPidInValid = false
-          return true
+          // 取出第一個字元和最後一個數字。
+          let firstChar = this.insuredPid.charAt(1).toUpperCase()
+          if ((this.insuredPid === this.applicantPid) && (this.withInsuredRelationShipItem.value !== 'SELF')) {
+            this.insuredPidInValid = true
+            this.insuredPidErrorMsg = '車主非本人，車主身分證字號不可以和要保人一樣。'
+          } else if (firstChar === '1') {
+            this.insuredGender = 'male'
+            this.insuredPidInValid = false
+            return true
+          } else if (firstChar === '2') {
+            this.insuredGender = 'female'
+            this.insuredPidInValid = false
+            return true
+          }
         }
       } else if (this.insuredPid === '') {
         this.insuredPidInValid = true
@@ -1038,7 +1082,6 @@ export default {
       if (this.insuredBirthYear === '民國年' || this.insuredBirthYear === '') {
         this.insuredBYearInValid = true
         this.insuredBYearErrorMsg = '請選擇車主生日，車主須年滿18歲。'
-        this.$parent.isCompleted = false
         return false
       } else {
         this.insuredBYearInValid = false
@@ -1120,7 +1163,6 @@ export default {
     insuredCheckCity: function () {
       if (!this.insuredCity) {
         this.insuredaddrCityInValid = true
-        this.$parent.$parent.isCompleted = false
         this.insuredaddrCityErrorMsg = ''
         return false
       } else {
@@ -1131,8 +1173,8 @@ export default {
     },
     insuredCheckArea: function () {
       if (!this.insuredDistrict) {
+        console.log('22222', this.insuredDistrict)
         this.insuredaddrAreaInValid = true
-        this.$parent.$parent.isCompleted = false
         this.insuredaddrAreaErrorMsg = ''
         return false
       } else {
@@ -1144,7 +1186,6 @@ export default {
     insuredCheckAddr: function () {
       if (!this.insuredAddr || this.insuredAddr === '') {
         this.insuredaddrInValid = true
-        this.$parent.$parent.isCompleted = false
         this.insuredaddrErrorMsg = ''
         return false
       } else {
@@ -1167,28 +1208,30 @@ export default {
       this.visible = false
     },
     completeStepOne: function () {
-//      this.checkBirthMonth()
-//      this.checkBirthDay()
-//      this.checkEmail()
-//      this.checkMobile()
-//      this.checkCity()
-//      this.checkArea()
-//      this.areaList()
-//      this.insuredAreaList()
-//      this.checkAddr()
-//      this.checkBirthAgain()
-//      this.checkInsuredLastName()
-//      this.toCheckInsuredFirstNameVal()
-//      this.checkInsuredPid()
-//      this.insuredCheckBirthYear()
-//      this.insuredCheckBirthMonth()
-//      this.insuredCheckBirthDay()
-//      this.checkInsuredBDAgain()
-//      this.insuredCheckEmail()
-//      this.insuredCheckMobile()
-//      this.insuredCheckCity()
-//      this.insuredCheckArea()
-//      this.insuredCheckAddr()
+      this.relationShipVali()
+      this.toCheckNameVal()
+      this.checkPid()
+      this.checkBirthYear()
+      this.checkBirthMonth()
+      this.checkBirthDay()
+      this.checkEmail()
+      this.checkMobile()
+      this.checkCity()
+      this.checkArea()
+      this.checkAddr()
+      this.checkBirthAgain()
+      this.checkInsuredLastName()
+      this.toCheckInsuredFirstNameVal()
+      this.checkInsuredPid()
+      this.insuredCheckBirthYear()
+      this.insuredCheckBirthMonth()
+      this.insuredCheckBirthDay()
+      this.checkInsuredBDAgain()
+      this.insuredCheckEmail()
+      this.insuredCheckMobile()
+      this.insuredCheckCity()
+      this.insuredCheckArea()
+      this.insuredCheckAddr()
       if (
         this.applicantFirstNameInValid ||
         this.applicantLastNameInValid ||
@@ -1247,7 +1290,7 @@ export default {
         this.$parent.$parent.insuredData['withInsuredRelationShip'] = this.withInsuredRelationShipItem.value
         this.$parent.$parent.insuredData['ischecked'] = this.ischecked
         this.$parent.$parent.insuredData['insuredPid'] = this.insuredPid
-        this.$parent.$parent.insuredData['insuredGender'] = this.insuredgender
+        this.$parent.$parent.insuredData['insuredGender'] = this.insuredGender
         this.$parent.$parent.insuredData['insuredBirthYear'] = this.insuredBirthYear
         this.$parent.$parent.insuredData['insuredBirthMonth'] = this.insuredBirthMonth
         this.$parent.$parent.insuredData['insuredBirthDay'] = this.insuredBirthDay
@@ -1292,7 +1335,7 @@ export default {
         sessionStorage.setItem('formStore', JSON.stringify(sendDataBackFirstTime))
         console.log('2', sendDataBackFirstTime)
         axios({
-          url: '/api/motorbike-mbr/journey/saveApplicantAndInsured',
+          url: 'http://210.242.7.164/motorbike-mbr/journey/saveApplicantAndInsured',
           method: 'post',
           params: {
             data: JSON.stringify(sendDataBackFirstTime)
@@ -1316,7 +1359,39 @@ export default {
   },
   computed: {
     toComputedData: function () {
-      this.insuredSameAsApplicant()
+      if (this.ischecked) {
+        this.ischecked = true
+        this.insuredLastName = this.applicantLastName
+        this.insuredFirstName = this.applicantFirstName
+        this.insuredPid = this.applicantPid
+        this.insuredGender = this.gender
+        this.insuredBirthYear = this.applicantBirthYear
+        this.insuredBirthMonth = this.applicantBirthMonth
+        this.insuredBirthDay = this.applicantBirthDay
+        this.insuredMobile = this.applicantMobile
+        this.insuredCity = this.applicantLivingCity
+        this.insuredCityId = this.applicantLivingCityId
+        this.insuredDistrict = this.applicantLivingDistrict
+        this.insuredDistrictId = this.applicantLivingDistrictId
+        this.insuredAddr = this.applicantAddr
+        this.insuredEmail = this.applicantEmail
+        this.agreementRead = true
+        this.relationshipInValid = false
+        this.insuredLastNameInValid = false
+        this.insuredFirstNameInValid = false
+        this.insuredPidInValid = false
+        this.insuredBYearInValid = false
+        this.insuredBMonthInValid = false
+        this.insuredBDayInValid = false
+        this.insuredMobileInValid = false
+        this.insuredaddrInValid = false
+        this.insuredaddrCityInValid = false
+        this.insuredaddrAreaInValid = false
+        this.insuredEmailInValid = false
+        this.withInsuredRelationShipItem = { text: '本人', value: 'SELF' }
+        this.withInsuredRelationShip = this.withInsuredRelationShipItem.value
+      }
+
       if (this.applicantBirthYear !== '' || this.applicantBirthMonth !== '' || this.applicantBirthDay !== '') {
         var year = parseInt(this.applicantBirthYear.slice(2, 5)) + 1929
         var month = parseInt(this.applicantBirthMonth.slice(0, 5))
@@ -1366,7 +1441,6 @@ export default {
           this.insuredBDayInValid = false
         }
       }
-
       if (this.applicantLivingCity) {
         this.areaList()
       }
@@ -1473,6 +1547,10 @@ export default {
     }
   },
   mounted () {
+    window.scrollTo(0, 0)
+    if (this.$parent.userSelectedProduct === undefined) {
+      window.location.href = './index.html'
+    }
     var formData = JSON.parse(sessionStorage.getItem('formStore'))
     if (formData) {
       console.log(formData)
@@ -1526,7 +1604,7 @@ export default {
       this.insuredLastName = formData.insuredData['insuredLastName']
       this.insuredFirstName = formData.insuredData['insuredFirstName']
       this.insuredPid = formData.insuredData['insuredPid']
-      this.insuredgender = formData.insuredData['insuredGender']
+      this.insuredGender = formData.insuredData['insuredGender']
       this.insuredMobile = formData.insuredData['insuredMobile']
       this.insuredAddr = formData.insuredData['insuredAddr']
       this.insuredEmail = formData.insuredData['insuredEmail']
