@@ -370,10 +370,9 @@ export default {
   },
   mounted () {
     window.scrollTo(0, 0)
-    console.log(this.$parent.$parent.applicantData)
-    console.log(this.$parent.$parent.insuredData)
-    console.log(this.$parent.motocycleInfo)
-    if ((this.$parent.$parent.applicantData === undefined) || (this.$parent.$parent.insuredData === undefined) || (this.$parent.$parent.motocycleInfo === undefined)) {
+    console.log(this.$parent.$parent.applicantData['applicantLastName'])
+    console.log(this.$parent.$parent.insuredData['insuredLastName'])
+    if ((this.$parent.$parent.applicantData['applicantLastName'] === undefined) || (this.$parent.$parent.insuredData['insuredLastName'] === undefined)) {
       window.location.href = './index.html'
     }
   }

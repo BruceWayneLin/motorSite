@@ -1,5 +1,5 @@
 $(function() {
-        const envi = 'PRO';
+        const envi = 'Prod';
 
         if(envi == 'local'){
         }else{

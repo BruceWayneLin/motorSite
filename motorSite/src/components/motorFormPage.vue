@@ -115,7 +115,7 @@
           <div class="col-sm-7">
             <div class="col-sm-3">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌前三碼:</span>
-              <input type="text" v-bind:="tofocusSecondPlate" @click="validateMotoFac"
+              <input type="text" v-bind:="tofocusSecondPlate" @change="toValidatePlate"
                      v-bind:class="{errorShow:isPlateError}"  style="text-transform:uppercase"  maxlength="3"
                       v-model="plateNumberFirstArea"  :disabled="newPlate"  placeholder="請輸入車牌"  class="form-control"
                       name="motoPlateEng">
@@ -125,7 +125,7 @@
             </div>
             <div class="col-sm-4">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌後四碼:</span>
-                    <input type="text" id="secondAreaInput" v-bind:class="{errorShow:isPlateError}"
+                    <input type="text" id="secondAreaInput" @change="toValidatePlate" v-bind:class="{errorShow:isPlateError}"
                             style="text-transform:uppercase"  maxlength="4"  v-model="plateNumberSecondArea"
                             :disabled="newPlate || !plateNumberFirstArea"  placeholder=""  class="form-control"
                             name="motoplateNum">     
@@ -544,10 +544,9 @@ export default {
           motocycleInfo['motocycleFactory'] = this.motoMadeFactory
           motocycleInfo['plateEng'] = this.plateNumberFirstArea
           motocycleInfo['plateNum'] = this.plateNumberSecondArea
-          console.log(this.newPlate)
           motocycleInfo['isNewPlate'] = this.newPlate
           motocycleInfo['motoBrand'] = this.motoBrand === '' ? this.motoMadeFactoryItem.name : this.motoBrand
-          var rY = parseInt(this.releasePlateYearDate.slice(2, 4)) + 1911
+          var rY = parseInt(this.releasePlateYearDate.slice(2, 5)) + 1911
           var rM = parseInt(this.releasePLateMonthDate.slice(0, 1))
           var rD = parseInt(this.releasePlateDayDate.slice(0, 1))
           var mY = parseInt(this.releaseMotoYearDate.slice(0, 4))
@@ -565,17 +564,17 @@ export default {
           motocycleInfo['motocycleCC'] = this.userEnteredProdcutCC
           this.$parent.$parent.userEnteredProdcutCC = this.userEnteredProdcutCC
           this.$parent.motocycleInfo = motocycleInfo
-          console.log(motocycleInfo)
           sessionStorage.setItem('motorInfo', JSON.stringify(motocycleInfo))
           var postObj = {}
           postObj['motocycleInfo'] = motocycleInfo
+
           axios({
             url: 'http://210.242.7.164/motorbike-mbr/journey/saveMotorbikeInfo',
             method: 'post',
             params: {
               data: JSON.stringify(postObj)
             }
-          }).then(function (response) {
+          }).then(response => {
             if (response.data.isEx === true) {
               var text = response.data.msgs
               let msg = ''
@@ -586,12 +585,10 @@ export default {
               console.log('backend', msg)
               return false
             } else {
-              var dataId = response.data.dataId
-              console.log(dataId)
-              window.location.href = './#/infoPage'
+              this.$router.push('/infoPage')
             }
-          }).catch(function (error) {
-            console.log(error)
+          }, response => {
+            // error callback
           })
         }
       } else {
@@ -743,10 +740,15 @@ export default {
         this.isPlateError = true
         this.isPlateErrorMsg = '請輸入車牌號碼。'
         return false
-      } else if ((this.plateNumberFirstArea !== '' || this.plateNumberSecondArea !== '') && this.newPlate === true) {
+      } else if ((this.plateNumberFirstArea === '' && this.plateNumberSecondArea === '') && this.newPlate === true) {
         this.isPlateError = false
         return true
-      } else {
+      } else if ((this.plateNumberFirstArea <= 2 || this.plateNumberSecondArea.length <= 3) && this.newPlate === false) {
+        this.isPlateError = true
+        this.isPlateErrorMsg = '請輸入車牌號碼。'
+        return false
+      } else if ((this.plateNumberFirstArea >= 2 || this.plateNumberSecondArea.length >= 3) && this.newPlate === false) {
+        this.isPlateError = false
         return true
       }
     },
@@ -1032,11 +1034,10 @@ export default {
           this.isPlateError = false
           if (this.plateNumberFirstArea.length > 2) {
             $('#secondAreaInput').focus()
-            if (this.plateNumberSecondArea.length > 3) {
+            if (this.plateNumberSecondArea.length >= 3) {
               this.toValidatePlate()
             }
           } else {
-
           }
         }
       }
