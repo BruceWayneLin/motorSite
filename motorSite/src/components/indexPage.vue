@@ -79,7 +79,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p style="cursor:pointer;"  @click="principleAnnounce" ><a href="#" >使用條款</a> | <a href="#" style="cursor:pointer;" @click="privateAnnouce">隱私政策</a></p>
+      <p ><a href="#" style="cursor:pointer;"  @click="principleAnnounce" >使用條款</a> | <a href="#" style="cursor:pointer;" @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -93,14 +93,17 @@
 
         <div class="modal-header">
           <slot name="header">
-           <img class="logo" src="../assets/logo.png"/>
+           <img class="logoModal" src="../assets/logo.png"/>
           </slot>
         </div>
 
         <div class="modal-body">
           <slot name="body">
-            <object v-show="true" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">
-              <iframe src="../assets/pdf/privacy.pdf" type="application/pdf" />
+            <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
+              <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
+            </object>
+            <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
+              <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
             </object>
           </slot>
         </div>
@@ -130,6 +133,8 @@ export default {
     return {
       selectedProduct: {},
       isActive: true,
+      AnnounceShow: false,
+      PrivacyShow: false,
       productText: '1年方案',
       visible: false,
       products: [
@@ -143,6 +148,8 @@ export default {
   methods: {
     closeModal: function () {
       this.visible = false
+      this.AnnounceShow = false
+      this.PrivacyShow = false
     },
     toGoBackIndex: function () {
       window.location.href = './index.html'
@@ -204,9 +211,13 @@ export default {
     },
     principleAnnounce: function () {
       this.visible = true
+      this.AnnounceShow = true
+      this.PrivacyShow = false
     },
     privateAnnouce: function () {
       this.visible = true
+      this.PrivacyShow = true
+      this.AnnounceShow = false
     }
   },
   computed: {
@@ -232,7 +243,8 @@ export default {
   .productAhref:hover {
     color: transparent;
   }
-  .logo {
+  .logoModal {
+    margin: 0px;
     height: 40px;
     widht: auto;
   }
@@ -241,7 +253,7 @@ export default {
     top: -60px;
   }
   #navbar {
-    background-color:  transparent;
+    background-color: rgba(0, 0, 0, 0.56);
   }
   #navbar p {
     color: white;
@@ -268,7 +280,7 @@ export default {
   }
 
   .modal-container {
-    width: 300px;
+    width: 100%;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;
@@ -288,12 +300,6 @@ export default {
   }
 
   .modal-default-button {
-    float: right;
-  }
-
-  .modal-default-button {
-    margin: auto 25%;
-    float: right;
     background-color: #db4160;
     border: none;
     -webkit-border-radius: 30px;
@@ -302,5 +308,15 @@ export default {
     min-width: 100px;
     color: white;
   }
+
+  .modal-footer {
+    padding-right: 46%;
+  }
+
   /*modal css end*/
+
+  @media screen and (max-width:800px) {
+
+
+  }
 </style>

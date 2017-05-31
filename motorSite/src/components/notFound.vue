@@ -24,20 +24,21 @@
 
     <div class="row">
         <div class="img processImg">
-          <img src="../assets/route994.png" class="img-responsive" alt="">
+
         </div>
     </div>
 
-    <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
+    <div style="margin-top:50px; min-height:720px;" class="container customerInfo animated slideInLeft">
       <div class="row">
         <div class="col-sm-12 thanksDiv">
-          <div class="col-sm-12 text-center" style="margin-bottom:10px;">
-            <h2><i class="fa fa-check-circle" aria-hidden="true"></i>感謝您選擇英國凱萊，訂單編號_{{orderNumber}}_已成立</h2>
-            <h3>請留意，相關資訊將會寄到您的E-mail信箱</h3>
+          <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:5%;">
+            <h2>找不到頁面</h2>
+            <img src="../assets/notFound.png" alt="img-responsive" style="height:150px; width:auto;">
+            <h4 style="border-bottom:none;">您似乎迷路了！需要任何協助請撥打免費客服專線：</h4>
+            <h4>0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您。</h4>
           </div>
           <div class="col-sm-12">
             <div class="thanksWords text-center">
-              <p>提醒您：此次訂購紀錄，並非正式保險契約憑證，核保完成後本公司將會郵寄保險卡及保費收據至保單登記地址。</p>
               <div class="buttonProject">
                 <button class="btn-lg" @click="toGoBackIndex">回到首頁</button>
               </div>
@@ -99,7 +100,7 @@ window.jQuery = $
 window.$ = $
 
 export default {
-  name: 'thanksPage',
+  name: 'notFound',
   data () {
     return {
       visible: false,

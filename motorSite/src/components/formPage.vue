@@ -507,7 +507,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <p><input type="checkbox" v-model="agreementRead" name="agreementCheckBox">
-                我已閱讀 << <a href="#" @click="showWebAnnouce" target="">網路要保聲明事項</a> >> ， << <a href="#" @click="personalPdfAnnouce">個人資料聲明事項</a> >>文件，並同意。</p>
+                我已閱讀 << <a @click="principleAnnounce" target="">網路要保聲明事項</a> >> ， << <a @click="showPersonalAnnouce">個人資料聲明事項</a> >>文件，並同意。</p>
             </div>
           </div>
         </div>
@@ -528,7 +528,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p><a  @click="showTermPDFFun">使用條款</a> | <a @click="pravicyPdfAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -536,7 +536,7 @@
 
     <div class="modal-mask" v-show="visible">
       <div class="modal-wrapper">
-        <div class="modal-container">
+        <div class="modal-container" style="width:300px;">
 
           <div class="modal-header">
             <slot name="header">
@@ -547,9 +547,45 @@
           <div class="modal-body">
             <slot name="body">
               <p>{{errorMsgOfFailSent}}</p>
-              <!--<object v-show="pdfContentToShow" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">-->
-              <!--<iframe src="" type="application/pdf" />-->
-              <!--</object>-->
+            </slot>
+          </div>
+
+          <div class="modal-footer text-center">
+            <slot name="footer">
+              <button class="modal-default-button" @click="closeModal">
+                關閉
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--modal of pdf-->
+    <div class="modal-mask" v-show="ModalVisible">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+
+          <div class="modal-header">
+            <slot name="header">
+              <img class="logoModal" style="height:40px;" src="../assets/logo.png"/>
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              <object v-show="showPrincipleAnnounce" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/announcement.pdf#fit=view" type="application/pdf" width="100%" height="100%">
+                <iframe  src="./static/assets/pdf/announcement.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+              <object v-show="showPrivacyPDF" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#fit=view" type="application/pdf" width="100%" height="100%">
+                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+              <object v-show="showWebPDF" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#fit=view" type="application/pdf" width="100%" height="100%">
+                <iframe src="./static/assets/pdf/term.pdf#fit=view" width="100%" height="100%" type="application/pdf" />
+              </object>
+              <object v-show="showPersonalPDF" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/protection.pdf#fit=view" type="application/pdf" width="100%" height="100%">
+                <iframe src="./static/assets/pdf/protection.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
             </slot>
           </div>
 
@@ -569,6 +605,7 @@
 
 <script>
 import axios from '../../node_modules/axios-es6/dist/axios.min.js'
+
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
@@ -577,6 +614,12 @@ export default {
   name: 'formPage',
   data () {
     return {
+      // ModalVisible
+      ModalVisible: false,
+      showWebPDF: false,
+      showPersonalPDF: false,
+      showPrincipleAnnounce: false,
+      showPrivacyPDF: false,
       // determine if the form slide
       isSlide: false,
       // is same as above text
@@ -675,17 +718,40 @@ export default {
     }
   },
   methods: {
-    showWebAnnouce: function () {
-      this.visible = true
+    closeModal: function () {
+      this.ModalVisible = false
+      this.showWebPDF = false
+      this.showPersonalPDF = false
+      this.showPrincipleAnnounce = false
+      this.showPrivacyPDF = false
     },
-    personalPdfAnnouce: function () {
-      this.visible = true
+    showTermPDFFun: function () {
+      this.ModalVisible = true
+      this.showWebPDF = true
+      this.showPersonalPDF = false
+      this.showPrincipleAnnounce = false
+      this.showPrivacyPDF = false
+    },
+    showPersonalAnnouce: function () {
+      this.ModalVisible = true
+      this.showWebPDF = false
+      this.showPersonalPDF = true
+      this.showPrincipleAnnounce = false
+      this.showPrivacyPDF = false
     },
     principleAnnounce: function () {
-      this.visible = true
+      this.ModalVisible = true
+      this.showWebPDF = false
+      this.showPersonalPDF = false
+      this.showPrincipleAnnounce = true
+      this.showPrivacyPDF = false
     },
-    privateAnnouce: function () {
-
+    pravicyPdfAnnouce: function () {
+      this.ModalVisible = true
+      this.showWebPDF = false
+      this.showPersonalPDF = false
+      this.showPrincipleAnnounce = false
+      this.showPrivacyPDF = true
     },
     relationShipVali: function () {
       if (!this.withInsuredRelationShipItem || this.withInsuredRelationShipItem === '' || this.withInsuredRelationShipItem === '0') {
@@ -1189,7 +1255,6 @@ export default {
     },
     insuredCheckArea: function () {
       if (!this.insuredDistrict) {
-        console.log('22222', this.insuredDistrict)
         this.insuredaddrAreaInValid = true
         this.insuredaddrAreaErrorMsg = ''
         return false
@@ -1219,9 +1284,6 @@ export default {
         if (element.scrollTop === to) return
         scrollTo(element, to, duration - 10)
       }, 10)
-    },
-    closeModal: function () {
-      this.visible = false
     },
     completeStepOne: function () {
       this.relationShipVali()
@@ -1666,7 +1728,7 @@ export default {
   }
 
   .modal-container {
-    width: 300px;
+    width: 100%;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;

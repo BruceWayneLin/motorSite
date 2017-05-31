@@ -6,11 +6,29 @@ import MotorFormPage from '@/components/motorFormPage'
 import IndexPage from '@/components/indexPage'
 import ThanksPage from '@/components/thanksPage'
 import QandAPage from '@/components/qAnda'
+import ErrorPage from '@/components/404Page'
+import FailPayment from '@/components/failPayment'
+import NotFound from '@/components/notFound'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/notFound',
+      name: 'notFound',
+      component: NotFound
+    },
+    {
+      path: '/failPayment',
+      name: 'failPayment',
+      component: FailPayment
+    },
+    {
+      path: '/errorPage',
+      name: 'errorPage',
+      component: ErrorPage
+    },
     {
       path: '/qPage',
       name: 'qPage',

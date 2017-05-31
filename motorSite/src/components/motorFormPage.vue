@@ -360,7 +360,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p><a  @click="principleAnnounce">使用條款</a> | <a  @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -405,7 +405,7 @@
             </slot>
           </div>
 
-          <div class="modal-body">
+          <div class="modal-body" style="width:300px;">
             <slot name="body">
               <span>{{ccErrorMsg}}<p :style="{color:colorTxtOfcc}">{{ccChosen}}</p></span>
             </slot>
@@ -414,6 +414,39 @@
           <div class="modal-footer text-center">
             <slot name="footer">
               <button class="modal-default-button" style="margin: auto 35%;" @click="ccModalShow = false">
+                關閉
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--pdf modal-->
+    <div class="modal-mask" v-show="visible">
+      <div class="modal-wrapper">
+        <div class="modal-container" style="width:100%;">
+
+          <div class="modal-header">
+            <slot name="header">
+              <img style="height:40px" class="logoModal" src="../assets/logo.png"/>
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
+                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
+                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+            </slot>
+          </div>
+
+          <div class="modal-footer text-center">
+            <slot name="footer">
+              <button class="modal-default-button" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -438,6 +471,9 @@ export default {
   components: { Datepicker },
   data () {
     return {
+      visible: false,
+      AnnounceShow: false,
+      PrivacyShow: false,
       ccModalShow: false,
       visibleError: false,
       ccChosen: '',
@@ -520,12 +556,20 @@ export default {
     },
     principleAnnounce: function () {
       this.visible = true
+      this.AnnounceShow = true
+      this.PrivacyShow = false
     },
     privateAnnouce: function () {
-
+      this.visible = true
+      this.AnnounceShow = false
+      this.PrivacyShow = true
     },
     closeModal: function () {
       this.visible = false
+      this.AnnounceShow = false
+      this.PrivacyShow = false
+      this.visibleError = false
+      this.ccModalShow = false
     },
     readyToCheckInfo: function () {
       if (this.toValidatePlate() &&

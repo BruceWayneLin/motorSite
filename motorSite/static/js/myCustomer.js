@@ -1,5 +1,5 @@
 $(function() {
-        const envi = 'Prod';
+        const envi = 'local';
 
         if(envi == 'local'){
         }else{
@@ -17,10 +17,10 @@ $(function() {
     });
 
     $(document).ready(function(){
-        console.log('1234', $(window).width())
         $(document).on('scroll', function(){
-            if($(document).scrollTop() > 600){
-                $('#defaultIndex').css({
+          console.log($(document).scrollTop())
+            if($(document).scrollTop() > 400){
+                $('#defaultIndex #navbar').css({
                     "background-color" : "white",
                 });
                 $('#defaultIndex ul li p').css({
@@ -28,8 +28,8 @@ $(function() {
                 });
                 $('#defaultIndex img').attr('src', './static/assets/logo.png');
             }else{
-                $('#defaultIndex').css({
-                    "background-color" : "transparent"
+                $('#defaultIndex #navbar').css({
+                    "background-color" : "rgba(0, 0, 0, 0.56)"
                 });
                 $('#defaultIndex ul li p').css({
                     "color": "#fff",
