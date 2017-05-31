@@ -75,7 +75,7 @@ footer {
   background-size: contain;
   position: relative;
   bottom: 0px;
-  z-index: -3333;
+  z-index: 10;
 }
 
 footer a {
@@ -555,7 +555,7 @@ nav {
     top: -15px;
   }
   .ccSpan {
-    top: 18px;
+    top: 70px;
   }
   .carPlateLineText {
     display:none;
@@ -564,6 +564,7 @@ nav {
     width: 100%;
     margin: auto;
     min-height: 500px;
+    min-width: 500px;
   }
   .products.col-sm-3 {
     height: auto;
@@ -621,6 +622,9 @@ nav {
   .iconErrorMessageBack {
     top: 44px;
   }
+  .img.processImg {
+    display: none;
+  }
 }
 
 @media screen and (max-width:495px){
@@ -631,7 +635,7 @@ nav {
 
 @media screen and (max-width:767px) and (min-width:495px){
   .plateColor {
-    width:48%;
+    min-width: 300px;
     position: relative;
     left: 0%;
   }
@@ -725,7 +729,7 @@ input.form-control {
   border-radius: 36px;
   display:inline-block;
   overflow:hidden;
-  background:#cccccc;
+  background: white;
   border:1px solid #ccc;
 }
 
@@ -1027,7 +1031,7 @@ input.form-control {
   .titleButton button {
     position: relative;
     top: 137px;
-    left: 150%;
+    margin: 0px 140%;
   }
 }
 
@@ -1166,4 +1170,56 @@ html,body
 input.form-control.text-center.btn-sm.isActiveBtnAbove {
   background-color: #e84466!important;
   color: white!important;
+  padding: 0px 20%;
+}
+
+.formTitleSpan {
+  float: left;
+  margin: 20px;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 767px) {
+  .formTitleSpan {
+    display: none;
+  }
+  .isActiveBtnAbove {
+    padding: 0px 20%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hideInLowScreen {
+    display: none;
+  }
+  input.form-control.text-center.btn-sm.isActiveBtnAbove {
+    padding: 0px 40%!important;
+  }
+  .ccSpan {
+
+  }
+  #navbar ul li{
+    border: 1px solid white!important;
+    margin: 10px;
+  }
+  #navbar.navbar-collapse.collapse.in {
+    min-height: 400px!important;
+    background-color: rgba(0, 0, 0, 0.53)!important;
+  }
+  #navbar ul li p:nth-child(1){
+    cursor: pointer;
+  }
+  .sameAsApplicant {
+    padding: 0px 43%!important;
+  }
+}
+
+.vdp-datepicker__calendar {
+  z-index: 99999999!important;
+}
+
+@media screen and (min-width: 1200px) {
+  .sameAsApplicant {
+    padding: 0px 22%!important;
+  }
 }

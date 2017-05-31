@@ -113,7 +113,8 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
-            <div class="col-sm-3" style="padding-right:0px">
+            <div class="col-sm-3">
+              <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌前三碼:</span>
               <input type="text" v-bind:="tofocusSecondPlate" @click="validateMotoFac"
                      v-bind:class="{errorShow:isPlateError}"  style="text-transform:uppercase"  maxlength="3"
                       v-model="plateNumberFirstArea"  :disabled="newPlate"  placeholder="請輸入車牌"  class="form-control"
@@ -122,14 +123,15 @@
             <div class="col-sm-1">
               <div class="carPlateLineText"></div>
             </div>
-            <div class="col-sm-4" style="padding:0px;">
+            <div class="col-sm-4">
+              <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌後四碼:</span>
                     <input type="text" id="secondAreaInput" v-bind:class="{errorShow:isPlateError}"
                             style="text-transform:uppercase"  maxlength="4"  v-model="plateNumberSecondArea"
                             :disabled="newPlate || !plateNumberFirstArea"  placeholder=""  class="form-control"
                             name="motoplateNum">     
             </div>
             <div class="col-sm-4">       
-              <button type="button" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}"@click="isNewPlate"  class="form-control">新牌無牌照
+              <button type="button" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}" @click="isNewPlate"  class="form-control">新牌無牌照
               </button>
             </div>
           </div>
@@ -153,6 +155,7 @@
           </div>
           <div class="col-sm-7">
             <div class="col-sm-12">
+              <span class="formTitleSpan" style="margin-left: 0px;">請輸入引擊號碼:</span>
               <input type="text" @click="showEngineNumbExampmles" maxlength="60" @change="validateEngineNumb" v-model="engineNum" v-bind:class="{errorShow:engineNumInValid}" name="engineNum" class="form-control" placeholder="引擊號碼/車身號碼(擇一)">
             </div>
           </div>
@@ -177,7 +180,8 @@
           <div class="col-sm-7">
             <div class="col-sm-3">
               <div style="padding-top:20px;">
-                <span class="birthSpan">排氣量</span>
+                <span class="formTitleSpan" style="margin-left: 0px;">排氣量:</span>
+                <span class="hideInLowScreen birthSpan">排氣量</span>
               </div>
             </div>
             <div class="col-sm-7">
@@ -209,7 +213,8 @@
           <div class="col-sm-7">
             <div class="col-sm-3">
               <div style="padding-top:20px;">
-                <span class="birthSpan">發照日期</span>
+                <span class="formTitleSpan" style="margin-left: 0px;margin-bottom: -10px;">發照日期:</span>
+                <span class="hideInLowScreen birthSpan">發照日期</span>
               </div>
             </div>
             <div class="col-sm-3">
@@ -258,7 +263,8 @@
           <div class="col-sm-7">
             <div class="col-sm-3">
               <div style="padding-top:22px;">
-                <span class="birthSpan">出廠年月</span>
+                <span class="formTitleSpan" style="margin-left: 0px;margin-bottom:-10px;">出廠年月:</span>
+                <span class="hideInLowScreen birthSpan">出廠年月</span>
               </div>
             </div>
             <div class="col-sm-3">
@@ -301,7 +307,8 @@
           <div class="col-sm-7">
             <div class="col-sm-4">
               <div style="padding-top:30px">
-                <span class="birthSpan">保險開始日</span>
+                <span class="formTitleSpan" style="margin-left: 0px;">保險開始日:</span>
+                <span class="hideInLowScreen birthSpan">保險開始日</span>
               </div>
             </div>
           <div class="col-sm-8">
@@ -509,7 +516,7 @@ export default {
       window.location.href = './index.html'
     },
     toGoQandAPage: function () {
-      window.open('../static/qanda.html', '_blank')
+      window.open('index.html#/qPage', '_blank')
     },
     principleAnnounce: function () {
       this.visible = true
@@ -537,6 +544,7 @@ export default {
           motocycleInfo['motocycleFactory'] = this.motoMadeFactory
           motocycleInfo['plateEng'] = this.plateNumberFirstArea
           motocycleInfo['plateNum'] = this.plateNumberSecondArea
+          console.log(this.newPlate)
           motocycleInfo['isNewPlate'] = this.newPlate
           motocycleInfo['motoBrand'] = this.motoBrand === '' ? this.motoMadeFactoryItem.name : this.motoBrand
           var rY = parseInt(this.releasePlateYearDate.slice(2, 4)) + 1911
@@ -555,6 +563,7 @@ export default {
           motocycleInfo['engineNumber'] = this.engineNum
           motocycleInfo['executionDay'] = this.formatDate(this.executionDay)
           motocycleInfo['motocycleCC'] = this.userEnteredProdcutCC
+          this.$parent.$parent.userEnteredProdcutCC = this.userEnteredProdcutCC
           this.$parent.motocycleInfo = motocycleInfo
           console.log(motocycleInfo)
           sessionStorage.setItem('motorInfo', JSON.stringify(motocycleInfo))
@@ -1007,9 +1016,6 @@ export default {
       return returnVal
     },
     brandList: function () {
-      if (this.userEnteredProdcutCC !== '') {
-        this.comparePlateWithEnterCC()
-      }
       return this.$parent.$parent.BrandList
     },
     showExamples: function () {
@@ -1091,7 +1097,7 @@ export default {
     font-weight: bold;
   }
   .customerForm {
-    margin-bottom: 60px;
+    margin-bottom: 173px;
     margin-top: 5%;
   }
   .processImg {

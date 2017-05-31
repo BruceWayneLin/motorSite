@@ -1,5 +1,5 @@
 $(function() {
-        const envi = 'local';
+        const envi = 'PRO';
 
         if(envi == 'local'){
         }else{
@@ -17,8 +17,8 @@ $(function() {
     });
 
     $(document).ready(function(){
+        console.log('1234', $(window).width())
         $(document).on('scroll', function(){
-            console.log($(document).scrollTop());
             if($(document).scrollTop() > 600){
                 $('#defaultIndex').css({
                     "background-color" : "white",
@@ -26,7 +26,7 @@ $(function() {
                 $('#defaultIndex ul li p').css({
                     "color": "#777"
                 });
-                $('#defaultIndex img').attr('src', '../static/assets/logo.png');
+                $('#defaultIndex img').attr('src', './static/assets/logo.png');
             }else{
                 $('#defaultIndex').css({
                     "background-color" : "transparent"
@@ -34,7 +34,7 @@ $(function() {
                 $('#defaultIndex ul li p').css({
                     "color": "#fff",
                 });
-                $('#defaultIndex img').attr('src', '../static/assets/logoWhite.png');
+                $('#defaultIndex img').attr('src', './static/assets/logoWhite.png');
             }
         });
     });

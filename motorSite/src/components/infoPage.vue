@@ -179,7 +179,7 @@
           <div class="col-sm-12">
             <div class="col-sm-6">
               <div class="col-sm-3"><p>車牌:</p></div>
-              <div class="col-sm-9 text-left"><p>{{motoInfoPlateEng}} - {{motoInfoPlateNum}}</p></div>
+              <div class="col-sm-9 text-left"><p>{{motoInfoPlateEng === '' ? '新車無牌照' : motoInfoPlateEng}} {{motoInfoPlateEng === '' ? '' : '-'}}  {{motoInfoPlateNum === '' ? '' : motoInfoPlateNum}}</p></div>
             </div>
             <div class="col-sm-6">
               <div class="col-sm-3"><p>發照日期:</p></div>
@@ -340,7 +340,7 @@ export default {
       window.location.href = 'http://210.242.7.164/motorbike-mbr/payment/goToPaymentPage?dataId=' + dataUrl
     },
     toGoQandAPage: function () {
-      window.open('../static/qanda.html', '_blank')
+      window.open('index.html#/qPage', '_blank')
     }
   },
   computed: {
@@ -364,13 +364,16 @@ export default {
     },
     userEnteredProdcutCC: function () {
       var isMH = this.$parent.isMH
-      var text = this.$parent.userEnteredProdcutCC + (isMH === true ? 'hp' : 'cc')
+      var text = this.$parent.$parent.userEnteredProdcutCC + (isMH === true ? 'hp' : 'cc')
       return text
     }
   },
   mounted () {
     window.scrollTo(0, 0)
-    if ((this.$parent.$parent.applicantData === undefined) || (this.$parent.$parent.insuredData === undefined) || (this.$parent.motocycleInfo === undefined)) {
+    console.log(this.$parent.$parent.applicantData)
+    console.log(this.$parent.$parent.insuredData)
+    console.log(this.$parent.motocycleInfo)
+    if ((this.$parent.$parent.applicantData === undefined) || (this.$parent.$parent.insuredData === undefined) || (this.$parent.$parent.motocycleInfo === undefined)) {
       window.location.href = './index.html'
     }
   }

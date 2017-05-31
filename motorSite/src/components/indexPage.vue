@@ -43,7 +43,7 @@
     <section id="myProducts" class="productSection animated" v-bind:class="{fadeInUp: isActive, fadeInDown: !isActive,}">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <h4 class="selectProduct">選擇您的車牌顏色</h4>
+          <h4 class="selectProduct" style="font-weight:bold;">選擇您的車牌顏色</h4>
         </div>
       </div>
       <div id="productContainerDiv" class="container-fluid">
@@ -79,7 +79,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p style="cursor:pointer;"><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p style="cursor:pointer;"  @click="principleAnnounce" ><a href="#" >使用條款</a> | <a href="#" style="cursor:pointer;" @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -99,8 +99,8 @@
 
         <div class="modal-body">
           <slot name="body">
-            <object v-show="pdfContentToShow" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">
-              <iframe src="" type="application/pdf" />
+            <object v-show="true" style="width:100%" data="../assets/pdf/announcement.pdf" type="application/pdf" width="100%" height="100%">
+              <iframe src="../assets/pdf/privacy.pdf" type="application/pdf" />
             </object>
           </slot>
         </div>
@@ -148,7 +148,7 @@ export default {
       window.location.href = './index.html'
     },
     toGoQandAPage: function () {
-      window.open('qPage', '_blank')
+      window.open('index.html#/qPage', '_blank')
     },
     whichProductToShow: function () {
       if (this.isActive) {
@@ -204,13 +204,9 @@ export default {
     },
     principleAnnounce: function () {
       this.visible = true
-      this.$parent.$data.pdfContentToShow = true
     },
     privateAnnouce: function () {
-      this.$parent.$data.pdfContentToShow = true
-    },
-    toCloseModal: function () {
-      this.$parent.pdfContentToShow = false
+      this.visible = true
     }
   },
   computed: {

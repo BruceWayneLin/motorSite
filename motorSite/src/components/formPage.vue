@@ -37,6 +37,7 @@
             <strong>要保人資料</strong>
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">要保人姓名:</span>
             <div class="col-sm-6">
               <div class="innerClass col-sm-12">
                 <input v-model="applicantLastName" maxlength="2" v-bind:class="{errorShow:applicantLastNameInValid}" v-bind="toComputedData" @change="toCheckNameVal('lastName')" class="form-control" name="lastName" type="text" placeholder="姓" required>
@@ -60,6 +61,7 @@
             </div>
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">要保人身分證字號:</span>
             <div class="col-sm-12">
               <div class="innerClass col-sm-12">
                 <input style="text-transform:uppercase" v-model="applicantPid" v-bind:class="{errorShow:pidInValid}"  @change="checkPid" maxlength="10" class="form-control" type="text" name="id" placeholder="身分證字號" required>
@@ -89,7 +91,8 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm-3 birthSpan">
-              <span>要保人生日:</span>
+              <span class="formTitleSpan" style="margin-bottom: -10px;margin-left: 0px;">要保人生日:</span>
+              <span class="hideInLowScreen">要保人生日:</span>
             </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:BYearInValid}">
@@ -142,6 +145,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">要保人E-Mail:</span>
             <div class="col-sm-12">
               <input @click="checkBirthAgain"  maxlength="100" @change="checkEmail" v-bind:class="{errorShow:emailInValid}" class="form-control" v-model="applicantEmail" type="text" name="email" placeholder="E-mail" required>
               <span class="errorMessage" style="padding-right: 560px;" v-show="emailInValid">{{ emailErrorMsg }}</span>
@@ -156,6 +160,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">要保人手機:</span>
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
                 <input @change="checkMobile" v-bind:class="{errorShow:mobileInValid}"  class="form-control" maxlength="10" v-model="applicantMobile" type="text" name="mobile" placeholder="0912345678" required>
@@ -173,6 +178,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan" style="margin-bottom: -10px;">要保人聯絡地址:</span>
             <div class="col-sm-4 addr">
               <div class="selectWrapper"  v-bind:class="{errorShow:addrCityInValid}">
                 <select @change="checkCity" v-model="applicantLivingCity" class="form-control" id="city" required>
@@ -258,7 +264,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div class="col-sm-4 innerClass">
-                <input @click="insuredSameAsApplicant" style="padding: 0 20%;" v-model="isSameAsAboveTxt" class="form-control text-center btn-sm" :class="{isActiveBtnAbove: ischecked}" type="button" name="sameAsApplicant">
+                <input @click="insuredSameAsApplicant" v-model="isSameAsAboveTxt" class="sameAsApplicant form-control text-center btn-sm" :class="{isActiveBtnAbove: ischecked}" type="button" name="sameAsApplicant">
                 <span class="checkboxSpan" v-show="false">車主資料同上</span>
               </div>
               <div class="col-sm-8">
@@ -292,6 +298,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">車主姓名:</span>
             <div class="col-sm-6">
               <div class="innerClass col-sm-12">
                 <input @change="checkInsuredLastName" :disabled="ischecked"  v-bind:class="{errorShow:insuredLastNameInValid}" maxlength="2" class="form-control" v-model="insuredLastName" name="lastName" type="text" placeholder="姓" required>
@@ -324,6 +331,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">車主身分證字號:</span>
             <div class="col-sm-12">
               <input style="text-transform:uppercase" class="form-control" :disabled="ischecked" @change="checkInsuredPid" v-model="insuredPid" v-bind:class="{errorShow:insuredPidInValid}" maxlength="10" type="text" name="id" placeholder="身分證字號" required>
               <span  class="errorMessage" style="padding-right: 420px;" v-show="insuredPidInValid">{{ insuredPidErrorMsg }}</span>
@@ -338,7 +346,10 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
-            <div class="col-sm-3 birthSpan"><span>車主生日:</span></div>
+            <div class="col-sm-3 birthSpan">
+              <span class="formTitleSpan" style="margin-bottom: -10px;margin-left:5px;">車主生日:</span>
+              <span class="hideInLowScreen">車主生日:</span>
+            </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:insuredBYearInValid}">
                 <select @change="insuredCheckBirthYear" class="form-control" v-model="insuredBirthYear" :disabled="ischecked" id="birthYear" required>
@@ -389,6 +400,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">車主E-Mail:</span>
             <div class="col-sm-12">
               <input @change="insuredCheckEmail" maxlength="100" :disabled="ischecked" @click="checkInsuredBDAgain" v-bind:class="{errorShow:insuredEmailInValid}" class="form-control" v-model="insuredEmail" type="text" name="email" placeholder="E-mail" required>
             </div>
@@ -412,6 +424,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan">車主手機:</span>
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
                 <input @change="insuredCheckMobile" :disabled="ischecked"  v-bind:class="{errorShow:insuredMobileInValid}"  class="form-control" maxlength="10" v-model="insuredMobile" type="text" name="mobile" placeholder="0912345678" required>
@@ -429,6 +442,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
+            <span class="formTitleSpan" style="margin-bottom: -10px;">車主聯絡地址:</span>
             <div class="col-sm-4 addr">
               <div class="selectWrapper" v-bind:class="{errorShow:insuredaddrCityInValid}">
                 <select @change="insuredCheckCity" v-model="insuredCity" :disabled="ischecked" class="form-control" id="city" required>
@@ -690,7 +704,7 @@ export default {
       window.location.href = './index.html'
     },
     toGoQandAPage: function () {
-      window.open('../static/qanda.html', '_blank')
+      window.open('index.html#/qPage', '_blank')
     },
     // check Applicant name
     toCheckNameVal: function (val) {
@@ -838,7 +852,7 @@ export default {
     },
     checkEmail: function () {
       if (this.applicantEmail) {
-        let reg = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$')
+        let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
         if (!reg.test(this.applicantEmail)) {
           this.emailInValid = true
           this.emailErrorMsg = '格式錯誤，請輸入正確email地址'
@@ -937,15 +951,17 @@ export default {
     // insured data from here
     insuredSameAsApplicant: function (event) {
       this.ischecked = !this.ischecked
-      if (event) {
-        if (this.withInsuredRelationShipItem.value === 'SELF') {
-          this.withInsuredRelationShipItem.value = '0'
-        } else if (this.ischecked) {
-          this.withInsuredRelationShipItem.value = 'SELF'
-        } else {
-          this.withInsuredRelationShipItem.value = '0'
-        }
-      }
+//      if (event) {
+//        if (this.withInsuredRelationShipItem.value === 'SELF') {
+//          this.withInsuredRelationShipItem.value = '0'
+//        } else if (this.ischecked) {
+//          window.scrollTo(0, 0)
+//          this.withInsuredRelationShipItem.value = 'SELF'
+//        } else {
+//  //          console.log('1234', this.withInsuredRelationShipItem)
+//  //          this.withInsuredRelationShipItem.value = '0'
+//        }
+//      }
       if (this.ischecked) {
         this.ischecked = true
         this.insuredLastName = this.applicantLastName
@@ -1125,7 +1141,7 @@ export default {
     },
     insuredCheckEmail: function () {
       if (this.insuredEmail) {
-        let reg = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$')
+        let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
         if (!reg.test(this.insuredEmail)) {
           this.insuredEmailInValid = true
           this.$parent.isCompleted = false

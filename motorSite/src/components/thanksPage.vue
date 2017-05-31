@@ -76,7 +76,7 @@ export default {
       window.location.href = './index.html'
     },
     toGoQandAPage: function () {
-      window.open('../static/qanda.html', '_blank')
+      window.open('index.html#/qPage', '_blank')
     },
     principleAnnounce: function () {
     },
