@@ -1,5 +1,5 @@
 <template>
-  <div class="thanksPage">
+  <div class="errorPage">
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -39,7 +39,7 @@
           <div class="col-sm-12">
             <div class="thanksWords text-center">
               <div class="buttonProject">
-                <button class="btn-lg" @click="toGoBackIndex">回到首頁</button>
+                <button class="backToIndexOfOtherPageButton" @click="toGoBackIndex">回到首頁</button>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
 
           <div class="modal-footer text-center">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -99,7 +99,7 @@ window.jQuery = $
 window.$ = $
 
 export default {
-  name: '404Page',
+  name: 'errorPage',
   data () {
     return {
       visible: false,
@@ -214,4 +214,10 @@ export default {
     color: white;
   }
   /*modal css end*/
+
+  @media screen and (max-width:1000px) {
+    .modal-default-button {
+      margin: 0px 49%;
+    }
+  }
 </style>

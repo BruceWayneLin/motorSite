@@ -72,7 +72,7 @@
                   <p>出生日期:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p>{{ applicant.applicantBirthday }}</p>
+                  <p>{{ applicant.applicantBirthday.replace(/,/g, '') }}</p>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -88,7 +88,7 @@
                   <p>地址:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p class="wordWrap">{{applicant.applicantCity['name']}}, {{applicant.applicantDistrict['name']}}, {{ applicant.applicantAddr }}</p>
+                  <p class="wordWrap">{{applicant.applicantCity['name']}} {{applicant.applicantDistrict['name']}} {{ applicant.applicantAddr }}</p>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -134,7 +134,7 @@
                   <p>出生日期:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p>{{ insuredPP.insuredBirthdayForCheck }}</p>
+                  <p>{{ insuredPP.insuredBirthdayForCheck.replace(/,/g, '') }}</p>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -150,7 +150,7 @@
                   <p>地址:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p class="wordWrap">{{insuredPP.insuredCity['name']}}, {{insuredPP.insuredDistrict['name']}}, {{ insuredPP.insuredAddr }}</p>
+                  <p class="wordWrap">{{insuredPP.insuredCity['name']}} {{insuredPP.insuredDistrict['name']}} {{ insuredPP.insuredAddr }}</p>
                 </div>
               </div>
               <div class="col-sm-12">
@@ -183,7 +183,7 @@
             </div>
             <div class="col-sm-6">
               <div class="col-sm-3"><p>發照日期:</p></div>
-              <div class="col-sm-9 text-left"><p>{{motoInfo.motoReleasePlateDateForCheck}}</p></div>
+              <div class="col-sm-9 text-left"><p>{{motoInfo.motoReleasePlateDateForCheck.replace(/,/g, '')}}</p></div>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@
             </div>
             <div class="col-sm-6">
               <div class="col-sm-3"><p>出廠日期:</p></div>
-              <div class="col-sm-9 text-left"><p>{{motoInfo.motoFactoryDateForCheck}}</p></div>
+              <div class="col-sm-9 text-left"><p>{{motoInfo.motoFactoryDateForCheck.replace(/,/g, '')}}</p></div>
             </div>
           </div>
         </div>
@@ -327,7 +327,7 @@
 
           <div class="modal-footer text-center">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button class="modal-default-button" style="margin: 0px 48%;" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -352,6 +352,7 @@ export default {
       motoInfoPlateEng: '',
       motoInfoPlateNum: '',
       AnnounceShow: false,
+      visible: false,
       PrivacyShow: false
     }
   },
@@ -407,7 +408,7 @@ export default {
       return returnVal
     },
     userEnteredProdcutCC: function () {
-      var isMH = this.$parent.isMH
+      var isMH = this.$parent.$parent.isMH
       var text = this.$parent.$parent.userEnteredProdcutCC + (isMH === true ? 'hp' : 'cc')
       return text
     }
@@ -499,4 +500,17 @@ export default {
     color: white;
   }
   /*modal css end*/
+  @media screen and (max-width:1000px) {
+    .modal-default-button {
+      margin: 0px 49%;
+    }
+  }
+  @media screen and (max-width:769px) and (min-width:758px) {
+    ul.nav.navbar-nav.navbar-right {
+      font-size: 15px!important;
+    }
+    div.col-sm-6 {
+      width: 60%!important;
+    }
+  }
 </style>

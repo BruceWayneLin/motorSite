@@ -119,10 +119,13 @@
 }
 
 @media screen and (max-width: 789px) and (min-width: 767px) {
-  #navbar .navbar-right ul li p{
-    font-size: 15px;
+  #navbar .navbar-right{
+    font-size:15px!important;
   }
-}
+  .col-sm-6 {
+    width: 60%!important;
+  }
+ }
 
 #navbar .navbar-right{
     margin-top: 10px;

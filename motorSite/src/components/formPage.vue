@@ -40,14 +40,14 @@
             <span class="formTitleSpan">要保人姓名:</span>
             <div class="col-sm-6">
               <div class="innerClass col-sm-12">
-                <input v-model="applicantLastName" maxlength="2" v-bind:class="{errorShow:applicantLastNameInValid}" v-bind="toComputedData" @change="toCheckNameVal('lastName')" class="form-control" name="lastName" type="text" placeholder="姓" required>
+                <input v-model="applicantLastName" maxlength="2" v-bind:class="{errorShow:applicantLastNameInValid}" v-bind="toComputedData" @change="toCheckNameVal('last')" class="form-control" name="lastName" type="text" placeholder="姓" required>
                 <span  class="errorMessage" style="padding-right: 370px;" v-show="applicantNameInValid">{{ nameErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="applicantNameInValid"></div>
               </div>
             </div>
             <div class="col-sm-6" style="margin-top:0px;">
               <div class="innerClass col-sm-12">
-                <input v-model="applicantFirstName" maxlength="10" v-bind:class="{errorShow:applicantFirstNameInValid}" class="form-control" @change="toCheckNameVal('firstName')"  name="firstName" type="text" placeholder="名"required>
+                <input v-model="applicantFirstName" maxlength="10" v-bind:class="{errorShow:applicantFirstNameInValid}" class="form-control" @change="toCheckNameVal('first')"  name="firstName" type="text" placeholder="名"required>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
             <span class="formTitleSpan">要保人身分證字號:</span>
             <div class="col-sm-12">
               <div class="innerClass col-sm-12">
-                <input style="text-transform:uppercase" v-model="applicantPid" v-bind:class="{errorShow:pidInValid}"  @change="checkPid" maxlength="10" class="form-control" type="text" name="id" placeholder="身分證字號" required>
+                <input style="text-transform:uppercase" v-model="applicantPid" @click="toCheckNameVal" v-bind:class="{errorShow:pidInValid}"  @change="checkPid" maxlength="10" class="form-control" type="text" name="id" placeholder="身分證字號" required>
                 <span  class="errorMessage" style="padding-right: 400px;" v-show="pidInValid">{{ pidErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="pidInValid"></div>
               </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:BYearInValid}">
-                <select @change="checkBirthYear" class="form-control" v-model="applicantBirthYear" id="birthYear" required>
+                <select @click="checkPid" @change="checkBirthYear" class="form-control" v-model="applicantBirthYear" id="birthYear" required>
                   <option value="">民國年</option>
                   <option v-for=" year in taiwanYear">民國{{ year }}年</option>
                 </select>
@@ -163,7 +163,7 @@
             <span class="formTitleSpan">要保人手機:</span>
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
-                <input @change="checkMobile" v-bind:class="{errorShow:mobileInValid}"  class="form-control" maxlength="10" v-model="applicantMobile" type="text" name="mobile" placeholder="0912345678" required>
+                <input @change="checkMobile" @click="checkEmail" v-bind:class="{errorShow:mobileInValid}"  class="form-control" maxlength="10" v-model="applicantMobile" type="text" name="mobile" placeholder="0912345678" required>
                 <span class="errorMessage" style="padding-right: 380px;" v-show="mobileInValid">{{ mobileErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="mobileInValid">
                 </div>
@@ -180,7 +180,7 @@
           <div class="col-sm-6">
             <span class="formTitleSpan" style="margin-bottom: -10px;">要保人聯絡地址:</span>
             <div class="col-sm-4 addr">
-              <div class="selectWrapper"  v-bind:class="{errorShow:addrCityInValid}">
+              <div class="selectWrapper" @click="checkMobile"  v-bind:class="{errorShow:addrCityInValid}">
                 <select @change="checkCity" v-model="applicantLivingCity" class="form-control" id="city" required>
                   <option value="">縣市</option>
                   <option v-for="city in cityList" :value="city">{{ city.name }}</option>
@@ -301,7 +301,7 @@
             <span class="formTitleSpan">車主姓名:</span>
             <div class="col-sm-6">
               <div class="innerClass col-sm-12">
-                <input @change="checkInsuredLastName" :disabled="ischecked"  v-bind:class="{errorShow:insuredLastNameInValid}" maxlength="2" class="form-control" v-model="insuredLastName" name="lastName" type="text" placeholder="姓" required>
+                <input @click="relationShipVali" @change="checkInsuredLastName" :disabled="ischecked"  v-bind:class="{errorShow:insuredLastNameInValid}" maxlength="2" class="form-control" v-model="insuredLastName" name="lastName" type="text" placeholder="姓" required>
               </div>
             </div>
             <div class="col-sm-6" style="margin-top:0px;">
@@ -319,7 +319,7 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm-12">
-              <span style="" class="errorMessage" style="padding-right: 420px;" v-show="insuredLastNameInValid || insuredFirstNameInValid">{{ insuredFirstNameErrorMsg }}</span>
+              <span class="errorMessage" style="padding-right: 420px;" v-show="insuredLastNameInValid || insuredFirstNameInValid">{{ insuredFirstNameErrorMsg }}</span>
               <div style="left:0px;" class="iconErrorMessageBack motoErrorIcon" v-show="insuredFirstNameInValid || insuredLastNameInValid"></div>
             </div>
           </div>
@@ -333,7 +333,7 @@
           <div class="col-sm-6">
             <span class="formTitleSpan">車主身分證字號:</span>
             <div class="col-sm-12">
-              <input style="text-transform:uppercase" class="form-control" :disabled="ischecked" @change="checkInsuredPid" v-model="insuredPid" v-bind:class="{errorShow:insuredPidInValid}" maxlength="10" type="text" name="id" placeholder="身分證字號" required>
+              <input @click="toValiMotorName" style="text-transform:uppercase" class="form-control" :disabled="ischecked" @change="checkInsuredPid" v-model="insuredPid" v-bind:class="{errorShow:insuredPidInValid}" maxlength="10" type="text" name="id" placeholder="身分證字號" required>
               <span  class="errorMessage" style="padding-right: 420px;" v-show="insuredPidInValid">{{ insuredPidErrorMsg }}</span>
               <div class="iconErrorMessageBack" style="right: -25px;left: 0px;" v-show="insuredPidInValid"></div>
             </div>
@@ -352,7 +352,7 @@
             </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:insuredBYearInValid}">
-                <select @change="insuredCheckBirthYear" class="form-control" v-model="insuredBirthYear" :disabled="ischecked" id="birthYear" required>
+                <select @change="insuredCheckBirthYear" @click="checkInsuredPid" class="form-control" v-model="insuredBirthYear" :disabled="ischecked" id="birthYear" required>
                   <option value="">民國年</option>
                   <option v-for=" year in taiwanYear ">民國{{ year }}年</option>
                 </select>
@@ -427,7 +427,7 @@
             <span class="formTitleSpan">車主手機:</span>
             <div class="col-sm-12">
               <div class="col-sm-12 innerClass">
-                <input @change="insuredCheckMobile" :disabled="ischecked"  v-bind:class="{errorShow:insuredMobileInValid}"  class="form-control" maxlength="10" v-model="insuredMobile" type="text" name="mobile" placeholder="0912345678" required>
+                <input @change="insuredCheckMobile" @click="insuredCheckEmail" :disabled="ischecked"  v-bind:class="{errorShow:insuredMobileInValid}"  class="form-control" maxlength="10" v-model="insuredMobile" type="text" name="mobile" placeholder="0912345678" required>
                 <span class="errorMessage" style="padding-right: 420px;" v-show="insuredMobileInValid">{{ insuredMobileErrorMsg }}</span>
                 <div class="iconErrorMessageBack" v-show="insuredMobileInValid">
                 </div>
@@ -445,7 +445,7 @@
             <span class="formTitleSpan" style="margin-bottom: -10px;">車主聯絡地址:</span>
             <div class="col-sm-4 addr">
               <div class="selectWrapper" v-bind:class="{errorShow:insuredaddrCityInValid}">
-                <select @change="insuredCheckCity" v-model="insuredCity" :disabled="ischecked" class="form-control" id="city" required>
+                <select @change="insuredCheckCity" @click="insuredCheckMobile" v-model="insuredCity" :disabled="ischecked" class="form-control" id="city" required>
                   <option value="">縣市</option>
                   <option v-for="city in cityList" :value="city" >{{ city.name }}</option>
                 </select>
@@ -591,7 +591,7 @@
 
           <div class="modal-footer text-center">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -720,6 +720,7 @@ export default {
   methods: {
     closeModal: function () {
       this.ModalVisible = false
+      this.visible = false
       this.showWebPDF = false
       this.showPersonalPDF = false
       this.showPrincipleAnnounce = false
@@ -760,6 +761,7 @@ export default {
         return false
       } else if (this.withInsuredRelationShipItem.value === 'SELF') {
         this.ischecked = true
+        return true
       } else {
         this.relationshipErrorMsg = ''
         this.relationshipInValid = false
@@ -773,58 +775,50 @@ export default {
       window.open('index.html#/qPage', '_blank')
     },
     // check Applicant name
-    toCheckNameVal: function (val) {
-      if (this.applicantLastName === '' || this.applicantFirstName === '') {
-        this.applicantNameInValid = true
-        this.applicantFirstNameInValid = true
-        this.applicantLastNameInValid = true
-        this.nameErrorMsg = '請輸入正確的中文姓名'
-        return false
-      } else {
-        if (val === 'lastName' || this.applicantLastName) {
-          if (this.applicantLastName) {
-            if (this.applicantLastName.match(/[^\u3447-\uFA29]/ig)) {
-              this.applicantLastName = ''
-              this.applicantNameInValid = true
-              this.applicantLastNameInValid = true
-              this.nameErrorMsg = '請輸入正確的中文姓名'
-              return false
-            } else {
-              this.applicantNameInValid = false
-              this.applicantLastNameInValid = false
-              this.applicantFirstNameInValid = false
-              this.nameErrorMsg = ''
-              return true
-            }
+    toCheckNameVal: function (value) {
+      if (value === 'last') {
+        if (this.applicantLastName) {
+          if (!(/^[\u4E00-\u9FFF\u3400-\u4DFF]+$/.test(this.applicantLastName))) {
+            this.applicantNameInValid = true
+            this.applicantFirstNameInValid = true
+            this.applicantLastNameInValid = true
+            this.nameErrorMsg = '請輸入正確的中文姓名'
+            return false
+          } else {
+            this.applicantNameInValid = false
+            this.applicantLastNameInValid = false
+            this.applicantFirstNameInValid = false
+            this.nameErrorMsg = ''
+            return true
           }
         } else {
-          this.applicantLastName = ''
           this.applicantNameInValid = true
+          this.applicantFirstNameInValid = true
           this.applicantLastNameInValid = true
           this.nameErrorMsg = '請輸入正確的中文姓名'
           return false
         }
-        if (val === 'firstName' || this.applicantFirstName) {
-          if (this.applicantFirstName) {
-            if (this.applicantFirstName.match(/[^\u3447-\uFA29]/ig)) {
-              this.applicantFirstName = ''
-              this.applicantNameInValid = true
-              this.applicantFirstNameInValid = true
-              this.nameErrorMsg = '請輸入正確的中文姓名'
-              return false
-            } else {
-              this.applicantNameInValid = false
-              this.applicantFirstNameInValid = false
-              this.nameErrorMsg = ''
-              return true
-            }
-          } else {
-            this.applicantFirstName = ''
+      } else {
+        if (this.applicantFirstName) {
+          if (!(/^[\u4E00-\u9FFF\u3400-\u4DFF]+$/.test(this.applicantFirstName))) {
             this.applicantNameInValid = true
             this.applicantFirstNameInValid = true
+            this.applicantLastNameInValid = true
             this.nameErrorMsg = '請輸入正確的中文姓名'
             return false
+          } else {
+            this.applicantNameInValid = false
+            this.applicantLastNameInValid = false
+            this.applicantFirstNameInValid = false
+            this.nameErrorMsg = ''
+            return true
           }
+        } else {
+          this.applicantNameInValid = true
+          this.applicantFirstNameInValid = true
+          this.applicantLastNameInValid = true
+          this.nameErrorMsg = '請輸入正確的中文姓名'
+          return false
         }
       }
     },
@@ -918,14 +912,20 @@ export default {
     },
     checkEmail: function () {
       if (this.applicantEmail) {
-        let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
-        if (!reg.test(this.applicantEmail)) {
-          this.emailInValid = true
-          this.emailErrorMsg = '格式錯誤，請輸入正確email地址'
-          return false
+        if ((this.applicantEmail.match(/^([a-z0-9+_-]+)(.[a-z0-9+_-]+)*@([a-z0-9-]+.)+[a-z]{2,6}$/gi))) {
+          let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
+          if (!reg.test(this.applicantEmail)) {
+            this.emailInValid = true
+            this.emailErrorMsg = '格式錯誤，請輸入正確email地址'
+            return false
+          } else {
+            this.emailInValid = false
+            return true
+          }
         } else {
-          this.emailInValid = false
-          return true
+          this.emailInValid = true
+          this.emailErrorMsg = '請輸入正確email地址'
+          return false
         }
       } else if (this.applicantEmail === '') {
         this.emailInValid = true
@@ -957,6 +957,7 @@ export default {
         return false
       } else {
         this.addrCityInValid = false
+        this.applicantLivingDistrict = ''
         this.applicantLivingCityId = this.applicantLivingCity.id
         return true
       }
@@ -1017,17 +1018,6 @@ export default {
     // insured data from here
     insuredSameAsApplicant: function (event) {
       this.ischecked = !this.ischecked
-//      if (event) {
-//        if (this.withInsuredRelationShipItem.value === 'SELF') {
-//          this.withInsuredRelationShipItem.value = '0'
-//        } else if (this.ischecked) {
-//          window.scrollTo(0, 0)
-//          this.withInsuredRelationShipItem.value = 'SELF'
-//        } else {
-//  //          console.log('1234', this.withInsuredRelationShipItem)
-//  //          this.withInsuredRelationShipItem.value = '0'
-//        }
-//      }
       if (this.ischecked) {
         this.ischecked = true
         this.insuredLastName = this.applicantLastName
@@ -1183,6 +1173,10 @@ export default {
         return true
       }
     },
+    toValiMotorName: function () {
+      this.toCheckInsuredFirstNameVal()
+      this.checkInsuredLastName()
+    },
     insuredCheckBirthDay: function () {
       if (this.insuredBirthDay === '日' || this.insuredBirthDay === '') {
         this.insuredBDayInValid = true
@@ -1207,19 +1201,24 @@ export default {
     },
     insuredCheckEmail: function () {
       if (this.insuredEmail) {
-        let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
-        if (!reg.test(this.insuredEmail)) {
-          this.insuredEmailInValid = true
-          this.$parent.isCompleted = false
-          this.insuredEmailErrorMsg = '格式錯誤，請輸入正確email地址'
-          return false
+        if ((this.insuredEmail.match(/^([a-z0-9+_-]+)(.[a-z0-9+_-]+)*@([a-z0-9-]+.)+[a-z]{2,6}$/gi))) {
+          let reg = new RegExp('[^@]+@[^@]+\\.[^@]+')
+          if (!reg.test(this.insuredEmail)) {
+            this.insuredEmailInValid = true
+            this.$parent.isCompleted = false
+            this.insuredEmailErrorMsg = '格式錯誤，請輸入正確email地址'
+            return false
+          } else {
+            this.insuredEmailInValid = false
+            return true
+          }
         } else {
-          this.insuredEmailInValid = false
-          return true
+          this.insuredEmailInValid = true
+          this.insuredEmailErrorMsg = '請輸入正確email地址'
+          return false
         }
       } else if (this.insuredEmail === '') {
         this.insuredEmailInValid = true
-        this.$parent.isCompleted = false
         this.insuredEmailErrorMsg = '請輸入正確email地址'
         return false
       }
@@ -1249,7 +1248,8 @@ export default {
         return false
       } else {
         this.insuredaddrCityInValid = false
-        this.insuredDistrictId = ''
+        this.insuredCityId = this.insuredCity.id
+        this.insuredDistrict = ''
         return true
       }
     },
@@ -1259,7 +1259,6 @@ export default {
         this.insuredaddrAreaErrorMsg = ''
         return false
       } else {
-        this.insuredDistrictId = this.insuredDistrict.id
         this.insuredaddrAreaInValid = false
         return true
       }
@@ -1286,6 +1285,55 @@ export default {
       }, 10)
     },
     completeStepOne: function () {
+      console.log('1', this.relationShipVali())
+      console.log('2', this.toCheckNameVal())
+      console.log('3', this.checkPid())
+      console.log('4', this.checkBirthYear())
+      console.log('5', this.checkBirthMonth())
+      console.log('6', this.checkBirthDay())
+      console.log('7', this.checkEmail())
+      console.log('8', this.checkMobile())
+      console.log('9', this.checkArea())
+      console.log('10', this.checkAddr())
+      console.log('12', this.checkInsuredLastName())
+      console.log('13', this.toCheckInsuredFirstNameVal())
+      console.log('14', this.checkInsuredPid())
+      console.log('15', this.insuredCheckBirthYear())
+      console.log('16', this.insuredCheckBirthMonth())
+      console.log('17', this.insuredCheckBirthDay())
+      console.log('19', this.insuredCheckEmail())
+      console.log('20', this.insuredCheckMobile())
+      console.log('21', this.insuredCheckArea())
+      console.log('22', this.insuredCheckAddr())
+      console.log('23', this.insuredLastName)
+      console.log('24', this.insuredFirstName)
+      console.log('25', this.insuredPid)
+      console.log('26', this.insuredGender)
+      console.log('27', this.insuredBirthYear)
+      console.log('28', this.insuredBirthMonth)
+      console.log('29', this.insuredBirthDay)
+      console.log('30', this.insuredMobile)
+      console.log('31', this.insuredCity)
+      console.log('32', this.insuredCityId)
+      console.log('33', this.insuredDistrict)
+      console.log('34', this.insuredDistrictId)
+      console.log('35', this.insuredAddr)
+      console.log('36', this.insuredEmail)
+      console.log('37', this.agreementRead)
+      console.log('38', this.withInsuredRelationShipItem)
+      console.log('39', this.applicantLastName)
+      console.log('40', this.applicantFirstName)
+      console.log('41', this.applicantPid)
+      console.log('42', this.gender)
+      console.log('43', this.applicantBirthYear)
+      console.log('44', this.applicantBirthMonth)
+      console.log('45', this.applicantBirthDay)
+      console.log('46', this.applicantMobile)
+      console.log('47', this.applicantLivingCity)
+      console.log('48', this.applicantLivingCityId)
+      console.log('49', this.applicantLivingDistrict)
+      console.log('50', this.applicantAddr)
+      console.log('51', this.applicantEmail)
       this.relationShipVali()
       this.toCheckNameVal()
       this.checkPid()
@@ -1294,51 +1342,77 @@ export default {
       this.checkBirthDay()
       this.checkEmail()
       this.checkMobile()
-      this.checkCity()
       this.checkArea()
       this.checkAddr()
-      this.checkBirthAgain()
       this.checkInsuredLastName()
       this.toCheckInsuredFirstNameVal()
       this.checkInsuredPid()
       this.insuredCheckBirthYear()
       this.insuredCheckBirthMonth()
       this.insuredCheckBirthDay()
-      this.checkInsuredBDAgain()
       this.insuredCheckEmail()
       this.insuredCheckMobile()
-      this.insuredCheckCity()
       this.insuredCheckArea()
       this.insuredCheckAddr()
       if (
-        this.applicantFirstNameInValid ||
-        this.applicantLastNameInValid ||
-        this.applicantNameInValid ||
-        this.pidInValid ||
-        this.BYearInValid ||
-        this.BMonthInValid ||
-        this.BDayInValid ||
-        this.emailInValid ||
-        this.mobileInValid ||
-        this.addrInValid ||
-        this.addrCityInValid ||
-        this.addrAreaInValid ||
+        !this.relationShipVali() ||
+        !this.toCheckNameVal() ||
+        !this.checkPid() ||
+        !this.checkBirthYear() ||
+        !this.checkBirthMonth() ||
+        !this.checkBirthDay() ||
+        !this.checkEmail() ||
+        !this.checkMobile() ||
+        !this.checkArea() ||
+        !this.checkAddr() ||
+        !this.checkInsuredLastName() ||
+        !this.toCheckInsuredFirstNameVal() ||
+        !this.checkInsuredPid() ||
+        !this.insuredCheckBirthYear() ||
+        !this.insuredCheckBirthMonth() ||
+        !this.insuredCheckBirthDay() ||
+        !this.insuredCheckEmail() ||
+        !this.insuredCheckMobile() ||
+        !this.insuredCheckArea() ||
+        !this.insuredCheckAddr() ||
+        !this.insuredLastName ||
+        !this.insuredFirstName ||
+        !this.insuredPid ||
+        !this.insuredGender ||
+        !this.insuredBirthYear ||
+        !this.insuredBirthMonth ||
+        !this.insuredBirthDay ||
+        !this.insuredMobile ||
+        !this.insuredCity ||
+        !this.insuredCityId ||
+        !this.insuredDistrict ||
+        !this.insuredDistrictId ||
+        !this.insuredAddr ||
+        !this.insuredEmail ||
         !this.agreementRead ||
-        this.relationshipInValid ||
-        this.insuredLastNameInValid ||
-        this.insuredFirstNameInValid ||
-        this.insuredPidInValid ||
-        this.insuredBYearInValid ||
-        this.insuredBMonthInValid ||
-        this.insuredBDayInValid ||
-        this.insuredMobileInValid ||
-        this.insuredaddrInValid ||
-        this.insuredaddrCityInValid ||
-        this.insuredaddrAreaInValid ||
-        this.insuredEmailInValid
+        !this.withInsuredRelationShipItem ||
+        !this.applicantLastName ||
+        !this.applicantFirstName ||
+        !this.applicantPid ||
+        !this.gender ||
+        !this.applicantBirthYear ||
+        !this.applicantBirthMonth ||
+        !this.applicantBirthDay ||
+        !this.applicantMobile ||
+        !this.applicantLivingCity ||
+        !this.applicantLivingCityId ||
+        !this.applicantLivingDistrict ||
+        !this.applicantLivingDistrictId ||
+        !this.applicantAddr ||
+        !this.applicantEmail
       ) {
-        this.visible = true
-        this.errorMsgOfFailSent = '請填入正確資料。'
+        if (!this.agreementRead) {
+          this.visible = true
+          this.errorMsgOfFailSent = '您必須同意網路要保聲明事項和個人資料聲明事項。'
+        } else {
+          this.visible = true
+          this.errorMsgOfFailSent = '請填入正確資料。'
+        }
       } else {
         // applicant data save for sending them to back-end
         this.$parent.$parent.applicantData['applicantLastName'] = this.applicantLastName
@@ -1763,5 +1837,11 @@ export default {
     color: white;
   }
   /*modal css end*/
+
+  @media screen and (max-width:1000px) {
+    .modal-default-button {
+      margin: 0px 49%;
+    }
+  }
 
 </style>

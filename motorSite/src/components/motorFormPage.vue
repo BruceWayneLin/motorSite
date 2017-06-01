@@ -156,7 +156,7 @@
           <div class="col-sm-7">
             <div class="col-sm-12">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入引擊號碼:</span>
-              <input type="text" @click="showEngineNumbExampmles" maxlength="60" @change="validateEngineNumb" v-model="engineNum" v-bind:class="{errorShow:engineNumInValid}" name="engineNum" class="form-control" placeholder="引擊號碼/車身號碼(擇一)">
+              <input type="text" @click="showEngineNumbExamples" maxlength="60" @change="validateEngineNumb" v-model="engineNum" v-bind:class="{errorShow:engineNumInValid}" name="engineNum" class="form-control" placeholder="引擊號碼/車身號碼(擇一)">
             </div>
           </div>
         </div>
@@ -312,7 +312,7 @@
               </div>
             </div>
           <div class="col-sm-8">
-            <datepicker v-model="executionDay" v-bind:class="{errorShow: executionDayInValid}" :change="validateExecution" language="zh" format="yyyy-MM-dd" input-class="form-control customerDate" placeholder="請選擇保險開始日" :highlighted="state.highlighted" :disabled="state.disabled"></datepicker>
+            <datepicker v-model="executionDay" v-on:opened="toCheckAndValiMotorDate" v-bind:class="{errorShow: executionDayInValid}" v-on:closed="validateExecution" @change="" language="zh" format="yyyy-MM-dd" input-class="form-control customerDate" placeholder="請選擇保險開始日" :highlighted="state.highlighted" :disabled="state.disabled"></datepicker>
           </div>
         </div>
         </div>
@@ -446,7 +446,7 @@
 
           <div class="modal-footer text-center">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -548,6 +548,10 @@ export default {
     }
   },
   methods: {
+    toCheckAndValiMotorDate: function () {
+      this.validateMotoYear()
+      this.validateMotoMonth()
+    },
     toGoBackIndex: function () {
       window.location.href = './index.html'
     },
@@ -620,13 +624,8 @@ export default {
             }
           }).then(response => {
             if (response.data.isEx === true) {
-              var text = response.data.msgs
-              let msg = ''
-              for (var i = 0; i < text.length; i++) {
-                msg = text[i]
-              }
-              alert(msg)
-              console.log('backend', msg)
+              this.errorMsgOfFailSent = response.data.msgs
+              this.visibleError = true
               return false
             } else {
               this.$router.push('/infoPage')
@@ -671,7 +670,8 @@ export default {
 
       return [year, month, day].join('-')
     },
-    showEngineNumbExampmles: function () {
+    showEngineNumbExamples: function () {
+      this.toValidatePlate()
       this.engineNumExample = true
       this.airProduceExample = false
       this.issuedDayExample = false
@@ -680,6 +680,7 @@ export default {
       this.brandExample = false
     },
     toShowAirCCExample: function () {
+      this.validateEngineNumb()
       this.engineNumExample = false
       this.airProduceExample = true
       this.issuedDayExample = false
@@ -688,6 +689,7 @@ export default {
       this.brandExample = false
     },
     toShowIssuedDateExample: function () {
+      this.comparePlateWithEnterCC()
       this.engineNumExample = false
       this.airProduceExample = false
       this.issuedDayExample = true
@@ -696,6 +698,9 @@ export default {
       this.brandExample = false
     },
     toShowMotoDateExample: function () {
+      this.validateReleasePlateYear()
+      this.validateReleasePlateMonth()
+      this.validateReleasePlateDay()
       this.engineNumExample = false
       this.airProduceExample = false
       this.issuedDayExample = false
@@ -731,6 +736,7 @@ export default {
             this.MAButton = !this.MAButton
             this.MBButton = false
             this.MCButton = false
+            this.ccTextOrHp = 'cc'
             this.OtherButton = false
             break
           case 'MB':
@@ -740,6 +746,7 @@ export default {
             this.MBButton = !this.MBButton
             this.MAButton = false
             this.MCButton = false
+            this.ccTextOrHp = 'cc'
             this.OtherButton = false
             break
           case 'MC':
@@ -749,6 +756,7 @@ export default {
             this.MCButton = !this.MCButton
             this.MBButton = false
             this.MAButton = false
+            this.ccTextOrHp = 'cc'
             this.OtherButton = false
             break
           default:
@@ -756,6 +764,7 @@ export default {
         this.showOther = false
       } else {
         this.OtherButton = !this.OtherButton
+        this.motoMadeFactoryItem = {id: 0, code: '', name: '請選擇您的廠牌', topDisplay: false}
         this.motoMadeFactory = this.motoMadeFactoryItem.code
         this.MAButton = false
         this.MBButton = false
@@ -787,7 +796,7 @@ export default {
       } else if ((this.plateNumberFirstArea === '' && this.plateNumberSecondArea === '') && this.newPlate === true) {
         this.isPlateError = false
         return true
-      } else if ((this.plateNumberFirstArea <= 2 || this.plateNumberSecondArea.length <= 3) && this.newPlate === false) {
+      } else if ((this.plateNumberFirstArea <= 2 || this.plateNumberSecondArea.length <= 2) && this.newPlate === false) {
         this.isPlateError = true
         this.isPlateErrorMsg = '請輸入車牌號碼。'
         return false
@@ -864,19 +873,21 @@ export default {
       }
     },
     validateExecution: function () {
+      console.log('12344321', this.executionDay)
       if (this.executionDay === '') {
         this.executionDayInValid = true
         this.executionDayErrorMsg = '請選擇強制險生效日。'
         return false
       } else {
         this.executionDayInValid = false
+        this.executionDayErrorMsg = ''
         return true
       }
     },
     comparePlateWithEnterCC: function () {
       var selectProductCC = this.$parent.userSelectedProduct['productCC']
       if (this.motoMadeFactoryItem.code === 'MH') {
-        this.$parent.isMH = true
+        this.$parent.$parent.isMH = true
         if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 1.34) {
             this.ProductCCInValid = false
@@ -885,7 +896,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'green'
             this.ccChosen = '綠牌(HP <= 5)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -897,7 +908,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(5 < HP <= 40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -909,7 +920,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '紅黃牌(HP > 40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -921,7 +932,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅黃牌(HP > 40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -938,7 +949,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'green'
             this.ccChosen = '綠牌(1-50cc)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -950,7 +961,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(51-250cc)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -962,7 +973,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '黃牌(251-550)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -974,7 +985,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅牌(551cc+)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -997,7 +1008,6 @@ export default {
   computed: {
     productCC: function () {
       if (this.executionDay) {
-        alert('1')
         this.validateExecution()
       }
       return this.$parent.userSelectedProduct['productCC']
@@ -1069,7 +1079,7 @@ export default {
       return examples
     },
     tofocusSecondPlate: function () {
-      if (this.plateNumberFirstArea.length > 2 || this.plateNumberSecondArea.length > 3) {
+      if (this.plateNumberFirstArea.length > 2 || this.plateNumberSecondArea.length > 1) {
         var Lenglish = /^[A-Za-z0-9]*$/
         if (Lenglish.test(this.plateNumberFirstArea) === false || Lenglish.test(this.plateNumberSecondArea) === false) {
           this.isPlateError = true
@@ -1078,7 +1088,7 @@ export default {
           this.isPlateError = false
           if (this.plateNumberFirstArea.length > 2) {
             $('#secondAreaInput').focus()
-            if (this.plateNumberSecondArea.length >= 3) {
+            if (this.plateNumberSecondArea.length > 2) {
               this.toValidatePlate()
             }
           } else {
@@ -1206,5 +1216,11 @@ export default {
 
   span.errorMessage.motoErrorMsg {
     padding-right: 540px;
+  }
+
+  @media screen and (max-width:1000px) {
+    .modal-default-button {
+      margin: 0px 49%;
+    }
   }
 </style>

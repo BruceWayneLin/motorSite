@@ -1223,3 +1223,14 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
     padding: 0px 22%!important;
   }
 }
+
+.backToIndexOfOtherPageButton {
+  background-color: #e84466!important;
+  border: 1px solid #ccc;
+  color: #fff;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  min-width: 100px;
+  height: 40px;
+}
