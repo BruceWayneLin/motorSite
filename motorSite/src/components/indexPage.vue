@@ -50,7 +50,6 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="products col-sm-3 text-center" v-for="(product, key) in products">
-              <router-link class="productAhref" to="form">
               <div class="productContentDiv animated" :class="'pic' + product.color">
                   <div class="plateColor" @click="productClicked(product, key)" :style="{ backgroundColor: product.color, height: '90px', color: product.textColor }"><span>{{ product.cc }}</span></div>
                   <div class="cardPlateImg"></div>
@@ -63,7 +62,6 @@
                   </div>
               </div>
               <div class="hoverDiv" @click="productClicked(product, key)"></div>
-              </router-link>
             </div>
           </div>
         </div>
@@ -108,9 +106,9 @@
           </slot>
         </div>
 
-        <div class="modal-footer text-center">
+        <div class="modal-footer text-center" style="padding: 0px 47%;">
           <slot name="footer">
-            <button class="modal-default-button" style="margin: 0px 48%;" @click="closeModal">
+            <button class="modal-default-button" @click="closeModal">
               關閉
             </button>
           </slot>
@@ -208,6 +206,7 @@ export default {
       this.selectedProduct['discountPrice'] = product.discountPrice
       this.selectedProduct['content'] = product.content
       this.$parent.userSelectedProduct = this.selectedProduct
+      this.$router.push('/form')
     },
     principleAnnounce: function () {
       this.visible = true
@@ -310,13 +309,5 @@ export default {
   }
 
   .modal-footer {
-  }
-
-  /*modal css end*/
-
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
   }
 </style>

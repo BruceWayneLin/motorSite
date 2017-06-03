@@ -30,7 +30,7 @@
 
     <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
       <div class="row">
-        <div class="col-sm-12 thanksDiv">
+        <div class="col-sm-12 thanksDiv" style="margin-top: 150px;min-height: 555px;">
           <div class="col-sm-12 text-center" style="margin-bottom:10px;">
             <h2><i class="fa fa-check-circle" aria-hidden="true"></i>感謝您選擇英國凱萊，訂單編號_{{orderNumber}}_已成立</h2>
             <h3>請留意，相關資訊將會寄到您的E-mail信箱</h3>
@@ -78,9 +78,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center"  style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;" @click="closeModal">
+              <button class="modal-default-button" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -214,10 +214,4 @@ export default {
     color: white;
   }
   /*modal css end*/
-
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
-  }
 </style>

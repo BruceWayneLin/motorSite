@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div style="margin-top:50px;height: 450px;" class="container customerInfo animated slideInLeft">
+    <div style="margin-top:50px;height: 450px;" id="qaDiv" class="container customerInfo animated slideInLeft">
       <div class="row" style="padding: 30px;">
         <div class="row">
           <div class="col-sm-12 text-center">
@@ -107,11 +107,44 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a href="#"  @click="principleAnnounce">使用條款</a> | <a href="#" @click="privateAnnouce">隱私政策</a></p>
+      <p><a  @click="principleAnnounce">使用條款</a> | <a @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
     </footer>
+
+    <div class="modal-mask" v-show="visible">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+
+          <div class="modal-header">
+            <slot name="header">
+              <img class="logoModal" src="../assets/logo.png"/>
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
+                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
+                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
+              </object>
+            </slot>
+          </div>
+
+          <div class="modal-footer text-center" style="padding: 0px 47%;">
+            <slot name="footer">
+              <button class="modal-default-button" @click="closeModal">
+                關閉
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -125,7 +158,9 @@ export default {
   name: 'qPage',
   data () {
     return {
-
+      AnnounceShow: false,
+      PrivacyShow: false,
+      visible: false
     }
   },
   methods: {
@@ -136,8 +171,19 @@ export default {
       window.open('index.html#/qPage', '_blank')
     },
     principleAnnounce: function () {
+      this.visible = true
+      this.AnnounceShow = true
+      this.PrivacyShow = false
     },
     privateAnnouce: function () {
+      this.visible = true
+      this.AnnounceShow = false
+      this.PrivacyShow = true
+    },
+    closeModal: function () {
+      this.visible = false
+      this.AnnounceShow = false
+      this.PrivacyShow = false
     }
   },
   computed: {
@@ -169,5 +215,70 @@ export default {
   }
   .processImg {
     padding-top: 18px;
+  }
+
+  /*modal css*/
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .modal-header .logo {
+    max-width: 180px;
+  }
+
+  .modal-container {
+    width: 100%;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .modal-header h3 {
+    margin-top: 0;
+    color: #42b983;
+  }
+
+  .modal-body {
+    margin: 20px 0;
+  }
+
+  .modal-default-button {
+    float: right;
+  }
+
+  .modal-default-button {
+    margin: auto 25%;
+    float: right;
+    background-color: #db4160;
+    border: none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    min-width: 100px;
+    color: white;
+  }
+  /*modal css end*/
+
+  @media screen and (max-width:500px) {
+    #qaDiv {
+      min-height:800px;
+    }
   }
 </style>

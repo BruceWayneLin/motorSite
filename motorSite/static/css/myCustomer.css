@@ -421,6 +421,7 @@ i.fa {
 
 .priceNormal {
   font-size: 40px;
+  font-weight: bold;
   color:#fff;
   text-shadow: 2px 2px 2px black;
 }
@@ -620,7 +621,7 @@ nav {
     left: 44%;
   }
   .iconErrorMessageBack {
-    top: 44px;
+    top: 87px;
   }
   .img.processImg {
     display: none;
@@ -629,7 +630,6 @@ nav {
 
 @media screen and (max-width:495px){
   .navbar-default .navbar-toggle {
-    left:-40px;
   }
 }
 
@@ -658,8 +658,6 @@ nav {
     left: -24%;
   }
 }
-
-
 @media screen and (max-width:879px) and (min-width:767px){
   .priceDiv {
     left: -30%;
@@ -1111,7 +1109,7 @@ html,body
   }
   .priceDiscount {
     top: -69px;
-    left: 19%;
+    left: 15%;
     font-size: 15px;
   }
   .moneySign {
@@ -1193,7 +1191,7 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
     display: none;
   }
   input.form-control.text-center.btn-sm.isActiveBtnAbove {
-    padding: 0px 40%!important;
+    text-align: center;
   }
   .ccSpan {
 
@@ -1201,6 +1199,10 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
   #navbar ul li{
     border: 1px solid white!important;
     margin: 10px;
+    background-color: white;
+  }
+  #navbar ul li p {
+    color: #777777!important;
   }
   #navbar.navbar-collapse.collapse.in {
     min-height: 400px!important;
@@ -1209,9 +1211,16 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
   #navbar ul li p:nth-child(1){
     cursor: pointer;
   }
-  .sameAsApplicant {
-    padding: 0px 43%!important;
+  #navbar ul li:nth-child(2) p i{
+    font-size: 37px;
   }
+  .sameAsApplicant {
+  }
+}
+
+input.sameAsApplicant.form-control.text-center.btn-sm {
+  white-space: nowrap!important;
+  text-align: center!important;
 }
 
 .vdp-datepicker__calendar {
@@ -1233,4 +1242,42 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
   border-radius: 30px;
   min-width: 100px;
   height: 40px;
+}
+
+.modal-default-button {
+  margin-top: 10px;
+}
+
+.priceDiv a: hover {
+  border:none!important;
+  color: none!important;
+}
+
+@media screen and (max-width: 789px) and (min-width: 767px) {
+  .exampleCarLicense {
+    display:none;
+  }
+  .motorFormPage .col-sm-7 {
+    width: 100%!important;
+  }
+  .customerForm strong {
+    position: relative;
+    left: 78%;
+  }
+  span.hideInLowScreen.birthSpan {
+    position: relative!important;
+    left: -7%!important;
+  }
+}
+
+input {
+  cursor: pointer!important;
+}
+
+a {
+  cursor: pointer!important;
+}
+
+ul.nav.navbar-nav.navbar-right p {
+  cursor: pointer!important;
 }

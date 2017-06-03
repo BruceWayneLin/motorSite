@@ -30,14 +30,14 @@
 
     <div style="margin-top:50px;  min-height:720px;" class="container customerInfo animated slideInLeft">
       <div class="row">
-        <div class="col-sm-12 thanksDiv">
-          <div class="col-sm-12 text-center" style="margin-bottom:10px;">
-            <img src="../assets/404.png" alt="img-responsive" style="height:150px; width:auto;">
-            <h4 style="border-bottom:none;">系統似乎繁忙中，需要任何協助請撥打免費客服專線：</h4>
-            <h4>0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您.</h4>
+        <div class="col-sm-12 thanksDiv" style="margin-top: 150px;">
+          <div class="col-sm-12 text-center" style="margin-bottom:10px;margin-top: 15px;">
+            <img src="../assets/errorPage.png" alt="img-responsive" style="height:150px; width:auto;">
           </div>
           <div class="col-sm-12">
-            <div class="thanksWords text-center">
+            <h4 style="border-bottom:none;margin-top:23px;">系統似乎繁忙中，需要任何協助請撥打免費客服專線：</h4>
+            <h4>0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您.</h4>
+            <div class="thanksWords text-center" style="margin-top:23px;">
               <div class="buttonProject">
                 <button class="backToIndexOfOtherPageButton" @click="toGoBackIndex">回到首頁</button>
               </div>
@@ -78,9 +78,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center"  style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
+              <button class="modal-default-button"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -204,6 +204,7 @@ export default {
 
   .modal-default-button {
     margin: auto 25%;
+    margin-top:10px;
     float: right;
     background-color: #db4160;
     border: none;
@@ -215,9 +216,7 @@ export default {
   }
   /*modal css end*/
 
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
+  .customerInfo, .customerInfo h4 {
+    border:none;
   }
 </style>

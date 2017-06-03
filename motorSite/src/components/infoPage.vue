@@ -45,7 +45,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>姓名:</p>
+                  <p class="mobileTitle">姓名:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{applicant.applicantLastName}} {{ applicant.applicantFistName }}</p>
@@ -53,7 +53,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>身分證字號:</p>
+                  <p class="mobileTitle">身分證字號:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ applicant.applicantPid }}</p>
@@ -61,7 +61,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>性別:</p>
+                  <p class="mobileTitle">性別:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ applicant.applicantGender == 'male' ? '男' : '女' }}</p>
@@ -69,7 +69,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>出生日期:</p>
+                  <p class="mobileTitle">出生日期:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ applicant.applicantBirthday.replace(/,/g, '') }}</p>
@@ -77,7 +77,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>手機號碼:</p>
+                  <p class="mobileTitle">手機號碼:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ applicant.applicantMobile }}</p>
@@ -85,7 +85,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>地址:</p>
+                  <p class="mobileTitle">地址:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p class="wordWrap">{{applicant.applicantCity['name']}} {{applicant.applicantDistrict['name']}} {{ applicant.applicantAddr }}</p>
@@ -93,7 +93,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>E-Mail信箱:</p>
+                  <p class="mobileTitle">E-Mail信箱:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ applicant.applicantEmail }}</p>
@@ -107,7 +107,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>姓名:</p>
+                  <p class="mobileTitle">姓名:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredLastName }} {{ insuredPP.insuredFirstName }}</p>
@@ -115,7 +115,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>身分證字號:</p>
+                  <p class="mobileTitle">身分證字號:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredPid }}</p>
@@ -123,7 +123,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>性別:</p>
+                  <p class="mobileTitle">性別:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredGender == 'male' ? '男' : '女' }}</p>
@@ -131,7 +131,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>出生日期:</p>
+                  <p class="mobileTitle">出生日期:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredBirthdayForCheck.replace(/,/g, '') }}</p>
@@ -139,7 +139,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>手機號碼:</p>
+                  <p class="mobileTitle">手機號碼:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredMobile }}</p>
@@ -147,7 +147,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>地址:</p>
+                  <p class="mobileTitle">地址:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p class="wordWrap">{{insuredPP.insuredCity['name']}} {{insuredPP.insuredDistrict['name']}} {{ insuredPP.insuredAddr }}</p>
@@ -155,7 +155,7 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p>E-Mail信箱:</p>
+                  <p class="mobileTitle">E-Mail信箱:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p>{{ insuredPP.insuredEmail }}</p>
@@ -178,11 +178,11 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>車牌:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">車牌:</p></div>
               <div class="col-sm-9 text-left"><p>{{motoInfoPlateEng === '' ? '新車無牌照' : motoInfoPlateEng}} {{motoInfoPlateEng === '' ? '' : '-'}}  {{motoInfoPlateNum === '' ? '' : motoInfoPlateNum}}</p></div>
             </div>
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>發照日期:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">發照日期:</p></div>
               <div class="col-sm-9 text-left"><p>{{motoInfo.motoReleasePlateDateForCheck.replace(/,/g, '')}}</p></div>
             </div>
           </div>
@@ -191,11 +191,11 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>車子品牌:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">車子品牌:</p></div>
               <div class="col-sm-9 text-left"><p>{{motoInfo.motoBrand}}</p></div>
             </div>
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>出廠日期:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">出廠日期:</p></div>
               <div class="col-sm-9 text-left"><p>{{motoInfo.motoFactoryDateForCheck.replace(/,/g, '')}}</p></div>
             </div>
           </div>
@@ -204,11 +204,11 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>排氣量:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">排氣量:</p></div>
               <div class="col-sm-9 text-left"><p>{{ userEnteredProdcutCC }}</p></div>
             </div>
             <div class="col-sm-6">
-              <div class="col-sm-3"><p>引擊/車身號碼:</p></div>
+              <div class="col-sm-3"><p class="mobileTitle">引擊/車身號碼:</p></div>
               <div class="col-sm-9 text-left"><p>{{motoInfo.engineNumber}}</p></div>
             </div>
           </div>
@@ -229,20 +229,20 @@
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p>保險種類</p>
+                  <p class="mobileTitle">保險種類</p>
                 </li>
                 <li>
                   <p>{{ productInfo.prodInfo['title']  }}</p>
                 </li>
                 <li>
-                  <a href="#">保險相關條款</a>
+                  <a>保險相關條款</a>
                 </li>
               </ul>
             </div>
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p>保險金額</p>
+                  <p class="mobileTitle">保險金額</p>
                 </li>
                 <li v-for="item in productInfo.prodInfo['content']">
                   <p>{{ item }}</p>
@@ -252,7 +252,7 @@
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p>保險開始日</p>
+                  <p class="mobileTitle">保險開始日</p>
                 </li>
                 <li>
                   <p>{{motoInfo.executionDay}}</p>
@@ -325,9 +325,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center"  style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;" @click="closeModal">
+              <button class="modal-default-button" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -500,17 +500,38 @@ export default {
     color: white;
   }
   /*modal css end*/
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
-  }
   @media screen and (max-width:769px) and (min-width:758px) {
     ul.nav.navbar-nav.navbar-right {
       font-size: 15px!important;
     }
     div.col-sm-6 {
-      width: 60%!important;
+      width: 100%!important;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .customerInfo h4 {
+      text-align: left;
+    }
+    .customerInfo .col-sm-6 .col-sm-12, .customerInfo .col-sm-6 {
+      padding: 0px;
+    }
+    .customerInfo .col-sm-3 p, .customerInfo .col-sm-4 p {
+      text-align: left;
+    }
+    .mobileTitle {
+      font-weight: 600;
+    }
+    .customerInfo .col-sm-4 a {
+      display: block;
+      position:relative;
+      left: -38%;
+    }
+    .customerInfo h3 {
+      font-weight: bold;
+    }
+    .customerInfo .title {
+      margin: 0px;
     }
   }
 </style>

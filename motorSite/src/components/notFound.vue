@@ -28,12 +28,12 @@
         </div>
     </div>
 
-    <div style="margin-top:50px; min-height:720px;" class="container customerInfo animated slideInLeft">
+    <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
       <div class="row">
-        <div class="col-sm-12 thanksDiv">
+        <div class="col-sm-12 thanksDiv" style="">
           <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:5%;">
             <h2>找不到頁面</h2>
-            <img src="../assets/notFound.png" alt="img-responsive" style="height:150px; width:auto;">
+            <img src="../assets/notFound.png" alt="img-responsive" style="margin: 20px 0px;height:200px; width:auto;">
             <h4 style="border-bottom:none;">您似乎迷路了！需要任何協助請撥打免費客服專線：</h4>
             <h4>0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您。</h4>
           </div>
@@ -79,9 +79,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center"  style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;" @click="closeModal">
+              <button class="modal-default-button" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -216,9 +216,15 @@ export default {
   }
   /*modal css end*/
 
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
+  .customerInfo, .customerInfo h4 {
+    border:none;
+  }
+  .customerInfo h2 {
+    color: #e84466;
+    font-weight: bold;
+  }
+  .customerInfo .thanksDiv {
+    margin-top: 30px;
+    margin-bottom: 120px;
   }
 </style>

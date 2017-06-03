@@ -78,7 +78,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
-            <div class="gender" v-bind:class="{ishidden: !pidFilled}">
+            <div class="gender text-left" v-bind:class="{ishidden: !pidFilled}">
               <span>{{ applicantLastName }} {{ applicantFirstName }} {{ welcomeMsg }}</span>
             </div>
           </div>
@@ -134,7 +134,7 @@
             <div class="col-sm-12">
               <div style="top:-12px;left: -4px;" class="iconErrorMessageBack" v-show="BYearInValid || BMonthInValid || BDayInValid">
               </div>
-              <span class="errorMessage" style="padding-right:780px" v-show="BYearInValid || BMonthInValid || BDayInValid">{{ BYearErrorMsg }}</span>
+              <span id="specialAddrShrink" class="errorMessage" style="padding-right:780px" v-show="BYearInValid || BMonthInValid || BDayInValid">{{ BYearErrorMsg }}</span>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:-6px; top: -8px;" class="iconErrorMessageBack" v-show="addrCityInValid || addrAreaInValid"></div>
-              <span class="errorMessage" style="top:5px;padding-right:320px;" v-show="addrCityInValid || addrAreaInValid">{{ addrCityErrorMsg }}{{ addrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+              <span id="specialAddrShrink" class="errorMessage" style="top:5px;padding-right:320px;" v-show="addrCityInValid || addrAreaInValid">{{ addrCityErrorMsg }}{{ addrAreaErrorMsg }}{{ addrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
             </div>
           </div>
         </div>
@@ -238,7 +238,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:-6px; top: -8px;" class="iconErrorMessageBack" v-show="addrInValid"></div>
-              <span class="errorMessage" style="top:5px;padding-right:320px" v-show="addrInValid">{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+              <span id="specialAddrShrink" class="errorMessage" style="top:5px;padding-right:320px" v-show="addrInValid">{{ addrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
             </div>
           </div>
         </div>
@@ -287,7 +287,7 @@
                 </select>
               </div>
               <span class="errorMessage" style="padding-right: 420px;" v-show="relationshipInValid">{{ relationshipErrorMsg }}</span>
-              <div class="iconErrorMessageBack" style="right: -25px; left: 0px;margin-top:20px;" v-show="relationshipInValid"></div>
+              <div class="iconErrorMessageBack specialIcon" style="right: -25px; left: 0px;margin-top:20px;" v-show="relationshipInValid"></div>
             </div>
           </div>
         </div>
@@ -389,7 +389,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12">
               <div style="left:0px;" class="iconErrorMessageBack motoErrorIcon" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid"></div>
-              <span class="errorMessage" style="padding-right: 420px;" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid">{{ insuredBYearErrorMsg }}</span>
+              <span id="specialAddrShrink" class="errorMessage" style="padding-right: 420px;" v-show="insuredBYearInValid || insuredBMonthInValid || insuredBDayInValid">{{ insuredBYearErrorMsg }}</span>
             </div>
           </div>
         </div>
@@ -471,7 +471,7 @@
           <div class="col-sm-6">
           </div>
           <div class="col-sm-6">
-            <span class="errorMessage" style="padding-right: 420px;top:5px;margin-left:15px;" v-show="insuredaddrCityInValid || insuredaddrAreaInValid">{{ insuredaddrCityErrorMsg }}{{ insuredaddrAreaErrorMsg }}{{ addrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+            <span id="specialAddrShrink" class="errorMessage" style="padding-right: 420px;top:5px;margin-left:15px;" v-show="insuredaddrCityInValid || insuredaddrAreaInValid">{{ insuredaddrCityErrorMsg }}{{ insuredaddrAreaErrorMsg }}{{ addrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
             <div style="left:11px;top:-8px;" class="iconErrorMessageBack" v-show="insuredaddrCityInValid || insuredaddrAreaInValid"></div>
           </div>
         </div>
@@ -495,7 +495,7 @@
           </div>
           <div class="col-sm-6">
             <div class="iconErrorMessageBack" style="top:-7px;left:9px;" v-show="insuredaddrInValid" ></div>
-            <span class="errorMessage" style="padding-left:15px; top:5px; padding-right:420px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請輸入正確地址，以利寄送保險證明文件與活動獎項。</span>
+            <span id="specialAddrShrink" class="errorMessage" style="padding-left:15px; top:5px; padding-right:420px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
           </div>
         </div>
       </div>
@@ -589,9 +589,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center" style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
+              <button style="margin:10px auto" class="modal-default-button"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -1635,13 +1635,13 @@ export default {
     getCurrentMonthDay: function () {
       if (this.applicantBirthMonth !== '') {
         var m = parseInt(this.applicantBirthMonth.slice(0, 2))
-        var y = parseInt(this.applicantBirthYear.slice(0, 3))
+        var y = parseInt(this.applicantBirthYear.slice(2, 6)) + 1911
         switch (m) {
           case 1: case 3: case 5: case 7: case 8:case 10: case 12:
             return 32
           case 2:
             if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
-              return 31
+              return 30
             }
             return 29
 
@@ -1653,13 +1653,13 @@ export default {
     getInsuredCurrentMonthDay: function () {
       if (this.insuredBirthMonth !== '') {
         var m = parseInt(this.insuredBirthMonth.slice(0, 2))
-        var y = parseInt(this.insuredBirthYear.slice(0, 3))
+        var y = parseInt(this.insuredBirthYear.slice(2, 6)) + 1911
         switch (m) {
           case 1: case 3: case 5: case 7: case 8:case 10: case 12:
             return 32
           case 2:
             if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
-              return 31
+              return 30
             }
             return 29
 
@@ -1837,11 +1837,20 @@ export default {
     color: white;
   }
   /*modal css end*/
-
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
+  @media screen and (max-width:400px){
+    div.iconErrorMessageBack.specialIcon{
+      top: 50px!important;
     }
+    #specialAddrShrink {
+      font-size: 14px!important;
+    }
+    .customerForm {
+      margin-top:40px;
+    }
+  }
+
+  .customerForm .gender span {
+    white-space: nowrap;
   }
 
 </style>

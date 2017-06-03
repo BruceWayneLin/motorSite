@@ -100,7 +100,7 @@
               <div class="col-sm-12">
                 <div class="selectWrapper">
                   <select @change="checkHpOrCc" v-model="motoMadeFactoryItem" v-bind:class="{errorShow:motoMadeFactoryInValid}" class="form-control">
-                    <option v-for="item in brandList" :value="item" v-show="!item.topDisplay">{{item.name}}</option>
+                    <option v-for="item in brandList" :value="item">{{item.name}}</option>
                   </select>
                 </div>
               </div>
@@ -124,14 +124,14 @@
               <div class="carPlateLineText"></div>
             </div>
             <div class="col-sm-4">
-              <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌後四碼:</span>
+              <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌後三碼或四碼:</span>
                     <input type="text" id="secondAreaInput" @change="toValidatePlate" v-bind:class="{errorShow:isPlateError}"
                             style="text-transform:uppercase"  maxlength="4"  v-model="plateNumberSecondArea"
                             :disabled="newPlate || !plateNumberFirstArea"  placeholder=""  class="form-control"
                             name="motoplateNum">     
             </div>
             <div class="col-sm-4">       
-              <button type="button" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}" @click="isNewPlate"  class="form-control">新牌無牌照
+              <button type="button" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}" @click="isNewPlate"  class="form-control">新車無牌照
               </button>
             </div>
           </div>
@@ -178,7 +178,7 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
-            <div class="col-sm-3">
+            <div class="col-sm-3 text-left">
               <div style="padding-top:20px;">
                 <span class="formTitleSpan" style="margin-left: 0px;">排氣量:</span>
                 <span class="hideInLowScreen birthSpan">排氣量</span>
@@ -211,7 +211,7 @@
 
           </div>
           <div class="col-sm-7">
-            <div class="col-sm-3">
+            <div class="col-sm-3 text-left">
               <div style="padding-top:20px;">
                 <span class="formTitleSpan" style="margin-left: 0px;margin-bottom: -10px;">發照日期:</span>
                 <span class="hideInLowScreen birthSpan">發照日期</span>
@@ -261,7 +261,7 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
-            <div class="col-sm-3">
+            <div class="col-sm-3 text-left">
               <div style="padding-top:22px;">
                 <span class="formTitleSpan" style="margin-left: 0px;margin-bottom:-10px;">出廠年月:</span>
                 <span class="hideInLowScreen birthSpan">出廠年月</span>
@@ -305,14 +305,14 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
-            <div class="col-sm-4">
+            <div class="col-sm-4 text-left">
               <div style="padding-top:30px">
                 <span class="formTitleSpan" style="margin-left: 0px;">保險開始日:</span>
-                <span class="hideInLowScreen birthSpan">保險開始日</span>
+                <span class="hideInLowScreen birthSpan" style="padding-left:14px;">保險開始日</span>
               </div>
             </div>
           <div class="col-sm-8">
-            <datepicker v-model="executionDay" v-on:opened="toCheckAndValiMotorDate" v-bind:class="{errorShow: executionDayInValid}" v-on:closed="validateExecution" @change="" language="zh" format="yyyy-MM-dd" input-class="form-control customerDate" placeholder="請選擇保險開始日" :highlighted="state.highlighted" :disabled="state.disabled"></datepicker>
+            <datepicker v-model="executionDay" v-on:opened="toCheckAndValiMotorDate" v-bind:class="{errorShow: executionDayInValid}" v-on:input="validateExecution" @change="" language="zh" format="yyyy-MM-dd" input-class="form-control customerDate" placeholder="請選擇保險開始日" :highlighted="state.highlighted" :disabled="state.disabled"></datepicker>
           </div>
         </div>
         </div>
@@ -380,12 +380,15 @@
           <div class="modal-body">
             <slot name="body">
               <p>{{errorMsgOfFailSent}}</p>
+              <ul style="padding-left:0px;" v-for="text in backMsg">
+                <p>{{text}}</p>
+              </ul>
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer" style="padding: 0 25%;">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button style="margin: 10px auto; display:block;" class="modal-default-button"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -411,9 +414,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center" style="text-align: center;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: auto 35%;" @click="ccModalShow = false">
+              <button style=" margin: 0 38%; display:block" class="modal-default-button" @click="ccModalShow = false">
                 關閉
               </button>
             </slot>
@@ -444,9 +447,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer text-center">
+          <div class="modal-footer text-center" style="padding: 0px 47%;">
             <slot name="footer">
-              <button class="modal-default-button" style="margin: 0px 48%;"  @click="closeModal">
+              <button style="margin:10px auto" class="modal-default-button" @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -471,6 +474,7 @@ export default {
   components: { Datepicker },
   data () {
     return {
+      backMsg: '',
       visible: false,
       AnnounceShow: false,
       PrivacyShow: false,
@@ -600,6 +604,7 @@ export default {
           var mY = parseInt(this.releaseMotoYearDate.slice(0, 4))
           var mM = parseInt(this.releaseMotoMonthDate.slice(0, 1))
 
+          motocycleInfo['motoBrandItem'] = this.motoMadeFactoryItem
           motocycleInfo['releasePlateYear'] = rY
           motocycleInfo['releasePlateMonth'] = rM
           motocycleInfo['releasePlateDay'] = rD
@@ -624,7 +629,8 @@ export default {
             }
           }).then(response => {
             if (response.data.isEx === true) {
-              this.errorMsgOfFailSent = response.data.msgs
+              this.errorMsgOfFailSent = ''
+              this.backMsg = response.data.msgs
               this.visibleError = true
               return false
             } else {
@@ -715,6 +721,8 @@ export default {
       if (!this.newPlate) {
         this.plateNumberFirstArea = ''
         this.plateNumberSecondArea = ''
+        this.isPlateError = false
+        this.isPlateErrorMsg = ''
         this.newPlate = true
       } else {
         this.newPlate = false
@@ -733,7 +741,7 @@ export default {
             this.motoMadeFactory = 'MA'
             this.motoBrand = '三陽'
             this.motoMadeFactoryInValid = false
-            this.MAButton = !this.MAButton
+            this.MAButton = true
             this.MBButton = false
             this.MCButton = false
             this.ccTextOrHp = 'cc'
@@ -743,7 +751,7 @@ export default {
             this.motoMadeFactory = 'MB'
             this.motoBrand = '山葉'
             this.motoMadeFactoryInValid = false
-            this.MBButton = !this.MBButton
+            this.MBButton = true
             this.MAButton = false
             this.MCButton = false
             this.ccTextOrHp = 'cc'
@@ -753,7 +761,7 @@ export default {
             this.motoMadeFactory = 'MC'
             this.motoBrand = '光陽'
             this.motoMadeFactoryInValid = false
-            this.MCButton = !this.MCButton
+            this.MCButton = true
             this.MBButton = false
             this.MAButton = false
             this.ccTextOrHp = 'cc'
@@ -763,7 +771,7 @@ export default {
         }
         this.showOther = false
       } else {
-        this.OtherButton = !this.OtherButton
+        this.OtherButton = true
         this.motoMadeFactoryItem = {id: 0, code: '', name: '請選擇您的廠牌', topDisplay: false}
         this.motoMadeFactory = this.motoMadeFactoryItem.code
         this.MAButton = false
@@ -810,7 +818,7 @@ export default {
         this.engineNumInValid = true
         this.engineNumErrorMsg = '請輸入引擎/車身號碼。'
         return false
-      } else if (this.engineNum.length > 60) {
+      } else if (this.engineNum.length >= 60) {
         this.engineNumInValid = true
         this.engineNumErrorMsg = '引擎/車身號碼最多只能是60個字數。'
         return false
@@ -873,7 +881,6 @@ export default {
       }
     },
     validateExecution: function () {
-      console.log('12344321', this.executionDay)
       if (this.executionDay === '') {
         this.executionDayInValid = true
         this.executionDayErrorMsg = '請選擇強制險生效日。'
@@ -889,10 +896,11 @@ export default {
       if (this.motoMadeFactoryItem.code === 'MH') {
         this.$parent.$parent.isMH = true
         if (selectProductCC === 'green') {
-          if (this.userEnteredProdcutCC <= 1.34) {
+          if (this.userEnteredProdcutCC <= 5) {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'green'
             this.ccChosen = '綠牌(HP <= 5)'
@@ -901,22 +909,24 @@ export default {
             return false
           }
         } else if (selectProductCC === 'white') {
-          if (this.userEnteredProdcutCC > 1.34 && this.userEnteredProdcutCC <= 5) {
+          if (this.userEnteredProdcutCC > 5 && this.userEnteredProdcutCC <= 40) {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
-            this.ccChosen = '白牌(5 < HP <= 40)'
+            this.ccChosen = '白牌(5 > HP <= 40)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
         } else if (selectProductCC === 'yellow') {
-          if (this.userEnteredProdcutCC > 5 && this.userEnteredProdcutCC <= 40) {
+          if (this.userEnteredProdcutCC >= 40) {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '紅黃牌(HP > 40)'
@@ -925,10 +935,11 @@ export default {
             return false
           }
         } else if (selectProductCC === 'red') {
-          if (this.userEnteredProdcutCC > 40) {
+          if (this.userEnteredProdcutCC >= 40) {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅黃牌(HP > 40)'
@@ -946,6 +957,7 @@ export default {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'green'
             this.ccChosen = '綠牌(1-50cc)'
@@ -958,6 +970,7 @@ export default {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(51-250cc)'
@@ -970,6 +983,7 @@ export default {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '黃牌(251-550)'
@@ -982,6 +996,7 @@ export default {
             this.ProductCCInValid = false
             return true
           } else {
+            $('select').blur()
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅牌(551cc+)'
@@ -1000,8 +1015,10 @@ export default {
       this.motoBrand = this.motoMadeFactoryItem.name
       if (this.motoMadeFactoryItem.code === 'MH') {
         this.ccTextOrHp = 'hp'
+        this.$parent.$parent.isMH = true
       } else {
         this.ccTextOrHp = 'cc'
+        this.$parent.$parent.isMH = false
       }
     }
   },
@@ -1037,13 +1054,13 @@ export default {
     getCurrentMonthDay: function () {
       if (this.releasePLateMonthDate !== '') {
         var m = parseInt(this.releasePLateMonthDate.slice(0, 2))
-        var y = parseInt(this.releasePlateYearDate.slice(2, 4)) + 1911
+        var y = parseInt(this.releasePlateYearDate.slice(2, 6)) + 1911
         switch (m) {
           case 1: case 3: case 5: case 7: case 8:case 10: case 12:
             return 32
           case 2:
             if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
-              return 31
+              return 30
             }
             return 29
           default:
@@ -1072,7 +1089,18 @@ export default {
       return returnVal
     },
     brandList: function () {
-      return this.$parent.$parent.BrandList
+      console.log(this.$parent.$parent.BrandList)
+      let returnArrayBrand = []
+      for (let i = 0; i < this.$parent.$parent.BrandList.length; i++) {
+        if (!this.$parent.$parent.BrandList[i].topDisplay) {
+          returnArrayBrand.push(this.$parent.$parent.BrandList[i])
+        }
+      }
+      var arrayForRe = returnArrayBrand.sort(function (a, b) {
+        return a.id - b.id
+      })
+      console.log(arrayForRe)
+      return arrayForRe
     },
     showExamples: function () {
       var examples = [{'isShow': this.airProduceExample}, {'isShow': this.carLicenseExample}, {'isShow': this.engineNumExample}, {'isShow': this.motoFacDateExample}, {'isShow': this.issuedDayExample}, {'isShow': this.brandExample}]
@@ -1100,7 +1128,32 @@ export default {
   mounted () {
     window.scrollTo(0, 0)
     var motorInfo = JSON.parse(sessionStorage.getItem('motorInfo'))
+    console.log(motorInfo)
     if (motorInfo) {
+      this.motoMadeFactory = motorInfo['motocycleFactory']
+      console.log(motorInfo['motoBrandItem'])
+      if (motorInfo['motocycleFactory']) {
+        switch (this.motoMadeFactory) {
+          case 'MA':
+            this.getMotoFactory('MA')
+            break
+          case 'MB':
+            this.getMotoFactory('MB')
+            break
+          case 'MC':
+            this.getMotoFactory('MC')
+            break
+          default:
+            this.OtherButton = true
+            this.motoMadeFactoryItem = motorInfo['motoBrandItem']
+            this.motoMadeFactory = this.motoMadeFactoryItem.code
+            this.checkHpOrCc()
+            this.MAButton = false
+            this.MBButton = false
+            this.MCButton = false
+            this.showOther = true
+        }
+      }
       this.plateNumberFirstArea = motorInfo['plateEng']
       this.plateNumberSecondArea = motorInfo['plateNum']
       this.newPlate = motorInfo['isNewPlate']
@@ -1217,10 +1270,7 @@ export default {
   span.errorMessage.motoErrorMsg {
     padding-right: 540px;
   }
+  .customerForm .birthSpan {
 
-  @media screen and (max-width:1000px) {
-    .modal-default-button {
-      margin: 0px 49%;
-    }
   }
 </style>
