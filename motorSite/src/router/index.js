@@ -30,7 +30,7 @@ export default new Router({
       component: ErrorPage
     },
     {
-      path: '/qPage',
+      path: '/faqPage',
       name: 'qPage',
       component: QandAPage
     },
@@ -40,17 +40,17 @@ export default new Router({
       component: ThanksPage
     },
     {
-      path: '/form',
+      path: '/piForm',
       name: 'form',
       component: FormPage
     },
     {
-      path: '/infoPage',
+      path: '/confirmPage',
       name: 'infoPage',
       component: InfoPage
     },
     {
-      path: '/motorForm',
+      path: '/viForm',
       name: 'motorForm',
       component: MotorFormPage
     },

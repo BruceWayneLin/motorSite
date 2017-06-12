@@ -9,23 +9,22 @@ $(function() {
             console.debug = function(){};
             console.warn = function(){};
         }
-    $(window).resize(function(){
-      if ($(window).width() < 500) {
-        $('.first-slide').attr('src', './assets/banner.jpg');
-        $(document).on('click', '#likeToInsured', function(){
-          $('html, body').animate({
-            scrollTop: $("#myProducts").offset().top - 183
-          }, 1000);
-        });
-      } else {
-        $('.first-slide').attr('src', './static/css/img/banner.jpg');
-        $(document).on('click', '#likeToInsured', function(){
-          $('html, body').animate({
-            scrollTop: $("#myProducts").offset().top - 200
-          }, 1000);
-        });
-      }
-    });
+    if ($(window).width() < 500) {
+      $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg');
+      $('.first-slide').css('min-width', '800px');
+      $(document).on('click', '#likeToInsured', function(){
+        $('html, body').animate({
+          scrollTop: $("#myProducts").offset().top - 183
+        }, 500);
+      });
+    } else {
+      $('.first-slide').attr('src', './static/css/img/banner.jpg');
+      $(document).on('click', '#likeToInsured', function(){
+        $('html, body').animate({
+          scrollTop: $("#myProducts").offset().top - 200
+        }, 500);
+      });
+    }
 
     $('#defaultIndex .navbar-header').css({
       "background-color" : "rgba(0, 0, 0, 0.56)",
@@ -65,20 +64,20 @@ $(function() {
         document.onmousemove = function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../../index.html';
+                window.location.href = 'index.html';
             }, 1800000);
         }
         //for mobile session
         $(document).on('click', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../../index.html';
+                window.location.href = 'index.html';
             }, 1800000);
         });
         $(document).on('scroll', function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){
-                window.location.href = '../../../index.html';
+                window.location.href = 'index.html';
             }, 1800000);
         });
     }

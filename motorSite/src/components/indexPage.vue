@@ -28,7 +28,7 @@
           </div>
           <div class="shadowUse">
           </div>
-          <img class="first-slide" src="../assets/banner.jpg" alt="First slide">
+          <img class="first-slide" src="../assets/banner.jpg" onerror="this.style.display='none'" alt="First slide">
           <div class="titleDivH4" v-show="false"><h2>CareLine</h2></div>
           <div class="textDiv"></div>
           <div class="titleButton"><button id="likeToInsured">我要投保<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button></div>
@@ -74,49 +74,6 @@
         </div>
       </div>
     </section>
-    <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
-      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p ><a href="#" style="cursor:pointer;"  @click="principleAnnounce" >使用條款</a> | <a href="#" style="cursor:pointer;" @click="privateAnnouce">隱私政策</a></p>
-      <div class="footer-bottom">
-        <span>© 2017 Careline. All Rights Reserved.</span>
-      </div>
-    </footer>
-    <div>
-  </div>
-
-  <div class="modal-mask" v-show="visible">
-    <div class="modal-wrapper">
-      <div class="modal-container">
-
-        <div class="modal-header">
-          <slot name="header">
-           <img class="logoModal" src="../assets/logo.png"/>
-          </slot>
-        </div>
-
-        <div class="modal-body">
-          <slot name="body">
-            <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
-              <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
-            </object>
-            <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
-              <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
-            </object>
-          </slot>
-        </div>
-
-        <div class="modal-footer text-center" style="padding: 0px 47%;">
-          <slot name="footer">
-            <button class="modal-default-button" @click="closeModal">
-              關閉
-            </button>
-          </slot>
-        </div>
-      </div>
-    </div>
-  </div>
-
   </div>
 </template>
 
@@ -131,8 +88,6 @@ export default {
     return {
       selectedProduct: {},
       isActive: true,
-      AnnounceShow: false,
-      PrivacyShow: false,
       productText: '1年方案',
       visible: false,
       products: [
@@ -144,16 +99,11 @@ export default {
     }
   },
   methods: {
-    closeModal: function () {
-      this.visible = false
-      this.AnnounceShow = false
-      this.PrivacyShow = false
-    },
     toGoBackIndex: function () {
-      window.location.href = './index.html'
+      this.$router.push('/')
     },
     toGoQandAPage: function () {
-      window.open('index.html#/qPage', '_blank')
+      window.open('index.html#/faqPage', '_blank')
     },
     whichProductToShow: function () {
       if (this.isActive) {
@@ -206,17 +156,7 @@ export default {
       this.selectedProduct['discountPrice'] = product.discountPrice
       this.selectedProduct['content'] = product.content
       this.$parent.userSelectedProduct = this.selectedProduct
-      this.$router.push('/form')
-    },
-    principleAnnounce: function () {
-      this.visible = true
-      this.AnnounceShow = true
-      this.PrivacyShow = false
-    },
-    privateAnnouce: function () {
-      this.visible = true
-      this.PrivacyShow = true
-      this.AnnounceShow = false
+      this.$router.push('/piform')
     }
   },
   computed: {
@@ -233,6 +173,15 @@ export default {
   },
   mounted: function () {
     window.scrollTo(0, 0)
+    $('#defaultIndex').css({
+      'background-color': 'rgba(0, 0, 0, 0.56)'
+    })
+    if ($(window).width() < 500) {
+      $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg')
+      $('.first-slide').css('min-width', '800px')
+    } else {
+      $('.first-slide').attr('src', './static/css/img/banner.jpg')
+    }
   }
 }
 </script>
@@ -260,54 +209,4 @@ export default {
     font-weight: bold;
   }
 
-  /*modal css*/
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
-
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .modal-container {
-    width: 100%;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
-  }
-
-  .modal-body {
-    margin: 20px 0;
-  }
-
-  .modal-default-button {
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    color: white;
-  }
-
-  .modal-footer {
-  }
 </style>

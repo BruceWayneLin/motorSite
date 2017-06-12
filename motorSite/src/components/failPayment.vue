@@ -33,7 +33,7 @@
         <div class="col-sm-12 thanksDiv">
           <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:10%;">
             <h2>付款失敗</h2>
-            <h3 style=" margin-bottom: 20px;border:none;">銀行系統維護中, 錯誤代碼</h3>
+            <h3 style=" margin-bottom: 20px;border:none;">銀行系統維護中, 錯誤代碼 {{errorCode}}</h3>
             <img src="../assets/failPayment.png" alt="img-responsive" style="height:100px; width:auto;">
             <h4 style="border-bottom:none;margin-top:30px;">系統似乎繁忙中，需要任何協助請撥打免費客服專線：</h4>
             <h4>0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您.</h4>
@@ -71,16 +71,15 @@
 
           <div class="modal-body">
             <slot name="body">
-              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
-              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
+              <ul>
+                <li v-for="item in errorMsgOfFailSent">
+                  {{item}}
+                </li>
+              </ul>
             </slot>
           </div>
 
-          <div class="modal-footer text-center"  style="padding: 0px 47%;">
+          <div class="modal-footer text-center">
             <slot name="footer">
               <button class="modal-default-button" @click="closeModal">
                 關閉
@@ -95,7 +94,7 @@
 </template>
 
 <script>
-
+import axios from '../../node_modules/axios-es6/dist/axios.min.js'
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
@@ -105,8 +104,8 @@ export default {
   data () {
     return {
       visible: false,
-      AnnounceShow: false,
-      PrivacyShow: false
+      errorMsgOfFailSent: '',
+      errorCode: ''
     }
   },
   methods: {
@@ -114,28 +113,57 @@ export default {
       this.$router.push('/')
     },
     toGoQandAPage: function () {
-      window.open('index.html#/qPage', '_blank')
+      window.open('index.html#/faqPage', '_blank')
     },
     closeModal: function () {
       this.visible = false
-      this.AnnounceShow = false
-      this.PrivacyShow = false
     },
-    principleAnnounce: function () {
-      this.visible = true
-      this.AnnounceShow = true
-      this.PrivacyShow = false
-    },
-    privateAnnouce: function () {
-      this.visible = true
-      this.AnnounceShow = false
-      this.PrivacyShow = true
+    toGetDataFromUrl: function (url) {
+      var queryStart = url.indexOf('?') + 1
+      var queryEnd = url.length + 1
+      var query = url.slice(queryStart, queryEnd - 1)
+      var pairs = query.replace(/\+/g, '').split('&')
+      var parms = {}
+      var i
+      var n
+      var v
+      var nv
+      if (query === url || query === '') return
+      for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split('=', 2)
+        n = decodeURIComponent(nv[0])
+        v = decodeURIComponent(nv[1])
+        if (!parms.hasOwnProperty(n)) parms[n] = []
+        parms[n].push(nv.length === 2 ? v : null)
+      }
+      console.log(parms)
+      return parms
     }
   },
   computed: {
   },
   mounted () {
     window.scrollTo(0, 0)
+    var webUrl = window.location.href
+    var tokenForOrderNumb = this.toGetDataFromUrl(webUrl)
+    var dataForApi = tokenForOrderNumb.dataId[0]
+    axios({
+      url: '/CareLineMotor/motorbike-mbr/journey/getInfo4FailPayment',
+      method: 'post',
+      params: {
+        dataId: dataForApi
+      }
+    }).then(response => {
+      if (response.data.isEx === true) {
+        this.errorMsgOfFailSent = response.data.msgs
+        this.visible = true
+        return false
+      } else {
+        this.errorCode = response.data.statusCode
+      }
+    }, response => {
+      // error callback
+    })
   }
 }
 </script>
@@ -162,61 +190,6 @@ export default {
   .processImg {
     padding-top: 18px;
   }
-  /*modal css*/
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
-
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .modal-container {
-    width: 300px;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
-  }
-
-  .modal-body {
-    margin: 20px 0;
-  }
-
-  .modal-default-button {
-    float: right;
-  }
-
-  .modal-default-button {
-    margin: auto 25%;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    color: white;
-  }
-  /*modal css end*/
-
   .customerInfo, .customerInfo h4 {
     border:none;
   }

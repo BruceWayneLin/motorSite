@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471b8907-1ad9-4d49-9c8a-6bee4fd37d7a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/motorSite/src/assets/errorPage.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/src/assets/404.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/src/assets/banner.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/failpayment.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/failpayment.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/notFound.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/notFound.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/route991.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/route991.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/route992.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/route992.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/route993.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/route993.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/assets/route994.png" afterPath="$PROJECT_DIR$/motorSite/src/assets/route994.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/img/banner.jpg" afterPath="$PROJECT_DIR$/motorSite/static/css/img/banner.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/img/carPlate.png" afterPath="$PROJECT_DIR$/motorSite/static/css/img/carPlate.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/motorSite/static/assets/pdf/motorRe.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/motorSite/static/images/favicon.ico" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/src/assets/banner680.jpg" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/motorSite/src/assets/banner520.jpg" afterPath="$PROJECT_DIR$/motorSite/static/css/img/mobileBanner.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picgreen.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picgreen.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picred.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picred.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picwhite.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picwhite.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/config/index.js" afterPath="$PROJECT_DIR$/motorSite/config/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/index.html" afterPath="$PROJECT_DIR$/motorSite/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/package.json" afterPath="$PROJECT_DIR$/motorSite/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/App.vue" afterPath="$PROJECT_DIR$/motorSite/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
@@ -24,8 +23,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/notFound.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/notFound.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/main.js" afterPath="$PROJECT_DIR$/motorSite/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/router/index.js" afterPath="$PROJECT_DIR$/motorSite/src/router/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" afterPath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/process.css" afterPath="$PROJECT_DIR$/motorSite/static/css/process.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" afterPath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -47,103 +47,57 @@
       <file leaf-file-name="indexPage.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="311" column="3" lean-forward="false" selection-start-line="311" selection-start-column="3" selection-end-line="311" selection-end-column="3" />
+            <state relative-caret-position="1179">
+              <caret line="175" column="20" lean-forward="false" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/index.html">
+      <file leaf-file-name="myCustomer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="880">
+              <caret line="48" column="17" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="48" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
+      <file leaf-file-name="thanksPage.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/components/thanksPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="1658" column="21" lean-forward="false" selection-start-line="1658" selection-start-column="21" selection-end-line="1658" selection-end-column="21" />
+            <state relative-caret-position="354">
+              <caret line="146" column="31" lean-forward="false" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#object#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#object#1;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#object#2;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#object#3;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="errorPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/errorPage.vue">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="608">
+              <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#140#161#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="failPayment.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/failPayment.vue">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="33" column="86" lean-forward="false" selection-start-line="33" selection-start-column="86" selection-end-line="33" selection-end-column="86" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <marker date="1496468256000" expanded="false" signature="1292:1308" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="infoPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="511" column="40" lean-forward="false" selection-start-line="511" selection-start-column="40" selection-end-line="511" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notFound.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/notFound.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="206" column="21" lean-forward="false" selection-start-line="206" selection-start-column="21" selection-end-line="206" selection-end-column="21" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="328">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,45 +105,49 @@
       <file leaf-file-name="myCustomer.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="1257" column="17" lean-forward="false" selection-start-line="1257" selection-start-column="17" selection-end-line="1257" selection-end-column="17" />
+            <state relative-caret-position="673">
+              <caret line="1372" column="16" lean-forward="false" selection-start-line="1372" selection-start-column="16" selection-end-line="1372" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/static/css/process.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="191" column="1" lean-forward="false" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="1098" column="54" lean-forward="false" selection-start-line="1098" selection-start-column="54" selection-end-line="1098" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#19365#19431#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="775" column="58" lean-forward="false" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prod.env.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/config/prod.env.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.env.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/config/test.env.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,36 +156,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>motoErrorMsg</find>
-      <find>validateExecution</find>
-      <find>被保人關係是必選欄位</find>
-      <find>,</find>
-      <find>isNewPlate</find>
-      <find>toValidatePlate</find>
-      <find>toCheckAndValiMotorDate</find>
-      <find>productAhref</find>
-      <find>relationshipErrorMsg</find>
-      <find>radi</find>
-      <find>新牌</find>
-      <find>引</find>
-      <find>motoBrand</find>
-      <find>motoMadeFactoryItem</find>
-      <find>validateMotoFac</find>
-      <find>motoBrandItem</find>
-      <find>motoMadeFactory</find>
-      <find>checkHpOrCc</find>
-      <find>toShowIssuedDateExample</find>
-      <find>gender</find>
       <find>getMotoFactory</find>
+      <find>licenseExample</find>
+      <find>showExamples</find>
+      <find>carLicenseExample</find>
+      <find>validateMotoFac</find>
+      <find>tofocusSecondPlate</find>
+      <find>alert</find>
+      <find>qAndaPage</find>
+      <find>nameErrorMsg</find>
+      <find>身分證</find>
+      <find>validateEngineNumb</find>
+      <find>地址</find>
+      <find>maxlength=&quot;40&quot;</find>
+      <find>carBrandCol</find>
+      <find>router</find>
+      <find>piForm</find>
       <find>comparePlateWithEnterCC</find>
-      <find>排氣量</find>
-      <find>請輸入正確地址</find>
-      <find>請輸入車牌</find>
-      <find>400px</find>
-      <find>ccTextOrHp</find>
-      <find>specialAddrShrink</find>
-      <find>productClicked</find>
-      <find>brandList</find>
+      <find>保險相關</find>
+      <find>validateExecution</find>
+      <find>route</find>
+      <find>piform</find>
+      <find>footer</find>
+      <find>first-slide</find>
+      <find>formTitleSpan</find>
+      <find>textDiv</find>
+      <find>showOverScreen</find>
+      <find>carouselBanner</find>
+      <find>engineNum</find>
+      <find>axios</find>
+      <find>toNxtPDFPage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,22 +195,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/motorSite/src/components/404Page.vue" />
-        <option value="$PROJECT_DIR$/motorSite/config/index.js" />
-        <option value="$PROJECT_DIR$/motorSite/src/main.js" />
-        <option value="$PROJECT_DIR$/motorSite/src/router/index.js" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" />
-        <option value="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
         <option value="$PROJECT_DIR$/motorSite/static/css/process.css" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/indexPage.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/router/index.js" />
         <option value="$PROJECT_DIR$/motorSite/src/components/notFound.vue" />
-        <option value="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/index.html" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/main.js" />
         <option value="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/indexPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
+        <option value="$PROJECT_DIR$/motorSite/src/App.vue" />
+        <option value="$PROJECT_DIR$/motorSite/config/index.js" />
       </list>
     </option>
   </component>
@@ -266,10 +225,10 @@
     <handled-path value="$PROJECT_DIR$/motorSite/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="846" />
-    <option name="y" value="162" />
-    <option name="width" value="1920" />
-    <option name="height" value="799" />
+    <option name="x" value="-1683" />
+    <option name="y" value="135" />
+    <option name="width" value="973" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -286,6 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -348,7 +309,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,15 +349,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,7 +367,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carelineMoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carelineMoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="motorSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -422,10 +397,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carelineMoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="carelineMoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="motorSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,13 +431,16 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/motorSite/static/images" />
+      <recent name="$PROJECT_DIR$/motorSite/static/css/img" />
+      <recent name="$PROJECT_DIR$/motorSite/static/assets/pdf" />
+      <recent name="$PROJECT_DIR$/motorSite/src/assets" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/motorSite/static/assets" />
       <recent name="$PROJECT_DIR$/motorSite/src/assets" />
       <recent name="$PROJECT_DIR$/motorSite/src/components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/motorSite/src/assets" />
-      <recent name="$PROJECT_DIR$/motorSite/static/css/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -523,18 +517,20 @@
       <workItem from="1496235985502" duration="711000" />
       <workItem from="1496236702734" duration="834000" />
       <workItem from="1496237682302" duration="9476000" />
-      <workItem from="1496288900778" duration="57109000" />
+      <workItem from="1496288900778" duration="73934000" />
+      <workItem from="1496663566150" duration="53516000" />
+      <workItem from="1497186139751" duration="9920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68130000" />
+    <option name="totallyTimeSpent" value="148391000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="846" y="162" width="1920" height="799" extended-state="0" />
+    <frame x="-1683" y="135" width="973" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16061085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29516807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38347107" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -568,11 +564,56 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25380">
+          <caret line="1269" column="1" lean-forward="false" selection-start-line="1269" selection-start-column="1" selection-end-line="1269" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/thanksPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3660">
+          <caret line="183" column="6" lean-forward="false" selection-start-line="167" selection-start-column="4" selection-end-line="183" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25520">
+          <caret line="1276" column="24" lean-forward="false" selection-start-line="1276" selection-start-column="24" selection-end-line="1276" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#7;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#11;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#13;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#15;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#18661#18727#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6400">
           <caret line="320" column="3" lean-forward="false" selection-start-line="316" selection-start-column="2" selection-end-line="320" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -581,17 +622,29 @@
         <state relative-caret-position="28300">
           <caret line="1415" column="16" lean-forward="false" selection-start-line="1415" selection-start-column="16" selection-end-line="1415" selection-end-column="36" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#1;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#2;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#3;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#10;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#19;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#21;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#22;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#23;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -608,9 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,7 +669,7 @@
         <state relative-caret-position="1060">
           <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="32" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#140#161#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -629,21 +679,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#19365#19431#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#7;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#11;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#13;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#15;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#18661#18727#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -653,9 +702,8 @@
         <state relative-caret-position="10020">
           <caret line="501" column="24" lean-forward="false" selection-start-line="501" selection-start-column="22" selection-end-line="501" selection-end-column="24" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,14 +712,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4440">
           <caret line="222" column="3" lean-forward="false" selection-start-line="222" selection-start-column="3" selection-end-line="222" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -680,11 +721,9 @@
         <state relative-caret-position="4360">
           <caret line="218" column="27" lean-forward="true" selection-start-line="218" selection-start-column="27" selection-end-line="218" selection-end-column="27" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,7 +740,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2760">
           <caret line="138" column="11" lean-forward="false" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,17 +751,29 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#1;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#2;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#3;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#10;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#19;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#21;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#22;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#23;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,7 +782,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2760">
           <caret line="138" column="11" lean-forward="false" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#section#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -738,17 +793,29 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#1;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#2;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#3;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#10;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#19;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#21;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#22;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#23;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -757,63 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="4" column="22212" lean-forward="false" selection-start-line="4" selection-start-column="22204" selection-end-line="4" selection-end-column="22212" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/config/test.env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/config/prod.env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="58" column="12" lean-forward="false" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/thanksPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="32" column="85" lean-forward="true" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -827,46 +837,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/qAnda.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="276" column="19" lean-forward="false" selection-start-line="276" selection-start-column="19" selection-end-line="276" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/banner.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/static/css/process.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="191" column="1" lean-forward="false" selection-start-line="191" selection-start-column="1" selection-end-line="191" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="311" column="3" lean-forward="false" selection-start-line="311" selection-start-column="3" selection-end-line="311" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -880,115 +854,232 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/failPayment.vue">
+    <entry file="file://$USER_HOME$/Downloads/pdf.js-master/examples/helloworld/hello.js" />
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/carLicense/carLicensePlate.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/carLicense/airProduce.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="33" column="86" lean-forward="false" selection-start-line="33" selection-start-column="86" selection-end-line="33" selection-end-column="86" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <marker date="1496468256000" expanded="false" signature="1292:1308" ph="..." />
-          </folding>
+        <state relative-caret-position="640">
+          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/errorPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/mobileBanner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/notFound.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="206" column="21" lean-forward="false" selection-start-line="206" selection-start-column="21" selection-end-line="206" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/assets/banner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/banner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/mobileBanner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/assets/banner420.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/img/mobileBanner.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="1257" column="17" lean-forward="false" selection-start-line="1257" selection-start-column="17" selection-end-line="1257" selection-end-column="17" />
+        <state relative-caret-position="208">
+          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="511" column="40" lean-forward="false" selection-start-line="511" selection-start-column="40" selection-end-line="511" selection-end-column="40" />
+        <state relative-caret-position="592">
+          <caret line="375" column="30" lean-forward="true" selection-start-line="375" selection-start-column="30" selection-end-line="375" selection-end-column="44" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/config/dev.env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="1658" column="21" lean-forward="false" selection-start-line="1658" selection-start-column="21" selection-end-line="1658" selection-end-column="21" />
+        <state relative-caret-position="194">
+          <caret line="588" column="43" lean-forward="false" selection-start-line="588" selection-start-column="38" selection-end-line="588" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#1;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#2;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#object#3;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#10;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#19;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#21;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#22;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#23;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/index.html">
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/failPayment.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="149" column="9" lean-forward="false" selection-start-line="149" selection-start-column="4" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <marker date="1497236805000" expanded="false" signature="1292:1308" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/errorPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/notFound.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1317">
+          <caret line="30" column="45" lean-forward="false" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/qAnda.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-588">
+          <caret line="127" column="38" lean-forward="false" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/config/prod.env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/config/test.env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="1098" column="54" lean-forward="false" selection-start-line="1098" selection-start-column="54" selection-end-line="1098" selection-end-column="54" />
+        <state relative-caret-position="304">
+          <caret line="775" column="58" lean-forward="false" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#16;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#slot#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#19365#19431#0" expanded="true" />
+            <element signature="e#140#161#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/thanksPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="146" column="31" lean-forward="false" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="48" column="17" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="48" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="1372" column="16" lean-forward="false" selection-start-line="1372" selection-start-column="16" selection-end-line="1372" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1179">
+          <caret line="175" column="20" lean-forward="false" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

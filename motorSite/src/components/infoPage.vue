@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
+    <div style="margin:20px auto;" class="container customerInfo animated slideInLeft">
       <div class="container-fluid">
         <div class="row title">
           <div class="col-sm-12 text-center">
@@ -166,7 +166,7 @@
         </div>
       </div>
 
-      <div class="container-fluid" style="margin-top: 0px;">
+      <div id="mobileRWD" class="container-fluid" style="margin-top: 0px;">
         <div class="row">
           <div class="col-sm-12">
             <div class="col-sm-12">
@@ -215,7 +215,7 @@
         </div>
       </div>
 
-      <div class="container-fluid" style="margin-top:0px;">
+      <div id="mobileRWD" class="container-fluid" style="margin-top:0px;">
         <div class="row">
           <div class="col-xs-12">
             <div class="col-sm-12">
@@ -235,7 +235,7 @@
                   <p>{{ productInfo.prodInfo['title']  }}</p>
                 </li>
                 <li>
-                  <a>保險相關條款</a>
+                  <a target="_blank" href="http://law.tii.org.tw/Scripts/Query4A.asp?FullDoc=all&Fcode=A0030010">保險相關條款</a>
                 </li>
               </ul>
             </div>
@@ -265,7 +265,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row lastColumn">
           <div class="col-xs-12">
             <div class="col-sm-6 text-left" style="margin-top: 35px;">
               <strong>總保費</strong>
@@ -294,40 +294,26 @@
       </div>
     </div>
 
-    <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
-      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a @click="principleAnnounce">使用條款</a> | <a @click="privateAnnouce">隱私政策</a></p>
-      <div class="footer-bottom">
-        <span>© 2017 Careline. All Rights Reserved.</span>
-      </div>
-    </footer>
-
-    <!--pdf modal-->
-    <div class="modal-mask" v-show="visible">
+    <div class="modal-mask" v-show="theMotorModal">
       <div class="modal-wrapper">
-        <div class="modal-container" style="width:100%;">
+        <div class="modal-container">
 
           <div class="modal-header">
             <slot name="header">
-              <img style="height:40px" class="logoModal" src="../assets/logo.png"/>
+              <img class="logoModal" src="../assets/logo.png" />
             </slot>
           </div>
 
           <div class="modal-body">
             <slot name="body">
-              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
-              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
+              <pdf :page="page" :src="src"></pdf>
+              <span @click="toNxtPDFPage">下一頁 <i class="fa fa-angle-right"></i></span>
             </slot>
           </div>
 
-          <div class="modal-footer text-center"  style="padding: 0px 47%;">
+          <div class="modal-footer text-center">
             <slot name="footer">
-              <button class="modal-default-button" @click="closeModal">
+              <button class="modal-default-button" @click="closeMotorModal">
                 關閉
               </button>
             </slot>
@@ -340,52 +326,57 @@
 </template>
 
 <script>
-
+import pdf from 'vue-pdf'
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
 
 export default {
   name: 'infoPage',
+  components: {
+    pdf
+  },
   data () {
     return {
       motoInfoPlateEng: '',
       motoInfoPlateNum: '',
-      AnnounceShow: false,
-      visible: false,
-      PrivacyShow: false
+      src: '',
+      page: 1,
+      theMotorModal: false
     }
   },
   methods: {
+    toCMotorResponsbility: function () {
+      this.theMotorModal = true
+      this.src = './static/assets/pdf/motorRe.pdf'
+    },
+    closeMotorModal: function () {
+      this.theMotorModal = false
+      this.src = ''
+      this.page = 1
+    },
+    toNxtPDFPage: function () {
+      if (this.page === 7) {
+        this.page = 1
+      } else {
+        this.page++
+      }
+    },
     toGoBackIndex: function () {
-      window.location.href = './index.html'
+      this.$router.push('/')
     },
     goBack: function () {
-      this.$router.push('/motorForm')
-    },
-    closeModal: function () {
-      this.visible = false
-      this.AnnounceShow = false
-      this.PrivacyShow = false
-    },
-    principleAnnounce: function () {
-      this.visible = true
-      this.AnnounceShow = true
-      this.PrivacyShow = false
-    },
-    privateAnnouce: function () {
-      this.visible = true
-      this.AnnounceShow = false
-      this.PrivacyShow = true
+      this.$router.push('/viForm')
     },
     toGoOnNextPay: function () {
-      sessionStorage.clear()
+      this.$localStorage.remove('motorInfo')
+      this.$localStorage.remove('formStore')
       var dataIdx = this.$parent.dataId
       var dataUrl = encodeURIComponent(dataIdx)
-      window.location.href = 'http://210.242.7.164/motorbike-mbr/payment/goToPaymentPage?dataId=' + dataUrl
+      window.location.href = '/CareLineMotor/motorbike-mbr/payment/goToPaymentPage?dataId=' + dataUrl
     },
     toGoQandAPage: function () {
-      window.open('index.html#/qPage', '_blank')
+      window.open('index.html#/faqPage', '_blank')
     }
   },
   computed: {
@@ -418,7 +409,7 @@ export default {
     console.log(this.$parent.$parent.applicantData['applicantLastName'])
     console.log(this.$parent.$parent.insuredData['insuredLastName'])
     if ((this.$parent.$parent.applicantData['applicantLastName'] === undefined) || (this.$parent.$parent.insuredData['insuredLastName'] === undefined)) {
-      window.location.href = './index.html'
+      this.$router.push('/')
     }
   }
 }
@@ -446,60 +437,7 @@ export default {
   .processImg {
     padding-top: 18px;
   }
-  /*modal css*/
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
 
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .modal-container {
-    width: 300px;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
-  }
-
-  .modal-body {
-    margin: 20px 0;
-  }
-
-  .modal-default-button {
-    float: right;
-  }
-
-  .modal-default-button {
-    margin: auto 25%;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    color: white;
-  }
-  /*modal css end*/
   @media screen and (max-width:769px) and (min-width:758px) {
     ul.nav.navbar-nav.navbar-right {
       font-size: 15px!important;
@@ -532,6 +470,12 @@ export default {
     }
     .customerInfo .title {
       margin: 0px;
+    }
+    #mobileRWD {
+      padding:0px;
+    }
+    .lastColumn {
+      padding:15px;
     }
   }
 </style>

@@ -16,6 +16,9 @@
   "dependencies": {
     "expose-loader": "^0.7.3",
     "vue": "^2.2.6",
+    "vue-instant-pdf-viewer": "^1.0.2",
+    "vue-localstorage": "^0.2.0",
+    "vue-pdf": "^1.2.2",
     "vue-router": "^2.3.1",
     "vue2-datepicker": "^1.2.1",
     "vuejs-datepicker": "^0.7.12"

@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import axios from '../node_modules/axios-es6/dist/axios.min.js'
 import VeeValidate from '../node_modules/vee-validate'
+import vueLocalStorage from 'vue-localstorage'
 
 Vue.use(VeeValidate)
+Vue.use(vueLocalStorage)
 Vue.config.productionTip = false
 
 var $ = require('jquery')
@@ -56,7 +58,7 @@ new Vue({
   mounted: function () {
     axios({
       method: 'get',
-      url: 'http://210.242.7.164/motorbike-mbr/journey/initData'
+      url: '/CareLineMotor/motorbike-mbr/journey/initData'
     }).then((response) => {
       var result = response.data
       this.AcityList = result.cityList

@@ -59,7 +59,7 @@
             <div class="col-sm-6">
               <button class="form-control" type="radio"  name="getMotoFactory"  v-bind:class="{errorShow:motoMadeFactoryInValid, buttonActive:MCButton}" @click="getMotoFactory('MC')">光陽/KYMCO</button>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="carBrandCol">
               <button class="form-control" type="radio" name="getMotoFactory" v-bind:class="{errorShow:motoMadeFactoryInValid, buttonActive:MAButton}" @click="getMotoFactory('MA')">三陽/SYM</button>
             </div>
           </div>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="carBrandCol">
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
@@ -115,7 +115,7 @@
           <div class="col-sm-7">
             <div class="col-sm-3">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌前三碼:</span>
-              <input type="text" v-bind:="tofocusSecondPlate" @change="toValidatePlate"
+              <input type="text" v-bind:="tofocusSecondPlate" @change="toValidatePlate" @click="validateMotoFac"
                      v-bind:class="{errorShow:isPlateError}"  style="text-transform:uppercase"  maxlength="3"
                       v-model="plateNumberFirstArea"  :disabled="newPlate"  placeholder="請輸入車牌"  class="form-control"
                       name="motoPlateEng">
@@ -125,13 +125,13 @@
             </div>
             <div class="col-sm-4">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入車牌後三碼或四碼:</span>
-                    <input type="text" id="secondAreaInput" @change="toValidatePlate" v-bind:class="{errorShow:isPlateError}"
+                    <input type="text" id="secondAreaInput" @change="toValidatePlate" v-bind:class="{errorShow:isPlateError}" :click="validateMotoFac"
                             style="text-transform:uppercase"  maxlength="4"  v-model="plateNumberSecondArea"
                             :disabled="newPlate || !plateNumberFirstArea"  placeholder=""  class="form-control"
                             name="motoplateNum">     
             </div>
             <div class="col-sm-4">       
-              <button type="button" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}" @click="isNewPlate"  class="form-control">新車無牌照
+              <button type="button" id="newPlateFocus" v-bind:class="{errorShow:isPlateError, 'buttonActive':newPlate}" @click="isNewPlate"  class="form-control newPlateFocus">新車無牌照
               </button>
             </div>
           </div>
@@ -143,7 +143,7 @@
           <div class="col-sm-5">
           </div>
           <div class="col-sm-7">
-            <span class="errorMessage motoErrorMsg" style="" v-show="isPlateError">{{ isPlateErrorMsg }}</span>
+            <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="isPlateError">{{ isPlateErrorMsg }}</span>
             <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="isPlateError"></div>
           </div>
         </div>
@@ -156,7 +156,7 @@
           <div class="col-sm-7">
             <div class="col-sm-12">
               <span class="formTitleSpan" style="margin-left: 0px;">請輸入引擊號碼:</span>
-              <input type="text" @click="showEngineNumbExamples" maxlength="60" @change="validateEngineNumb" v-model="engineNum" v-bind:class="{errorShow:engineNumInValid}" name="engineNum" class="form-control" placeholder="引擊號碼/車身號碼(擇一)">
+              <input type="text" @click="showEngineNumbExamples" maxlength="20" @change="validateEngineNumb" v-model="engineNum" v-bind:class="{errorShow:engineNumInValid}" name="engineNum" class="form-control" placeholder="引擊號碼/車身號碼(擇一)">
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@
             </div>
             <div class="col-sm-7">
               <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="ProductCCInValid"></div>
-              <span class="errorMessage motoErrorMsg" style="" v-show="ProductCCInValid">請輸入行照上的排氣量。</span>
+              <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="ProductCCInValid">請輸入行照上的排氣量。</span>
             </div>
         </div>
       </div>
@@ -251,7 +251,7 @@
           </div>
           <div class="col-sm-7">
             <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid"></div>
-          <span class="errorMessage motoErrorMsg" style="" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid">{{ releasePlateYearErrorMsg }}{{ releasePLateMonthErrorMsg }}{{ releasePlateDayErrorMsg }} 請選擇發照日期。</span>
+          <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid">{{ releasePlateYearErrorMsg }}{{ releasePLateMonthErrorMsg }}{{ releasePlateDayErrorMsg }} 請選擇發照日期。</span>
           </div>
         </div>
       </div>
@@ -295,7 +295,7 @@
           </div>
           <div class="col-sm-7">
             <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="releaseMotoYearInValid || releaseMotoMonthInValid"></div>
-            <span class="errorMessage motoErrorMsg" style="" v-show="releaseMotoYearInValid || releaseMotoMonthInValid">{{ releaseMotoYearErrorMsg }}{{ releaseMotoMonthErrorMsg }} 請選擇出廠年月。</span>
+            <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releaseMotoYearInValid || releaseMotoMonthInValid">{{ releaseMotoYearErrorMsg }}{{ releaseMotoMonthErrorMsg }} 請選擇出廠年月。</span>
           </div>
         </div>
       </div>
@@ -348,7 +348,7 @@
           <div class="col-sm-7">
             <div class="col-sm-12">
               <button class="btn btn-primary NextButton" @click="readyToCheckInfo">下一步</button>
-              <router-link to="form">
+              <router-link to="piForm">
                 <button class="btn btn-danger NextButton">上一步</button>
               </router-link>
             </div>
@@ -356,15 +356,6 @@
         </div>
       </div>
     </div>
-
-    <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
-      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a  @click="principleAnnounce">使用條款</a> | <a  @click="privateAnnouce">隱私政策</a></p>
-      <div class="footer-bottom">
-        <span>© 2017 Careline. All Rights Reserved.</span>
-      </div>
-    </footer>
 
     <!--modal-->
     <div class="modal-mask" v-show="visibleError">
@@ -386,9 +377,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer" style="padding: 0 25%;">
+          <div class="modal-footer">
             <slot name="footer">
-              <button style="margin: 10px auto; display:block;" class="modal-default-button"  @click="closeModal">
+              <button class="modal-default-button"  @click="closeModal">
                 關閉
               </button>
             </slot>
@@ -410,47 +401,20 @@
 
           <div class="modal-body" style="width:300px;">
             <slot name="body">
-              <span>{{ccErrorMsg}}<p :style="{color:colorTxtOfcc}">{{ccChosen}}</p></span>
+              <span v-show="!ccSpanShow">{{ccErrorMsg}}<p :style="{color:colorTxtOfcc}">{{ccChosen}}</p></span>
+              <!--<ul style="padding-left:0px; display:none; list-style-type:none;"><li v-show="green" style="color:green">綠牌(馬力應低於或等於5)</li><li v-show="white">白牌(馬力應高於5或低於等於40)</li><li v-show="yellow" style="color:orangered;">黃、紅牌(馬力應高於40)</li><li v-show="red" style="color:red;">黃、紅牌(馬力應高於40)</li></ul>-->
+              <span v-show="ccSpanShow">{{ccErrorMsg}}<p :style="{color:colorTxtOfcc}">{{ccChosen}}</p></span>
+              <!--<ul v-show="ccSpanShow" style="padding-left:0px; display:none; list-style-type:none;"><li v-show="green" style="color:green">綠牌(0cc-50cc)</li><li v-show="white">白牌(50cc-250cc)</li><li v-show="yellow" style="color:orangered;">黃牌(250cc-550cc)</li><li v-show="red" style="color:red;">紅牌(550cc以上)</li></ul>-->
             </slot>
           </div>
 
           <div class="modal-footer text-center" style="text-align: center;">
             <slot name="footer">
-              <button style=" margin: 0 38%; display:block" class="modal-default-button" @click="ccModalShow = false">
-                關閉
+              <button class="modal-default-button backToSelect pull-left" style="width:40%;" @click="toGoBackIndex">
+                重選車牌方案
               </button>
-            </slot>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--pdf modal-->
-    <div class="modal-mask" v-show="visible">
-      <div class="modal-wrapper">
-        <div class="modal-container" style="width:100%;">
-
-          <div class="modal-header">
-            <slot name="header">
-              <img style="height:40px" class="logoModal" src="../assets/logo.png"/>
-            </slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
-              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
-            </slot>
-          </div>
-
-          <div class="modal-footer text-center" style="padding: 0px 47%;">
-            <slot name="footer">
-              <button style="margin:10px auto" class="modal-default-button" @click="closeModal">
-                關閉
+              <button class="modal-default-button pull-right" style="width:40%;" @click="ccModalShow = false">
+                重新輸入排氣量
               </button>
             </slot>
           </div>
@@ -474,10 +438,12 @@ export default {
   components: { Datepicker },
   data () {
     return {
+      green: false,
+      white: false,
+      yellow: false,
+      red: false,
+      ccSpanShow: false,
       backMsg: '',
-      visible: false,
-      AnnounceShow: false,
-      PrivacyShow: false,
       ccModalShow: false,
       visibleError: false,
       ccChosen: '',
@@ -508,6 +474,7 @@ export default {
       plateNumberSecondArea: '',
       executionDay: '',
       ccTextOrHp: 'cc',
+      textForEndModalCC: '',
       newPlate: false,
       isPlateError: false,
       engineNumInValid: false,
@@ -557,25 +524,14 @@ export default {
       this.validateMotoMonth()
     },
     toGoBackIndex: function () {
-      window.location.href = './index.html'
+      this.ccModalShow = false
+      this.$router.push('/')
     },
     toGoQandAPage: function () {
-      window.open('index.html#/qPage', '_blank')
-    },
-    principleAnnounce: function () {
-      this.visible = true
-      this.AnnounceShow = true
-      this.PrivacyShow = false
-    },
-    privateAnnouce: function () {
-      this.visible = true
-      this.AnnounceShow = false
-      this.PrivacyShow = true
+      window.open('index.html#/faqPage', '_blank')
     },
     closeModal: function () {
       this.visible = false
-      this.AnnounceShow = false
-      this.PrivacyShow = false
       this.visibleError = false
       this.ccModalShow = false
     },
@@ -588,7 +544,7 @@ export default {
         this.validateReleasePlateDay() &&
         this.validateMotoYear() &&
         this.validateMotoMonth() &&
-        this.validateExecution) {
+        this.validateExecution()) {
         if (!this.comparePlateWithEnterCC()) {
         } else {
           var motocycleInfo = {}
@@ -617,12 +573,15 @@ export default {
           motocycleInfo['motocycleCC'] = this.userEnteredProdcutCC
           this.$parent.$parent.userEnteredProdcutCC = this.userEnteredProdcutCC
           this.$parent.motocycleInfo = motocycleInfo
-          sessionStorage.setItem('motorInfo', JSON.stringify(motocycleInfo))
+          try {
+            this.$localStorage.set('motorInfo', JSON.stringify(motocycleInfo))
+          } catch (e) {
+          }
           var postObj = {}
           postObj['motocycleInfo'] = motocycleInfo
 
           axios({
-            url: 'http://210.242.7.164/motorbike-mbr/journey/saveMotorbikeInfo',
+            url: '/CareLineMotor/motorbike-mbr/journey/saveMotorbikeInfo',
             method: 'post',
             params: {
               data: JSON.stringify(postObj)
@@ -634,7 +593,7 @@ export default {
               this.visibleError = true
               return false
             } else {
-              this.$router.push('/infoPage')
+              this.$router.push('/confirmPage')
             }
           }, response => {
             // error callback
@@ -738,8 +697,8 @@ export default {
       if (value !== 'other') {
         switch (value) {
           case 'MA':
-            this.motoMadeFactory = 'MA'
-            this.motoBrand = '三陽'
+            this.motoMadeFactory = 'MC'
+            this.motoBrand = '光陽'
             this.motoMadeFactoryInValid = false
             this.MAButton = true
             this.MBButton = false
@@ -759,7 +718,7 @@ export default {
             break
           case 'MC':
             this.motoMadeFactory = 'MC'
-            this.motoBrand = '光陽'
+            this.motoBrand = '三陽'
             this.motoMadeFactoryInValid = false
             this.MCButton = true
             this.MBButton = false
@@ -814,13 +773,13 @@ export default {
       }
     },
     validateEngineNumb: function () {
-      if (this.engineNum === '') {
+      if (this.engineNum === '' || !(/^[A-Za-z][A-Za-z0-9-]*$/.test(this.engineNum))) {
         this.engineNumInValid = true
-        this.engineNumErrorMsg = '請輸入引擎/車身號碼。'
+        this.engineNumErrorMsg = '請輸入正確引擎/車身號碼。'
         return false
-      } else if (this.engineNum.length >= 60) {
+      } else if (this.engineNum.length >= 21) {
         this.engineNumInValid = true
-        this.engineNumErrorMsg = '引擎/車身號碼最多只能是60個字數。'
+        this.engineNumErrorMsg = '引擎/車身號碼最多只能是20個字數。'
         return false
       } else {
         this.engineNumInValid = false
@@ -893,8 +852,9 @@ export default {
     },
     comparePlateWithEnterCC: function () {
       var selectProductCC = this.$parent.userSelectedProduct['productCC']
-      if (this.motoMadeFactoryItem.code === 'MH') {
+      if (this.motoMadeFactory === 'MH') {
         this.$parent.$parent.isMH = true
+        this.ccSpanShow = false
         if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 5) {
             this.ProductCCInValid = false
@@ -902,8 +862,12 @@ export default {
           } else {
             $('select').blur()
             this.ccModalShow = true
+            this.red = true
+            this.yellow = true
+            this.white = true
+            this.green = false
             this.colorTxtOfcc = 'green'
-            this.ccChosen = '綠牌(HP <= 5)'
+            this.ccChosen = '綠牌(馬力應低於或等於5)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
@@ -914,9 +878,13 @@ export default {
             return true
           } else {
             $('select').blur()
+            this.red = true
+            this.yellow = true
+            this.white = false
+            this.green = true
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
-            this.ccChosen = '白牌(5 > HP <= 40)'
+            this.ccChosen = '白牌(馬力應高於5或低於等於40)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
@@ -928,8 +896,12 @@ export default {
           } else {
             $('select').blur()
             this.ccModalShow = true
+            this.red = true
+            this.yellow = false
+            this.white = true
+            this.green = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
-            this.ccChosen = '紅黃牌(HP > 40)'
+            this.ccChosen = '黃、紅牌(馬力應高於40)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
@@ -940,9 +912,13 @@ export default {
             return true
           } else {
             $('select').blur()
+            this.red = false
+            this.yellow = true
+            this.white = true
+            this.green = true
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
-            this.ccChosen = '紅黃牌(HP > 40)'
+            this.ccChosen = '黃、紅牌(馬力應高於40)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
@@ -958,8 +934,13 @@ export default {
             return true
           } else {
             $('select').blur()
+            this.ccSpanShow = true
             this.ccModalShow = true
             this.colorTxtOfcc = 'green'
+            this.red = true
+            this.yellow = true
+            this.white = true
+            this.green = false
             this.ccChosen = '綠牌(1-50cc)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
@@ -972,6 +953,11 @@ export default {
           } else {
             $('select').blur()
             this.ccModalShow = true
+            this.ccSpanShow = true
+            this.red = true
+            this.yellow = true
+            this.white = false
+            this.green = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(51-250cc)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
@@ -985,6 +971,11 @@ export default {
           } else {
             $('select').blur()
             this.ccModalShow = true
+            this.ccSpanShow = true
+            this.red = true
+            this.yellow = false
+            this.white = true
+            this.green = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '黃牌(251-550)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
@@ -998,6 +989,11 @@ export default {
           } else {
             $('select').blur()
             this.ccModalShow = true
+            this.ccSpanShow = true
+            this.red = false
+            this.yellow = true
+            this.white = true
+            this.green = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅牌(551cc+)'
             this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
@@ -1127,7 +1123,7 @@ export default {
   },
   mounted () {
     window.scrollTo(0, 0)
-    var motorInfo = JSON.parse(sessionStorage.getItem('motorInfo'))
+    var motorInfo = JSON.parse(this.$localStorage.get('motorInfo'))
     console.log(motorInfo)
     if (motorInfo) {
       this.motoMadeFactory = motorInfo['motocycleFactory']
@@ -1212,65 +1208,28 @@ export default {
     padding-top: 18px;
   }
 
-  /*modal css*/
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
-
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .modal-container {
-    width: 300px;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
-  }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
-  }
-
-  .modal-body {
-    margin: 20px 0;
-  }
-
-  .modal-default-button {
-    float: right;
-  }
-
-  .modal-default-button {
-    margin: auto 25%;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    color: white;
-  }
-  /*modal css end*/
-
   span.errorMessage.motoErrorMsg {
     padding-right: 540px;
   }
   .customerForm .birthSpan {
+  }
 
+  .modal-default-button.backToSelect {
+    background-color: white;
+    color: #777;
+    border: 1px solid #777;
+  }
+  @media screen and (max-width: 414px) {
+    #carBrandCol {
+      margin-top: -15px;
+    }
+  }
+  .modal-body span p {
+    display: inline-block;
+  }
+  @media screen and (max-width:800px) {
+    #carBrandCol {
+      margin-top: -15px;
+    }
   }
 </style>

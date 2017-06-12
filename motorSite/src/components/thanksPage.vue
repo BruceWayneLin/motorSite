@@ -30,15 +30,15 @@
 
     <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
       <div class="row">
-        <div class="col-sm-12 thanksDiv" style="margin-top: 150px;min-height: 555px;">
+        <div class="col-sm-12 thanksDiv" style="">
           <div class="col-sm-12 text-center" style="margin-bottom:10px;">
             <h2><i class="fa fa-check-circle" aria-hidden="true"></i>感謝您選擇英國凱萊，訂單編號_{{orderNumber}}_已成立</h2>
             <h3>請留意，相關資訊將會寄到您的E-mail信箱</h3>
           </div>
-          <div class="col-sm-12">
+          <div class="col-sm-12" style="margin-top: 5px;">
             <div class="thanksWords text-center">
-              <p>提醒您：此次訂購紀錄，並非正式保險契約憑證，核保完成後本公司將會郵寄保險卡及保費收據至保單登記地址。</p>
-              <div class="buttonProject text-center">
+              <p style="color:#e84466;font-size:16px;">提醒您：此次訂購紀錄，並非正式保險契約憑證，核保完成後本公司將會郵寄保險卡及保費收據至保單登記地址。</p>
+              <div class="buttonProject text-center" style="margin-top: 30px;">
                 <button class="backToIndexOfOtherPageButton" @click="toGoBackIndex">回到首頁</button>
               </div>
             </div>
@@ -46,15 +46,6 @@
         </div>
       </div>
     </div>
-
-    <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
-      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a @click="principleAnnounce">使用條款</a> | <a @click="privateAnnouce">隱私政策</a></p>
-      <div class="footer-bottom">
-        <span>© 2017 Careline. All Rights Reserved.</span>
-      </div>
-    </footer>
 
     <!--pdf modal-->
     <div class="modal-mask" v-show="visible">
@@ -69,16 +60,15 @@
 
           <div class="modal-body">
             <slot name="body">
-              <object v-show="AnnounceShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/term.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe  src="./static/assets/pdf/term.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
-              <object v-show="PrivacyShow" style="width: 100%; height: 400px; display: block;" data="./static/assets/pdf/privacy.pdf#page=2" type="application/pdf" width="100%" height="100%">
-                <iframe src="./static/assets/pdf/privacy.pdf" width="100%" height="100%" type="application/pdf" />
-              </object>
+              <ul>
+                <li v-for="item in errorMsgOfFailSent">
+                  {{item}}
+                </li>
+              </ul>
             </slot>
           </div>
 
-          <div class="modal-footer text-center"  style="padding: 0px 47%;">
+          <div class="modal-footer text-center"  style="">
             <slot name="footer">
               <button class="modal-default-button" @click="closeModal">
                 關閉
@@ -93,7 +83,7 @@
 </template>
 
 <script>
-
+import axios from '../../node_modules/axios-es6/dist/axios.min.js'
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
@@ -102,38 +92,67 @@ export default {
   name: 'thanksPage',
   data () {
     return {
-      visible: false,
-      AnnounceShow: false,
-      PrivacyShow: false
+      errorMsgOfFailSent: '',
+      orderNumber: '',
+      visible: false
     }
   },
   methods: {
     toGoBackIndex: function () {
       this.$router.push('/')
     },
-    toGoQandAPage: function () {
-      window.open('index.html#/qPage', '_blank')
-    },
     closeModal: function () {
       this.visible = false
-      this.AnnounceShow = false
-      this.PrivacyShow = false
     },
-    principleAnnounce: function () {
-      this.visible = true
-      this.AnnounceShow = true
-      this.PrivacyShow = false
+    toGoQandAPage: function () {
+      window.open('index.html#/faqPage', '_blank')
     },
-    privateAnnouce: function () {
-      this.visible = true
-      this.AnnounceShow = false
-      this.PrivacyShow = true
+    toGetDataFromUrl: function (url) {
+      var queryStart = url.indexOf('?') + 1
+      var queryEnd = url.length + 1
+      var query = url.slice(queryStart, queryEnd - 1)
+      var pairs = query.replace(/\+/g, '').split('&')
+      var parms = {}
+      var i
+      var n
+      var v
+      var nv
+      if (query === url || query === '') return
+      for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split('=', 2)
+        n = decodeURIComponent(nv[0])
+        v = decodeURIComponent(nv[1])
+        if (!parms.hasOwnProperty(n)) parms[n] = []
+        parms[n].push(nv.length === 2 ? v : null)
+      }
+      console.log(parms)
+      return parms
     }
   },
   computed: {
   },
   mounted () {
     window.scrollTo(0, 0)
+    var webUrl = window.location.href
+    var tokenForOrderNumb = this.toGetDataFromUrl(webUrl)
+    var dataForApi = tokenForOrderNumb.dataId[0]
+    axios({
+      url: '/CareLineMotor/motorbike-mbr/journey/getInfo4ThanksPage',
+      method: 'post',
+      params: {
+        dataId: dataForApi
+      }
+    }).then(response => {
+      if (response.data.isEx === true) {
+        this.errorMsgOfFailSent = response.data.msgs
+        this.visible = true
+        return false
+      } else {
+        this.orderNumber = response.data.dataId
+      }
+    }, response => {
+      // error callback
+    })
   }
 }
 </script>
@@ -160,58 +179,20 @@ export default {
   .processImg {
     padding-top: 18px;
   }
-  /*modal css*/
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
 
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
+  .customerInfo, .customerInfo h4, .customerInfo h3 {
+    border:none;
   }
-
-  .modal-container {
-    width: 300px;
-    margin: 0px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-    transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
+  .customerInfo h2 {
+    font-weight: bold;
   }
-
-  .modal-header h3 {
-    margin-top: 0;
-    color: #42b983;
+  .thanksDiv {
+    margin-top: 150px;
+    min-height: 555px;
   }
-
-  .modal-body {
-    margin: 20px 0;
+  @media screen and (max-width: 414px) {
+    .thanksDiv {
+      margin-top: 50px;
+    }
   }
-
-  .modal-default-button {
-    float: right;
-  }
-
-  .modal-default-button {
-    margin: auto 25%;
-    float: right;
-    background-color: #db4160;
-    border: none;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    min-width: 100px;
-    color: white;
-  }
-  /*modal css end*/
 </style>
