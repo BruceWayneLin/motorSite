@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471b8907-1ad9-4d49-9c8a-6bee4fd37d7a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/announcement.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/privacy.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/protection.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/term.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/App.vue" afterPath="$PROJECT_DIR$/motorSite/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" afterPath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" afterPath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+              <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -58,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="339">
-              <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+              <caret line="63" column="38" lean-forward="false" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding>
                 <element signature="e#140#161#0" expanded="true" />
               </folding>
@@ -69,8 +62,8 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+            <state relative-caret-position="186">
+              <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -80,27 +73,27 @@
         <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="14210">
-              <caret line="1370" column="37" lean-forward="true" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
+              <caret line="1370" column="37" lean-forward="false" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="infoPage.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="infoPage.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="349" column="47" lean-forward="false" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+            <state relative-caret-position="79">
+              <caret line="349" column="19" lean-forward="false" selection-start-line="349" selection-start-column="19" selection-end-line="349" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="775" column="0" lean-forward="false" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="774" column="49" lean-forward="false" selection-start-line="774" selection-start-column="49" selection-end-line="774" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -109,8 +102,8 @@
       <file leaf-file-name="formPage.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="563" column="16" lean-forward="true" selection-start-line="563" selection-start-column="16" selection-end-line="563" selection-end-column="16" />
+            <state relative-caret-position="374">
+              <caret line="721" column="19" lean-forward="false" selection-start-line="721" selection-start-column="19" selection-end-line="721" selection-end-column="19" />
               <folding>
                 <element signature="e#26074#26140#0" expanded="true" />
               </folding>
@@ -132,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
-              <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+              <caret line="165" column="28" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -151,7 +144,6 @@
       <find>qAndaPage</find>
       <find>nameErrorMsg</find>
       <find>身分證</find>
-      <find>validateEngineNumb</find>
       <find>地址</find>
       <find>maxlength=&quot;40&quot;</find>
       <find>carBrandCol</find>
@@ -170,10 +162,11 @@
       <find>carouselBanner</find>
       <find>axios</find>
       <find>navbar-header</find>
-      <find>toNxtPDFPage</find>
-      <find>pdf</find>
       <find>eng</find>
       <find>engineNum</find>
+      <find>toNxtPDFPage</find>
+      <find>pdf</find>
+      <find>validateEngineNumb</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,9 +189,9 @@
         <option value="$PROJECT_DIR$/motorSite/config/index.js" />
         <option value="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
         <option value="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/App.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
       </list>
     </option>
@@ -494,12 +487,12 @@
       <workItem from="1496237682302" duration="9476000" />
       <workItem from="1496288900778" duration="73934000" />
       <workItem from="1496663566150" duration="53516000" />
-      <workItem from="1497186139751" duration="13481000" />
+      <workItem from="1497186139751" duration="15298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151952000" />
+    <option name="totallyTimeSpent" value="153769000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -966,7 +959,7 @@
     <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -974,7 +967,7 @@
     <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14210">
-          <caret line="1370" column="37" lean-forward="true" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
+          <caret line="1370" column="37" lean-forward="false" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -982,7 +975,7 @@
     <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
-          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <caret line="63" column="38" lean-forward="false" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
           <folding>
             <element signature="e#140#161#0" expanded="true" />
           </folding>
@@ -992,7 +985,7 @@
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+          <caret line="165" column="28" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
@@ -1001,34 +994,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+        <state relative-caret-position="186">
+          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="563" column="16" lean-forward="true" selection-start-line="563" selection-start-column="16" selection-end-line="563" selection-end-column="16" />
+        <state relative-caret-position="374">
+          <caret line="721" column="19" lean-forward="false" selection-start-line="721" selection-start-column="19" selection-end-line="721" selection-end-column="19" />
           <folding>
             <element signature="e#26074#26140#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="349" column="47" lean-forward="false" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+        <state relative-caret-position="324">
+          <caret line="774" column="49" lean-forward="false" selection-start-line="774" selection-start-column="49" selection-end-line="774" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="775" column="0" lean-forward="false" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
+        <state relative-caret-position="79">
+          <caret line="349" column="19" lean-forward="false" selection-start-line="349" selection-start-column="19" selection-end-line="349" selection-end-column="19" />
           <folding />
         </state>
       </provider>

@@ -235,7 +235,7 @@
                   <p>{{ productInfo.prodInfo['title']  }}</p>
                 </li>
                 <li>
-                  <a target="_blank" href="http://law.tii.org.tw/Scripts/Query4A.asp?FullDoc=all&Fcode=A0030010">保險相關條款</a>
+                  <a @click="toCMotorResponsbility">保險相關條款</a>
                 </li>
               </ul>
             </div>
@@ -347,7 +347,7 @@ export default {
   },
   methods: {
     toCMotorResponsbility: function () {
-      window.open('../static/assets/pdf/motorRe.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/motorRe.pdf', '_blank', 'fullscreen=yes')
 //      this.theMotorModal = true
 //      this.src = './static/assets/pdf/motorRe.pdf'
     },

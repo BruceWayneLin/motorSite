@@ -72,13 +72,13 @@ export default {
       this.visible = false
     },
     principleAnnounce: function () {
-      window.open('../static/assets/pdf/term.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/term.pdf', '_blank', 'fullscreen=yes')
 //      this.src = './static/assets/pdf/term.pdf'
 //      this.page = 1
 //      this.visible = true
     },
     privateAnnouce: function () {
-      window.open('../static/assets/pdf/privacy.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/privacy.pdf', '_blank', 'fullscreen=yes')
 //      this.src = './static/assets/pdf/privacy.pdf'
 //      this.visible = true
 //      this.page = 1

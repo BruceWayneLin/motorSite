@@ -714,12 +714,12 @@ export default {
       }
     },
     showPersonalAnnouce: function () {
-      window.open('../static/assets/pdf/protection.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/protection.pdf', '_blank', 'fullscreen=yes')
 //      this.ModalVisible = true
 //      this.src = './static/assets/pdf/protection.pdf'
     },
     principleAnnounce: function () {
-      window.open('../static/assets/pdf/announcement.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/announcement.pdf', '_blank', 'fullscreen=yes')
 //      this.ModalVisible = true
 //      this.src = './static/assets/pdf/announcement.pdf'
     },
