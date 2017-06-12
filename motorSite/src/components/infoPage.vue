@@ -347,8 +347,9 @@ export default {
   },
   methods: {
     toCMotorResponsbility: function () {
-      this.theMotorModal = true
-      this.src = './static/assets/pdf/motorRe.pdf'
+      window.open('../static/assets/pdf/motorRe.pdf', '_blank', 'fullscreen=yes')
+//      this.theMotorModal = true
+//      this.src = './static/assets/pdf/motorRe.pdf'
     },
     closeMotorModal: function () {
       this.theMotorModal = false

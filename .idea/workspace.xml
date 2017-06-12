@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471b8907-1ad9-4d49-9c8a-6bee4fd37d7a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/motorSite/static/assets/pdf/motorRe.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/motorSite/static/images/favicon.ico" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/src/assets/banner680.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/motorSite/src/assets/banner520.jpg" afterPath="$PROJECT_DIR$/motorSite/static/css/img/mobileBanner.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picgreen.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picgreen.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picred.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picred.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/images/picwhite.jpg" afterPath="$PROJECT_DIR$/motorSite/static/images/picwhite.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/announcement.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/privacy.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/protection.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/motorSite/static/pdf/term.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/config/index.js" afterPath="$PROJECT_DIR$/motorSite/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/index.html" afterPath="$PROJECT_DIR$/motorSite/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/package.json" afterPath="$PROJECT_DIR$/motorSite/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/App.vue" afterPath="$PROJECT_DIR$/motorSite/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/indexPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/indexPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/notFound.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/notFound.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" afterPath="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/main.js" afterPath="$PROJECT_DIR$/motorSite/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/src/router/index.js" afterPath="$PROJECT_DIR$/motorSite/src/router/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" afterPath="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" afterPath="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
     </list>
@@ -44,23 +30,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="indexPage.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1179">
-              <caret line="175" column="20" lean-forward="false" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="myCustomer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="48" column="17" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="208">
+              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -83,8 +57,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+            <state relative-caret-position="339">
+              <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
               <folding>
                 <element signature="e#140#161#0" expanded="true" />
               </folding>
@@ -95,8 +69,8 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="-43">
+              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -105,24 +79,46 @@
       <file leaf-file-name="myCustomer.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="1372" column="16" lean-forward="false" selection-start-line="1372" selection-start-column="16" selection-end-line="1372" selection-end-column="16" />
+            <state relative-caret-position="14210">
+              <caret line="1370" column="37" lean-forward="true" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="infoPage.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="349" column="47" lean-forward="false" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="motorFormPage.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="775" column="58" lean-forward="false" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
+              <caret line="775" column="0" lean-forward="false" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="formPage.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="563" column="16" lean-forward="true" selection-start-line="563" selection-start-column="16" selection-end-line="563" selection-end-column="16" />
+              <folding>
+                <element signature="e#26074#26140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
@@ -132,22 +128,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prod.env.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/config/prod.env.js">
+      <file leaf-file-name="indexPage.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.env.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/motorSite/config/test.env.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="400">
+              <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,9 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getMotoFactory</find>
-      <find>licenseExample</find>
-      <find>showExamples</find>
       <find>carLicenseExample</find>
       <find>validateMotoFac</find>
       <find>tofocusSecondPlate</find>
@@ -183,9 +168,12 @@
       <find>textDiv</find>
       <find>showOverScreen</find>
       <find>carouselBanner</find>
-      <find>engineNum</find>
       <find>axios</find>
+      <find>navbar-header</find>
       <find>toNxtPDFPage</find>
+      <find>pdf</find>
+      <find>eng</find>
+      <find>engineNum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,19 +187,19 @@
         <option value="$PROJECT_DIR$/motorSite/src/components/qAnda.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/router/index.js" />
         <option value="$PROJECT_DIR$/motorSite/src/components/notFound.vue" />
-        <option value="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
         <option value="$PROJECT_DIR$/motorSite/src/components/errorPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/index.html" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/components/thanksPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/components/failPayment.vue" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/main.js" />
-        <option value="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
         <option value="$PROJECT_DIR$/motorSite/src/components/indexPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/config/index.js" />
+        <option value="$PROJECT_DIR$/motorSite/static/js/myCustomer.js" />
         <option value="$PROJECT_DIR$/motorSite/static/css/myCustomer.css" />
         <option value="$PROJECT_DIR$/motorSite/src/App.vue" />
-        <option value="$PROJECT_DIR$/motorSite/config/index.js" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/formPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/infoPage.vue" />
+        <option value="$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue" />
       </list>
     </option>
   </component>
@@ -225,10 +213,9 @@
     <handled-path value="$PROJECT_DIR$/motorSite/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1683" />
-    <option name="y" value="135" />
-    <option name="width" value="973" />
-    <option name="height" value="773" />
+    <option name="x" value="-1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -309,7 +296,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -331,7 +318,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,24 +388,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carelineMoto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="carelineMoto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="motorSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -429,18 +402,20 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/motorSite/node_modules/mocha" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/motorSite/static/images" />
-      <recent name="$PROJECT_DIR$/motorSite/static/css/img" />
-      <recent name="$PROJECT_DIR$/motorSite/static/assets/pdf" />
-      <recent name="$PROJECT_DIR$/motorSite/src/assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/motorSite/static/assets" />
       <recent name="$PROJECT_DIR$/motorSite/src/assets" />
       <recent name="$PROJECT_DIR$/motorSite/src/components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/motorSite/static/assets" />
+      <recent name="$PROJECT_DIR$/motorSite/src/assets" />
+      <recent name="$PROJECT_DIR$/motorSite/static/images" />
+      <recent name="$PROJECT_DIR$/motorSite/static/css/img" />
+      <recent name="$PROJECT_DIR$/motorSite/static/assets/pdf" />
     </key>
   </component>
   <component name="RunManager">
@@ -519,18 +494,18 @@
       <workItem from="1496237682302" duration="9476000" />
       <workItem from="1496288900778" duration="73934000" />
       <workItem from="1496663566150" duration="53516000" />
-      <workItem from="1497186139751" duration="9920000" />
+      <workItem from="1497186139751" duration="13481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148391000" />
+    <option name="totallyTimeSpent" value="151952000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1683" y="135" width="973" height="773" extended-state="0" />
+    <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29516807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14797261" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38347107" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -910,54 +885,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="375" column="30" lean-forward="true" selection-start-line="375" selection-start-column="30" selection-end-line="375" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/config/dev.env.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="588" column="43" lean-forward="false" selection-start-line="588" selection-start-column="38" selection-end-line="588" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#10;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#14;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#17;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#19;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#21;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#22;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#23;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#24;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#26;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#slot#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#slot#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1011,24 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="775" column="58" lean-forward="false" selection-start-line="775" selection-start-column="58" selection-end-line="775" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-          <folding>
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/thanksPage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -1041,26 +955,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/static/js/myCustomer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="48" column="17" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="48" selection-end-column="17" />
+        <state relative-caret-position="208">
+          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/static/css/myCustomer.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="1372" column="16" lean-forward="false" selection-start-line="1372" selection-start-column="16" selection-end-line="1372" selection-end-column="16" />
+        <state relative-caret-position="14210">
+          <caret line="1370" column="37" lean-forward="true" selection-start-line="1370" selection-start-column="37" selection-end-line="1370" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+          <folding>
+            <element signature="e#140#161#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/components/indexPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1179">
-          <caret line="175" column="20" lean-forward="false" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
+        <state relative-caret-position="400">
+          <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
@@ -1069,16 +1001,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/motorSite/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="-43">
+          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/motorSite/config/index.js">
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/formPage.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        <state relative-caret-position="114">
+          <caret line="563" column="16" lean-forward="true" selection-start-line="563" selection-start-column="16" selection-end-line="563" selection-end-column="16" />
+          <folding>
+            <element signature="e#26074#26140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/infoPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="349" column="47" lean-forward="false" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/motorSite/src/components/motorFormPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="775" column="0" lean-forward="false" selection-start-line="775" selection-start-column="0" selection-end-line="775" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -714,12 +714,14 @@ export default {
       }
     },
     showPersonalAnnouce: function () {
-      this.ModalVisible = true
-      this.src = './static/assets/pdf/protection.pdf'
+      window.open('../static/assets/pdf/protection.pdf', '_blank', 'fullscreen=yes')
+//      this.ModalVisible = true
+//      this.src = './static/assets/pdf/protection.pdf'
     },
     principleAnnounce: function () {
-      this.ModalVisible = true
-      this.src = './static/assets/pdf/announcement.pdf'
+      window.open('../static/assets/pdf/announcement.pdf', '_blank', 'fullscreen=yes')
+//      this.ModalVisible = true
+//      this.src = './static/assets/pdf/announcement.pdf'
     },
     relationShipVali: function () {
       if (!this.withInsuredRelationShipItem || this.withInsuredRelationShipItem === '' || this.withInsuredRelationShipItem === '0') {

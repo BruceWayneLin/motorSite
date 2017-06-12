@@ -26,14 +26,14 @@ $(function() {
       });
     }
 
-    $('#defaultIndex .navbar-header').css({
+    $('#defaultIndex').css({
       "background-color" : "rgba(0, 0, 0, 0.56)",
     });
     $(document).ready(function(){
         $(document).on('scroll', function(){
           console.log($(document).scrollTop())
             if($(document).scrollTop() > 400){
-              $('#defaultIndex .navbar-header').css({
+              $('#defaultIndex').css({
                 "background-color" : "white",
               });
               $('#defaultIndex #navbar').css({
@@ -47,7 +47,7 @@ $(function() {
               $('#defaultIndex #navbar').css({
                   "background-color" : "rgba(0, 0, 0, 0.56)"
               });
-              $('#defaultIndex .navbar-header').css({
+              $('#defaultIndex').css({
                 "background-color" : "rgba(0, 0, 0, 0.56)",
               });
               $('#defaultIndex ul li p').css({

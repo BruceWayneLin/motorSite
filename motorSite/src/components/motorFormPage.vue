@@ -773,7 +773,10 @@ export default {
       }
     },
     validateEngineNumb: function () {
-      if (this.engineNum === '' || !(/^[A-Za-z][A-Za-z0-9-]*$/.test(this.engineNum))) {
+      if (this.engineNum === '' || !(/^[A-Za-z0-9-]*$/.test(this.engineNum)) || isNaN(this.engineNum.charAt(0))) {
+        console.log('1', this.engineNum.charAt(0))
+        console.log('2', isNaN(this.engineNum.charAt(0)))
+        console.log('3', typeof this.engineNum.charAt(0))
         this.engineNumInValid = true
         this.engineNumErrorMsg = '請輸入正確引擎/車身號碼。'
         return false
