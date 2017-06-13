@@ -336,6 +336,22 @@ export default {
   components: {
     pdf
   },
+  head: {
+    title: {
+      inner: '訂購確認 | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '投保資料確認｜要保人資料. 被保人資料. 機車資料. 保單資料. 總保費…上一步修改. 下一步結帳'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: '訂購確認 | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '投保資料確認｜要保人資料. 被保人資料. 機車資料. 保單資料. 總保費…上一步修改. 下一步結帳'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/confirmPage'}
+    ]
+  },
   data () {
     return {
       motoInfoPlateEng: '',
@@ -347,7 +363,7 @@ export default {
   },
   methods: {
     toCMotorResponsbility: function () {
-      window.open('static/assets/pdf/motorRe.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/motorRe.pdf?v=1', '_blank', 'fullscreen=yes')
 //      this.theMotorModal = true
 //      this.src = './static/assets/pdf/motorRe.pdf'
     },

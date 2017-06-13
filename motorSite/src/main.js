@@ -6,10 +6,25 @@ import router from './router'
 import axios from '../node_modules/axios-es6/dist/axios.min.js'
 import VeeValidate from '../node_modules/vee-validate'
 import vueLocalStorage from 'vue-localstorage'
+import VueHead from 'vue-head'
+import VueFacebookPixel from 'vue-analytics-facebook-pixel'
+import ga from 'vue-ga'
 
+Vue.use(VueFacebookPixel)
+Vue.use(VueHead)
 Vue.use(VeeValidate)
 Vue.use(vueLocalStorage)
 Vue.config.productionTip = false
+
+Vue.analytics.fbq.init('1882426715333419', {
+  em: 'insert_email_variable,'
+})
+console.log(Vue.analytics.fbq.event)
+Vue.analytics.fbq.event('ViewContent', {
+  content_name: 'Really Fast Running Shoes'
+})
+
+ga(router, 'UA-XXXXX-Y')
 
 var $ = require('jquery')
 window.jQuery = $

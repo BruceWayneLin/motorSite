@@ -598,6 +598,22 @@ export default {
   components: {
     pdf
   },
+  head: {
+    title: {
+      inner: '要保人資料 | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '要保人資料｜車主資料 姓名. 身分證字號. 生日. 信箱. 手機. 住址…我已閱讀《網路要保聲明事項》，《個人資料聲明事項》文件，並同意'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: '要保人資料 | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '要保人資料｜車主資料 姓名. 身分證字號. 生日. 信箱. 手機. 住址…我已閱讀《網路要保聲明事項》，《個人資料聲明事項》文件，並同意'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/piForm'}
+    ]
+  },
   data () {
     return {
       // ModalVisible
@@ -714,12 +730,12 @@ export default {
       }
     },
     showPersonalAnnouce: function () {
-      window.open('static/assets/pdf/protection.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/protection.pdf?v=1', '_blank', 'fullscreen=yes')
 //      this.ModalVisible = true
 //      this.src = './static/assets/pdf/protection.pdf'
     },
     principleAnnounce: function () {
-      window.open('static/assets/pdf/announcement.pdf', '_blank', 'fullscreen=yes')
+      window.open('static/assets/pdf/announcement.pdf?v=1', '_blank', 'fullscreen=yes')
 //      this.ModalVisible = true
 //      this.src = './static/assets/pdf/announcement.pdf'
     },

@@ -1,6 +1,6 @@
 $(function() {
+        const urlEndForCache = 'v1'
         const envi = 'local';
-
         if(envi == 'local'){
         }else{
             console.log = function(){};
@@ -10,7 +10,7 @@ $(function() {
             console.warn = function(){};
         }
     if ($(window).width() < 500) {
-      $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg');
+      $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg' + '?' + urlEndForCache);
       $('.first-slide').css('min-width', '800px');
       $(document).on('click', '#likeToInsured', function(){
         $('html, body').animate({
@@ -18,7 +18,7 @@ $(function() {
         }, 500);
       });
     } else {
-      $('.first-slide').attr('src', './static/css/img/banner.jpg');
+      $('.first-slide').attr('src', './static/css/img/banner.jpg' + '?' + urlEndForCache);
       $(document).on('click', '#likeToInsured', function(){
         $('html, body').animate({
           scrollTop: $("#myProducts").offset().top - 200
@@ -42,7 +42,7 @@ $(function() {
               $('#defaultIndex ul li p').css({
                   "color": "#777"
               });
-              $('#defaultIndex img').attr('src', './static/assets/logo.png');
+              $('#defaultIndex img').attr('src', './static/assets/logo.png' + '?' + urlEndForCache);
             }else{
               $('#defaultIndex #navbar').css({
                   "background-color" : "rgba(0, 0, 0, 0.56)"
@@ -53,7 +53,7 @@ $(function() {
               $('#defaultIndex ul li p').css({
                   "color": "#fff",
               });
-              $('#defaultIndex img').attr('src', './static/assets/logoWhite.png');
+              $('#defaultIndex img').attr('src', './static/assets/logoWhite.png' + '?' + urlEndForCache);
             }
         });
     });

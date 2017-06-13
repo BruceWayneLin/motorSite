@@ -108,6 +108,22 @@ export default {
       errorCode: ''
     }
   },
+  head: {
+    title: {
+      inner: '機車強制險付款失敗 | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '付款失敗｜金流付款失敗，還請您稍後再試，若有任何疑問，請撥打免費客服專線：0800-234-088 (週一~週五 09：30~18：00)'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: '機車強制險付款失敗 | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '付款失敗｜金流付款失敗，還請您稍後再試，若有任何疑問，請撥打免費客服專線：0800-234-088 (週一~週五 09：30~18：00)'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/failPayment'}
+    ]
+  },
   methods: {
     toGoBackIndex: function () {
       this.$router.push('/')

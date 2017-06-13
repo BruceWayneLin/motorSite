@@ -58,6 +58,22 @@ window.$ = $
 
 export default {
   name: 'errorPage',
+  head: {
+    title: {
+      inner: '系統忙碌中 | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '系統似乎繁忙中，需要任何協助請撥打免費客服專線：0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您.'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: '系統忙碌中 | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '系統似乎繁忙中，需要任何協助請撥打免費客服專線：0800-234-088 (週一~週五 09：30~18：00)，英國凱萊感謝您.'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/errorPage'}
+    ]
+  },
   data () {
     return {
     }

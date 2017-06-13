@@ -436,6 +436,22 @@ window.$ = $
 export default {
   name: 'motorFormPage',
   components: { Datepicker },
+  head: {
+    title: {
+      inner: '車籍資料 | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '要保人資料｜選擇車廠. 輸入車牌. 引擎號碼/車身號碼擇一填寫. 排氣量. 發照日期. 出廠年月. 保險開始日(中午12點生效)'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: '車籍資料 | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '要保人資料｜選擇車廠. 輸入車牌. 引擎號碼/車身號碼擇一填寫. 排氣量. 發照日期. 出廠年月. 保險開始日(中午12點生效)'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/viForm'}
+    ]
+  },
   data () {
     return {
       green: false,

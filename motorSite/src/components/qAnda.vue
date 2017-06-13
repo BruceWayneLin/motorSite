@@ -115,6 +115,22 @@ window.$ = $
 
 export default {
   name: 'qPage',
+  head: {
+    title: {
+      inner: 'FAQ | Care Line英國凱萊 機車強制險'
+    },
+    meta: [
+      {name: 'description', content: '車險FAQ. 車險常見問題. Q：什麼是機車強制險？... Q：強制險理賠範圍包含哪些呢？ ...機車：駕駛人以外第三人體傷賠償。 汽車：車外第三人體傷賠償。'},
+      {name: 'keywords', content: '投保,線上投保,Care Line,英國凱萊,Care Line英國凱萊,機車險,強制險,網路車險,凱, 安安,壯壯'},
+      {property: 'og:title', content: 'FAQ | Care Line英國凱萊 機車強制險'},
+      {property: 'og:description', content: '車險FAQ. 車險常見問題. Q：什麼是機車強制險？... Q：強制險理賠範圍包含哪些呢？ ...機車：駕駛人以外第三人體傷賠償。 汽車：車外第三人體傷賠償'},
+      {property: 'og:image', content: 'https://motor.careline.com.tw/FB.jpg'},
+      {property: 'og:site_name', content: '英國凱萊CareLine 網路保險'},
+      {property: 'og:email', content: 'service@careline.com.tw'},
+      {property: 'og:phone_number', content: '0800234088'},
+      {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/faqPage'}
+    ]
+  },
   data () {
     return {
       visible: false
