@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div style="margin-top:50px; min-height:720px;" class="container customerInfo animated slideInLeft">
+    <div style=" min-height:720px;" class="container customerInfo animated slideInLeft">
       <div class="row">
         <div class="col-sm-12 thanksDiv">
           <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:10%;">
@@ -48,15 +48,6 @@
         </div>
       </div>
     </div>
-
-    <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
-      <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p><a @click="principleAnnounce">使用條款</a> | <a @click="privateAnnouce">隱私政策</a></p>
-      <div class="footer-bottom">
-        <span>© 2017 Careline. All Rights Reserved.</span>
-      </div>
-    </footer>
 
     <!--pdf modal-->
     <div class="modal-mask" v-show="visible">

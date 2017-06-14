@@ -103,7 +103,7 @@ export default {
   },
   head: {
     title: {
-      inner: '英國凱萊首頁 | Care Line英國凱萊'
+      inner: '立刻投保| Care Line英國凱萊機車強制險'
     },
     meta: [
       {name: 'description', content: '投保機車強制險，就送 150 元全家禮物卡! | Care Line英國凱萊 網路機車強制險'},
@@ -233,6 +233,18 @@ export default {
   @media screen and (max-width: 470px) {
     .hoverDiv {
       z-index: 20;
+    }
+  }
+  @media screen and (max-width: 860px) and (min-width: 772px) {
+    .plateColor {
+      height: 18%!important;
+      width: 95%!important;
+      max-width: 180px;
+    }
+  }
+  @media screen and (max-width: 769px) and (min-width: 767px) {
+    .plateColor {
+      height: 16%!important;
     }
   }
 

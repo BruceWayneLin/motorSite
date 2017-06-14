@@ -177,11 +177,12 @@ export default {
   }
 
   .thanksDiv {
-    margin-top: 150px;
+    margin-top: 5%;
+    min-height: 555px;
   }
   @media screen and (max-width: 414px) {
     .thanksDiv {
-      margin-top: 100px;
+      margin-top: -15px;
     }
   }
 </style>

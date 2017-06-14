@@ -19,9 +19,9 @@ Vue.config.productionTip = false
 Vue.analytics.fbq.init('1882426715333419', {
   em: 'insert_email_variable,'
 })
-Vue.analytics.fbq.event('ViewContent', {
-  content_name: 'Really Fast Running Shoes'
-})
+// Vue.analytics.fbq.event('ViewContent', {
+//   content_name: 'Really Fast Running Shoes'
+// })
 
 Vue.use(VueGtm, {
   debug: true, // Whether or not display console logs debugs (optional)

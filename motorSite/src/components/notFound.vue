@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div style="margin-top:50px;height:730px;" class="container customerInfo animated slideInLeft">
+    <div style="height:730px;" class="container customerInfo animated slideInLeft">
       <div class="row">
         <div class="col-sm-12 thanksDiv" style="">
           <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:5%;">

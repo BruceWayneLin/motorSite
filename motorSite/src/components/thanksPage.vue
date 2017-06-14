@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div style="margin-top:50px;" class="container customerInfo animated slideInLeft">
+    <div style="" class="container customerInfo animated slideInLeft">
       <div class="row">
         <div class="col-sm-12 thanksDiv" style="">
           <div class="col-sm-12 text-center" style="margin-bottom:10px;">
@@ -203,12 +203,12 @@ export default {
     font-weight: bold;
   }
   .thanksDiv {
-    margin-top: 150px;
+    margin-top: 5%;
     min-height: 555px;
   }
   @media screen and (max-width: 414px) {
     .thanksDiv {
-      margin-top: 50px;
+      margin-top: -15px;
     }
   }
 </style>

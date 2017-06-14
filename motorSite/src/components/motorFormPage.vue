@@ -57,7 +57,7 @@
           </div>
           <div class="col-sm-7" style="margin-top:0px;">
             <div class="col-sm-6">
-              <button class="form-control" type="radio"  name="getMotoFactory"  v-bind:class="{errorShow:motoMadeFactoryInValid, buttonActive:MCButton}" @click="getMotoFactory('MC')">光陽/KYMCO</button>
+              <button class="form-control kymcoButton" type="radio"  name="getMotoFactory"  v-bind:class="{errorShow:motoMadeFactoryInValid, buttonActive:MCButton}" @click="getMotoFactory('MC')">光陽/KYMCO</button>
             </div>
             <div class="col-sm-6" id="carBrandCol">
               <button class="form-control" type="radio" name="getMotoFactory" v-bind:class="{errorShow:motoMadeFactoryInValid, buttonActive:MAButton}" @click="getMotoFactory('MA')">三陽/SYM</button>
@@ -200,7 +200,7 @@
             </div>
             <div class="col-sm-7">
               <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="ProductCCInValid"></div>
-              <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="ProductCCInValid">請輸入行照上的排氣量。</span>
+              <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="ProductCCInValid">請輸入行照上的{{airErrorMsgCol}}。</span>
             </div>
         </div>
       </div>
@@ -227,7 +227,7 @@
             </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow: releasePLateMonthInValid}">
-                 <select @change="validateReleasePlateMonth" @click="toShowIssuedDateExample" v-model="releasePLateMonthDate" class="form-control" :disabled="releasePlateYearDate == ''" name="releasePLateMonthDate" id="releasePLateMonthDate">
+                 <select @change="validateReleasePlateMonth()" @click="toShowIssuedDateExample" v-model="releasePLateMonthDate" class="form-control" :disabled="releasePlateYearDate == ''" name="releasePLateMonthDate" id="releasePLateMonthDate">
                   <option value="">月</option>
                   <option v-for=" month in taiwanMonth ">{{ month }}月</option>
                  </select>
@@ -410,11 +410,11 @@
 
           <div class="modal-footer text-center" style="text-align: center;">
             <slot name="footer">
-              <button class="modal-default-button backToSelect pull-left" style="width:40%;" @click="toGoBackIndex">
+              <button class="modal-default-button backToSelect pull-left" style="width:40%;min-width:124px;white-space: nowrap;" @click="toGoBackIndex">
                 重選車牌方案
               </button>
-              <button class="modal-default-button pull-right" style="width:40%;" @click="ccModalShow = false">
-                重新輸入排氣量
+              <button class="modal-default-button pull-right" style="width:40%;min-width:124px; white-space: nowrap;" @click="ccModalShow = false">
+                重新輸入{{airErrorMsgCol}}
               </button>
             </slot>
           </div>
@@ -464,6 +464,7 @@ export default {
       visibleError: false,
       ccChosen: '',
       ccErrorMsg: '',
+      airErrorMsgCol: '',
       errorMsgOfFailSent: '',
       colorTxtOfcc: '',
       MAButton: false,
@@ -536,6 +537,7 @@ export default {
   },
   methods: {
     toCheckAndValiMotorDate: function () {
+      window.scrollTo(0, document.body.scrollHeight)
       this.validateMotoYear()
       this.validateMotoMonth()
     },
@@ -556,7 +558,7 @@ export default {
         this.validateMotoFac() &&
         this.validateEngineNumb() &&
         this.validateReleasePlateYear() &&
-        this.validateReleasePlateMonth() &&
+        this.validateReleasePlateMonth('last') &&
         this.validateReleasePlateDay() &&
         this.validateMotoYear() &&
         this.validateMotoMonth() &&
@@ -621,7 +623,7 @@ export default {
         console.log('3', this.comparePlateWithEnterCC())
         console.log('4', this.validateEngineNumb())
         console.log('6', this.validateReleasePlateYear())
-        console.log('7', this.validateReleasePlateMonth())
+        console.log('7', this.validateReleasePlateMonth('last'))
         console.log('8', this.validateReleasePlateDay())
         console.log('9', this.validateMotoYear())
         console.log('10', this.validateMotoMonth())
@@ -632,7 +634,7 @@ export default {
         this.comparePlateWithEnterCC()
         this.validateEngineNumb()
         this.validateReleasePlateYear()
-        this.validateReleasePlateMonth()
+        this.validateReleasePlateMonth('last')
         this.validateReleasePlateDay()
         this.validateMotoYear()
         this.validateMotoMonth()
@@ -814,12 +816,17 @@ export default {
         return true
       }
     },
-    validateReleasePlateMonth: function () {
+    validateReleasePlateMonth: function (val) {
       if (this.releasePLateMonthDate === '') {
         this.releasePLateMonthInValid = true
         this.releasePLateMonthErrorMsg = ''
         return false
       } else {
+        if (val === 'last') {
+
+        } else {
+          this.releasePlateDayDate = ''
+        }
         this.releasePLateMonthInValid = false
         return true
       }
@@ -869,6 +876,7 @@ export default {
       var selectProductCC = this.$parent.userSelectedProduct['productCC']
       if (this.motoMadeFactory === 'MH') {
         this.$parent.$parent.isMH = true
+        this.airErrorMsgCol = '馬力數'
         this.ccSpanShow = false
         if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 5) {
@@ -883,7 +891,7 @@ export default {
             this.green = false
             this.colorTxtOfcc = 'green'
             this.ccChosen = '綠牌(馬力應低於或等於5)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的馬力數' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '馬力數' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -900,7 +908,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(馬力應高於5或低於等於40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的馬力數' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '馬力數' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -917,7 +925,7 @@ export default {
             this.green = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '黃、紅牌(馬力應高於40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的馬力數' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '馬力數' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -934,7 +942,7 @@ export default {
             this.ccModalShow = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '黃、紅牌(馬力應高於40)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的馬力數' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '馬力數' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -943,6 +951,7 @@ export default {
           return false
         }
       } else {
+        this.airErrorMsgCol = '排氣量'
         if (selectProductCC === 'green') {
           if (this.userEnteredProdcutCC <= 50) {
             this.ProductCCInValid = false
@@ -957,7 +966,7 @@ export default {
             this.white = true
             this.green = false
             this.ccChosen = '綠牌(1-50cc)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的排氣量' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '排氣量' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -975,7 +984,7 @@ export default {
             this.green = true
             this.colorTxtOfcc = 'black'
             this.ccChosen = '白牌(51-250cc)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + '您輸入的排氣量' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '排氣量' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -993,7 +1002,7 @@ export default {
             this.green = true
             this.colorTxtOfcc = 'rgb(224, 88, 0)'
             this.ccChosen = '黃牌(251-550)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + '您輸入的排氣量' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '排氣量' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -1011,7 +1020,7 @@ export default {
             this.green = true
             this.colorTxtOfcc = 'red'
             this.ccChosen = '紅牌(551cc+)'
-            this.ccErrorMsg = '您輸入的' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + (this.$parent.$parent.isMH === true ? '馬力數' : '排氣量') + '不符，提醒您，您剛剛所選擇的車牌方案是'
+            this.ccErrorMsg = '您輸入的' + '您輸入的排氣量' + '(' + this.userEnteredProdcutCC + ')與您挑選的車牌方案' + '排氣量' + '不符，提醒您，您剛剛所選擇的車牌方案是'
             this.ProductCCInValid = true
             return false
           }
@@ -1238,13 +1247,27 @@ export default {
     #carBrandCol {
       margin-top: -15px;
     }
+    .modal-container {
+      width: 300px!important;
+    }
+    .modal-body {
+      width: 280px!important;
+    }
   }
+
+  @media screen and (max-width: 500px) {
+
+  }
+
   .modal-body span p {
     display: inline-block;
   }
   @media screen and (max-width:800px) {
     #carBrandCol {
       margin-top: -15px;
+    }
+    .customerForm .kymcoButton {
+      margin-bottom: 23px;
     }
   }
 </style>

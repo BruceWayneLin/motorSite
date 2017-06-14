@@ -96,7 +96,7 @@
                   <p class="mobileTitle">E-Mail信箱:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p>{{ applicant.applicantEmail }}</p>
+                  <p style="word-break:break-all">{{ applicant.applicantEmail }}</p>
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@
                   <p class="mobileTitle">E-Mail信箱:</p>
                 </div>
                 <div class="col-sm-9 text-left">
-                  <p>{{ insuredPP.insuredEmail }}</p>
+                  <p style="word-break:break-all">{{ insuredPP.insuredEmail }}</p>
                 </div>
               </div>
             </div>

@@ -319,7 +319,7 @@
           </div>
           <div class="col-sm-6">
             <div class="col-sm-12">
-              <span class="errorMessage" style="padding-right: 420px;" v-show="insuredLastNameInValid || insuredFirstNameInValid">請輸入正確中文姓名</span>
+              <span class="errorMessage" style="padding-right: 999px;" v-show="insuredLastNameInValid || insuredFirstNameInValid">請輸入正確中文姓名</span>
               <div style="left:0px;" class="iconErrorMessageBack motoErrorIcon" v-show="insuredFirstNameInValid || insuredLastNameInValid"></div>
             </div>
           </div>
@@ -495,7 +495,7 @@
           </div>
           <div class="col-sm-6">
             <div class="iconErrorMessageBack" style="top:-7px;left:9px;" v-show="insuredaddrInValid" ></div>
-            <span id="specialAddrShrink" class="errorMessage" style="padding-left:15px; top:5px; padding-right:420px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
+            <span id="specialAddrShrink" class="errorMessage" style="padding-left:15px; top:5px; padding-right:999px;" v-show="insuredaddrInValid">{{ insuredaddrErrorMsg }} 請確認地址以寄送保險文件與活動獎項。</span>
           </div>
         </div>
       </div>
@@ -764,6 +764,7 @@ export default {
       if (value === 'last') {
         if (!(/^[\u4E00-\u9FFF\u3400-\u4DFF]+$/.test(this.applicantLastName))) {
           this.applicantLastNameInValid = true
+          this.applicantLastName = ''
           return false
         } else {
           this.applicantLastNameInValid = false
@@ -772,6 +773,7 @@ export default {
       } else if (value === 'first') {
         if (!(/^[\u4E00-\u9FFF\u3400-\u4DFF]+$/.test(this.applicantFirstName))) {
           this.applicantFirstNameInValid = true
+          this.applicantFirstName = ''
           return false
         } else {
           this.applicantFirstNameInValid = false
@@ -1796,6 +1798,12 @@ export default {
   span#hideInLowScreenID {
     padding-right: 65px!important;
     white-space: nowrap;
+  }
+
+  @media screen and (max-width: 866px) {
+    .container .col-sm-12 .col-sm-6 {
+      width: 100%!important;
+    }
   }
 
 </style>
