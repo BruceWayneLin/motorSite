@@ -15,7 +15,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
-            <li><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></li>
+            <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
             <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -28,76 +28,73 @@
         </div>
     </div>
 
-    <div style="margin-top:50px;height: 450px;" id="qaDiv" class="container customerInfo animated slideInLeft">
-      <div class="row" style="padding: 30px;">
-        <div class="row">
-          <div class="col-sm-12 text-center">
-            <h3>車險 Q & A</h3>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 什麼是機車強制險？</h4>
-              <p class="text-left">
-                強制險為政府規定強制要保，
-                保障範圍為車禍本車以外第三人體傷，
-                如未投保無法換照、過戶，
-                並依汽機車種處以罰鍰。
-              </p>
-            </div>
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 強制險理賠範圍包含哪些呢？</h4>
-              <p class="text-left">
-                機車：駕駛人以外第三人體傷賠償。
-                汽車：車外第三人體傷賠償。
-                強制險賠付車禍事故中對方受傷的醫療相關費用上限20萬及死殘保額200萬。
-              </p>
+    <div class="row" style="">
+      <div style="margin-top: 35px;" id="qaDiv" class="container customerInfo animated slideInLeft">
+        <div class="row" style="">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h3>車險 Q & A</h3>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 什麼是機車強制險？</h4>
-              <p class="text-left">
-                強制險為政府規定強制要保，
-                保障範圍為車禍本車以外第三人體傷，
-                如未投保無法換照、過戶，
-                並依汽機車種處以罰鍰。
-              </p>
-            </div>
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 強制險理賠範圍包含哪些呢？</h4>
-              <p class="text-left">
-                機車：駕駛人以外第三人體傷賠償。
-                汽車：車外第三人體傷賠償。
-                強制險賠付車禍事故中對方受傷的醫療相關費用上限20萬及死殘保額200萬。
-              </p>
-            </div>
-          </div>
-        </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-6">
 
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 什麼是機車強制險？</h4>
-              <p class="text-left">
-                強制險為政府規定強制要保，
-                保障範圍為車禍本車以外第三人體傷，
-                如未投保無法換照、過戶，
-                並依汽機車種處以罰鍰。
-              </p>
-            </div>
-            <div class="col-sm-6">
-              <h4 class="text-left"><span>Q</span> 強制險理賠範圍包含哪些呢？</h4>
-              <p class="text-left">
-                機車：駕駛人以外第三人體傷賠償。
-                汽車：車外第三人體傷賠償。
-                強制險賠付車禍事故中對方受傷的醫療相關費用上限20萬及死殘保額200萬。
-              </p>
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q1</span> 什麼是機車強制險？</h4>
+                  <p class="text-left">
+                    強制險為政府規定強制要保，保障範圍為機車以外第三人及車上乘客之體傷，如未投保無法換照、過戶，並依汽機車種處以罰鍰。
+                  </p>
+                </div>
+
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q2</span> 機車強制險保額多少？能更改嗎？</h4>
+                  <p class="text-left">
+                    強制險保額為身故/全殘200萬，傷害醫療上限20萬。
+                    強制險是配合政策實行之社會保險，保險內容由政府單位擬訂無法更動。
+                  </p>
+                </div>
+
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q3</span> 投保強制險是否可以附加其他任意險？</h4>
+                  <p class="text-left">
+                    目前線上僅提供投保強制險，如您想附加其他任意險可撥打客服專線諮詢，將有專人為您服務。
+                  </p>
+                </div>
+
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q4</span> 網路保險服務「交易流程」及「繳費方式」為何？</h4>
+                  <p class="text-left">
+                    交易流程：輸入投保資料→閱讀聲明事項→輸入車籍資料→確認投保資料→輸入信用卡資料→交易成功。
+                    繳費方式：目前僅開放信用卡繳費方式。
+                  </p>
+                </div>
+
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q5</span> 網路保險服務完成後，如何確定「交易已成功」及何時「收到保險證(單)」？</h4>
+                  <p class="text-left">
+                    投保完成後，系統會E-MAIL一封訂單確認函至您所留信箱；紙本保單將於交易日起七個工作天內掛號寄出。
+                  </p>
+                </div>
+
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q6</span> 網路保險服務可使用那些信用卡繳費？</h4>
+                  <p class="text-left">
+                    目前可使用VISA、MASTER、JCB、聯合信用卡，其他信用卡(例如美國運通卡、郵局金融卡)暫時無法使用。
+                  </p>
+                </div>
+
+                <div class="col-sm-12">
+                  <h4 class="text-left"><span>Q7</span> 填寫完成刷卡資料並送出資料後，卻出現「付款失敗」的畫面？</h4>
+                  <p class="text-left">
+                    建議您可先向信用卡發卡銀行查詢，或麻煩您重新操作一次。如需協助請撥打英國凱萊客服專線。
+                  </p>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -239,7 +236,18 @@ export default {
 
   @media screen and (max-width:500px) {
     #qaDiv {
-      min-height:800px;
+      margin-bottom: 15px;
+      margin-top: 15px;
     }
+  }
+
+  h4 {
+    line-height: 25px;
+  }
+
+  .customerInfo {
+    /*border:none;*/
+    padding: 0px 15px;
+    margin-top: 15px;
   }
 </style>

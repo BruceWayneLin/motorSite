@@ -14,7 +14,7 @@
         <div id="navbar" class="navbar-collapse collapse" v-bind:class="{secondPageNav: alterChangeNav}">
           <ul class="nav navbar-nav navbar-right">
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
-            <li><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></li>
+            <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
             <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -81,6 +81,9 @@
 var $ = require('jquery')
 window.jQuery = $
 window.$ = $
+import fbAna from '../assets/js/analytic'
+import vue from 'vue'
+vue.use(fbAna)
 
 export default {
   name: 'indexPage',
@@ -93,7 +96,7 @@ export default {
       products: [
           {title: '機車強制險', year: 2, price: 735, discountPrice: 'NT$' + 848, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'green', cc: '1-50cc', textColor: 'white'},
           {title: '機車強制險', year: 2, price: 1200, discountPrice: 'NT$' + 1316, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black'},
-          {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-249cc', textColor: 'black'},
+          {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-549cc', textColor: 'black'},
           {title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white'}
       ]
     }
@@ -112,6 +115,9 @@ export default {
       {property: 'og:email', content: 'service@careline.com.tw'},
       {property: 'og:phone_number', content: '0800234088'},
       {property: 'og:url', content: 'https://motor.careline.com.tw'}
+    ],
+    script: [
+//      {type: 'text/javascript', src: '/assets/js/analytic.js', async: true, body: true}
     ]
   },
   methods: {
@@ -135,7 +141,7 @@ export default {
       this.products = [
         { title: '機車強制險', year: 1, price: 424, discountPrice: '', content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'green', cc: '1-50cc', textColor: 'white' },
         { title: '機車強制險', year: 1, price: 658, discountPrice: '', content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black' },
-        { title: '機車強制險', year: 1, price: 711, discountPrice: '', content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-249cc', textColor: 'black' },
+        { title: '機車強制險', year: 1, price: 711, discountPrice: '', content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-549cc', textColor: 'black' },
         { title: '機車強制險', year: 1, price: 711, discountPrice: '', content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white' }
       ]
     },
@@ -144,7 +150,7 @@ export default {
       this.products = [
         { title: '機車強制險', year: 2, price: 735, discountPrice: 'NT$' + 848, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'green', cc: '1-50cc', textColor: 'white' },
         { title: '機車強制險', year: 2, price: 1200, discountPrice: 'NT$' + 1316, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'white', cc: '51-250cc', textColor: 'black' },
-        { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-249cc', textColor: 'black' },
+        { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'yellow', cc: '251-549cc', textColor: 'black' },
         { title: '機車強制險', year: 2, price: 1306, discountPrice: 'NT$' + 1422, content: ['每一人體傷20萬元', '每一人死殘200萬元'], color: 'red', cc: '550cc+', textColor: 'white' }
       ]
     },
@@ -223,6 +229,11 @@ export default {
     color: white;
     margin: 15px;
     font-weight: bold;
+  }
+  @media screen and (max-width: 470px) {
+    .hoverDiv {
+      z-index: 20;
+    }
   }
 
 </style>

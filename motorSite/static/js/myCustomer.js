@@ -1,6 +1,6 @@
 $(function() {
-        const urlEndForCache = 'v1'
-        const envi = 'local';
+        const urlEndForCache = 'v3'
+        const envi = 'prod';
         if(envi == 'local'){
         }else{
             console.log = function(){};

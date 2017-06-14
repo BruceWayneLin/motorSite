@@ -15,7 +15,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
-            <li><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></li>
+            <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
             <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -712,8 +712,8 @@ export default {
       if (value !== 'other') {
         switch (value) {
           case 'MA':
-            this.motoMadeFactory = 'MC'
-            this.motoBrand = '光陽'
+            this.motoMadeFactory = 'MA'
+            this.motoBrand = '三陽'
             this.motoMadeFactoryInValid = false
             this.MAButton = true
             this.MBButton = false
@@ -733,7 +733,7 @@ export default {
             break
           case 'MC':
             this.motoMadeFactory = 'MC'
-            this.motoBrand = '三陽'
+            this.motoBrand = '光陽'
             this.motoMadeFactoryInValid = false
             this.MCButton = true
             this.MBButton = false

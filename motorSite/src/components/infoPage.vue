@@ -15,7 +15,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
-            <li><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></li>
+            <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
             <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -363,7 +363,7 @@ export default {
   },
   methods: {
     toCMotorResponsbility: function () {
-      window.open('static/assets/pdf/motorRe.pdf?v=1', '_blank', 'fullscreen=yes')
+      window.open('/CareLineMotor/motorbike-mbr/viewpdf/motorRe', '_blank', 'fullscreen=yes')
 //      this.theMotorModal = true
 //      this.src = './static/assets/pdf/motorRe.pdf'
     },

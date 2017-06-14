@@ -8,9 +8,9 @@ import VeeValidate from '../node_modules/vee-validate'
 import vueLocalStorage from 'vue-localstorage'
 import VueHead from 'vue-head'
 import VueFacebookPixel from 'vue-analytics-facebook-pixel'
-import ga from 'vue-ga'
+import VueGtm from 'vue-gtm'
 
-Vue.use(VueFacebookPixel)
+Vue.use(VueFacebookPixel, { router })
 Vue.use(VueHead)
 Vue.use(VeeValidate)
 Vue.use(vueLocalStorage)
@@ -19,12 +19,14 @@ Vue.config.productionTip = false
 Vue.analytics.fbq.init('1882426715333419', {
   em: 'insert_email_variable,'
 })
-console.log(Vue.analytics.fbq.event)
 Vue.analytics.fbq.event('ViewContent', {
   content_name: 'Really Fast Running Shoes'
 })
 
-ga(router, 'UA-XXXXX-Y')
+Vue.use(VueGtm, {
+  debug: true, // Whether or not display console logs debugs (optional)
+  vueRouter: router // Pass the router instance to automatically sync with router (optional)
+})
 
 var $ = require('jquery')
 window.jQuery = $

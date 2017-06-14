@@ -72,13 +72,13 @@ export default {
       this.visible = false
     },
     principleAnnounce: function () {
-      window.open('static/assets/pdf/term.pdf?v=1', '_blank', 'fullscreen=yes')
+      window.open('/CareLineMotor/motorbike-mbr/viewpdf/term', '_blank', 'fullscreen=yes')
 //      this.src = './static/assets/pdf/term.pdf'
 //      this.page = 1
 //      this.visible = true
     },
     privateAnnouce: function () {
-      window.open('static/assets/pdf/privacy.pdf?v=1', '_blank', 'fullscreen=yes')
+      window.open('/CareLineMotor/motorbike-mbr/viewpdf/privacy', '_blank', 'fullscreen=yes')
 //      this.src = './static/assets/pdf/privacy.pdf'
 //      this.visible = true
 //      this.page = 1

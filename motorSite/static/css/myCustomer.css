@@ -891,7 +891,7 @@ input.form-control {
 
 .hoverDiv {
   background-color: rgba(0, 0, 0, 0.40);
-  z-index: 20;
+  z-index: 99999;
   position: absolute;
   height: 440px;
   top: -170px;
@@ -915,12 +915,15 @@ input.form-control {
 
 .selectProduct {
   font-size: 24px!important;
+  width: 220px;
+  margin: 0 auto;
   position: relative;
   top: -80px;
-  z-index: 999;
+  z-index: 9999999;
   color: white;
   text-shadow: 2px 2px 2px black;
   font-size:20px;
+  pointer-events: none;
 }
 
 .customerInfo .btn-primary {
@@ -1384,4 +1387,8 @@ button:focus {
   outline: 0!important;
   -webkit-box-shadow: none!important;
   box-shadow: none!important;
+}
+
+ul.nav.navbar-nav.navbar-right a {
+  padding: 0px!important;
 }

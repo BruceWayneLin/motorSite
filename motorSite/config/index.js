@@ -34,6 +34,7 @@ module.exports = {
         target: 'http://210.242.7.164/CareLineMotor/',
         changeOrigin: true,
         pathRewrite: {
+          '^/CareLineMotor': ''
         }
       }
     },
