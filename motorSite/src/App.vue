@@ -5,7 +5,7 @@
     <footer class="text-center">
       <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
-      <p ><a style="cursor:pointer;"  @click="principleAnnounce" >使用條款</a> | <a style="cursor:pointer;" @click="privateAnnouce">隱私政策</a></p>
+      <p ><a style="cursor:pointer;" href="/CareLineMotor/motorbike-mbr/viewpdf/term" target="_blank"  @click="principleAnnounce" >使用條款</a> | <a style="cursor:pointer;" href="/CareLineMotor/motorbike-mbr/viewpdf/privacy" target="_blank"  @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
         <span>© 2017 Careline. All Rights Reserved.</span>
       </div>
@@ -72,16 +72,82 @@ export default {
       this.visible = false
     },
     principleAnnounce: function () {
-      window.open('/CareLineMotor/motorbike-mbr/viewpdf/term', '_blank', 'fullscreen=yes')
-//      this.src = './static/assets/pdf/term.pdf'
-//      this.page = 1
-//      this.visible = true
+      let pageName = this.$router.currentRoute.name
+      switch (pageName) {
+        case 'indexPage':
+          pageName = '首頁'
+          break
+        case 'form':
+          pageName = '車主資料頁'
+          break
+        case 'motorForm':
+          pageName = '車籍資料頁'
+          break
+        case 'infoPage':
+          pageName = '投保資料確認頁'
+          break
+        case 'thanksPage':
+          pageName = '訂購成功頁'
+          break
+        case 'failPayment':
+          pageName = '訂購失敗頁'
+          break
+        case 'notFound':
+          pageName = '找不到頁'
+          break
+        case 'errorPage':
+          pageName = '錯誤碼頁'
+          break
+        case 'qPage':
+          pageName = 'QA頁'
+          break
+        default:
+      }
+      this.$gtm.trackEvent({
+        category: pageName,
+        action: 'click',
+        label: 'User Click 使用條款',
+        value: ''
+      })
     },
     privateAnnouce: function () {
-      window.open('/CareLineMotor/motorbike-mbr/viewpdf/privacy', '_blank', 'fullscreen=yes')
-//      this.src = './static/assets/pdf/privacy.pdf'
-//      this.visible = true
-//      this.page = 1
+      let pageName = this.$router.currentRoute.name
+      switch (pageName) {
+        case 'indexPage':
+          pageName = '首頁'
+          break
+        case 'form':
+          pageName = '車主資料頁'
+          break
+        case 'motorForm':
+          pageName = '車籍資料頁'
+          break
+        case 'infoPage':
+          pageName = '投保資料確認頁'
+          break
+        case 'thanksPage':
+          pageName = '訂購成功頁'
+          break
+        case 'failPayment':
+          pageName = '訂購失敗頁'
+          break
+        case 'notFound':
+          pageName = '找不到頁'
+          break
+        case 'errorPage':
+          pageName = '錯誤碼頁'
+          break
+        case 'qPage':
+          pageName = 'QA頁'
+          break
+        default:
+      }
+      this.$gtm.trackEvent({
+        category: pageName,
+        action: 'click',
+        label: 'User Click 隱私政策',
+        value: ''
+      })
     }
   },
   computed: {

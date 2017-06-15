@@ -1,6 +1,6 @@
 $(function() {
         const urlEndForCache = 'v4'
-        const envi = 'prod';
+        const envi = 'local';
         if(envi == 'local'){
         }else{
             console.log = function(){};
@@ -12,18 +12,10 @@ $(function() {
     if ($(window).width() < 500) {
       $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg' + '?' + urlEndForCache);
       $('.first-slide').css('min-width', '800px');
-      $(document).on('click', '#likeToInsured', function(){
-        $('html, body').animate({
-          scrollTop: $("#myProducts").offset().top - 183
-        }, 500);
-      });
+
     } else {
       $('.first-slide').attr('src', './static/css/img/banner.jpg' + '?' + urlEndForCache);
-      $(document).on('click', '#likeToInsured', function(){
-        $('html, body').animate({
-          scrollTop: $("#myProducts").offset().top - 200
-        }, 500);
-      });
+
     }
 
     $('#defaultIndex').css({

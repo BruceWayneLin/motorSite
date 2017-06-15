@@ -507,7 +507,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12 contractRules">
               <p><input type="checkbox" v-model="agreementRead" name="agreementCheckBox">
-                我已閱讀 << <a @click="principleAnnounce" target="">網絡保險服務聲明事項</a> >> ， << <a @click="showPersonalAnnouce">產險業履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
+                我已閱讀 << <a @click="principleAnnounce" target="">網絡保險服務聲明事項</a> >> ， << <a href="/CareLineMotor/motorbike-mbr/viewpdf/protection" @click="showPersonalAnnouce">產險業履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
             </div>
           </div>
         </div>
@@ -730,9 +730,12 @@ export default {
       }
     },
     showPersonalAnnouce: function () {
-      window.open('/CareLineMotor/motorbike-mbr/viewpdf/protection', '_blank', 'fullscreen=yes')
-//      this.ModalVisible = true
-//      this.src = './static/assets/pdf/protection.pdf'
+      this.$gtm.trackEvent({
+        category: '車主資料頁',
+        action: 'click',
+        label: 'User Click 產險業個人資料法',
+        value: ''
+      })
     },
     principleAnnounce: function () {
       window.open('/CareLineMotor/motorbike-mbr/viewpdf/announcement', '_blank', 'fullscreen=yes')

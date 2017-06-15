@@ -31,7 +31,7 @@
           <img class="first-slide" src="../assets/banner.jpg" onerror="this.style.display='none'" alt="First slide">
           <div class="titleDivH4" v-show="false"><h2>CareLine</h2></div>
           <div class="textDiv"></div>
-          <div class="titleButton"><button id="likeToInsured">我要投保<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button></div>
+          <div class="titleButton"><button @click="toTriggerAnimate" id="likeToInsured">我要投保<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button></div>
           <div class="container">
             <div class="carousel-caption">
             </div>
@@ -117,21 +117,62 @@ export default {
       {property: 'og:url', content: 'https://motor.careline.com.tw'}
     ],
     script: [
-//      {type: 'text/javascript', src: '/assets/js/analytic.js', async: true, body: true}
     ]
   },
   methods: {
+    // gta functions
+    toTriggerAnimate: function () {
+      if ($(window).width() < 500) {
+        $('html, body').animate({
+          scrollTop: $('#myProducts').offset().top - 183
+        }, 500)
+      } else {
+        $('html, body').animate({
+          scrollTop: $('#myProducts').offset().top - 200
+        }, 500)
+      }
+      this.$gtm.trackEvent({
+        category: '首頁',
+        action: 'click',
+        label: 'User Click 我要投保',
+        value: ''
+      })
+    },
     toGoBackIndex: function () {
+      this.$gtm.trackEvent({
+        category: '首頁',
+        action: 'click',
+        label: 'User Click 首頁的Logo',
+        value: ''
+      })
       this.$router.push('/')
     },
     toGoQandAPage: function () {
+      this.$gtm.trackEvent({
+        category: 'QA',
+        action: 'click',
+        label: 'User Click QA',
+        value: ''
+      })
       window.open('index.html#/faqPage', '_blank')
     },
     whichProductToShow: function () {
       if (this.isActive) {
+        this.$gtm.trackEvent({
+          category: '首頁',
+          action: 'click',
+          label: 'User Click 1年方案',
+          value: ''
+        })
         this.productText = '2年方案'
         this.oneYearProduct()
       } else {
+        this.$gtm.trackEvent({
+          category: '首頁',
+          action: 'click',
+          label: 'User Click 2年方案',
+          value: ''
+        })
         this.productText = '1年方案'
         this.twoYearProduct()
       }
@@ -159,15 +200,39 @@ export default {
       switch (index) {
         case 0:
           this.selectedProduct['productCC'] = 'green'
+          this.$gtm.trackEvent({
+            category: '首頁',
+            action: 'click',
+            label: 'User Click 綠色車牌',
+            value: ''
+          })
           break
         case 1:
           this.selectedProduct['productCC'] = 'white'
+          this.$gtm.trackEvent({
+            category: '首頁',
+            action: 'click',
+            label: 'User Click 白色車牌',
+            value: ''
+          })
           break
         case 2:
           this.selectedProduct['productCC'] = 'yellow'
+          this.$gtm.trackEvent({
+            category: '首頁',
+            action: 'click',
+            label: 'User Click 黃色車牌',
+            value: ''
+          })
           break
         case 3:
           this.selectedProduct['productCC'] = 'red'
+          this.$gtm.trackEvent({
+            category: '首頁',
+            action: 'click',
+            label: 'User Click 紅色車牌',
+            value: ''
+          })
           break
         default:
           this.selectedProduct['productCC'] = ''
@@ -247,5 +312,4 @@ export default {
       height: 16%!important;
     }
   }
-
 </style>
