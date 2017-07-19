@@ -4,8 +4,8 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <div class="logo" @click="toGoBackIndex"><a><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
+          <button @click="showingNavBar" type="button" class="navbar-toggle collapsed" data-toggle="collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -14,9 +14,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li v-show="toShowActivity"><p @click="goToActivityTwo">活動專區<span class="sr-only">活動專區<</span></p></li>
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
             <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
-            <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
+            <li><p style="cursor:default"><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -28,7 +29,7 @@
         </div>
     </div>
 
-    <div class="container customerForm animated slideInLeft">
+    <div id="motorFormPage" class="container customerForm animated slideInLeft">
       <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-5">
@@ -220,8 +221,8 @@
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:releasePlateYearInValid}">
                 <select @change="validateReleasePlateYear($event)" v-model="releasePlateYearDate" class="form-control" @click="toShowIssuedDateExample">
-                <option value="">民國年</option>
-                <option v-for="yearItem in taiwanYearRelease">民國{{yearItem}}年</option>
+                  <option value="">民國年</option>
+                  <option v-for="yearItem in taiwanYearRelease">民國{{yearItem}}年</option>
                 </select>
               </div>
             </div>
@@ -251,7 +252,7 @@
           </div>
           <div class="col-sm-7">
             <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid"></div>
-          <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid">{{ releasePlateYearErrorMsg }}{{ releasePLateMonthErrorMsg }}{{ releasePlateDayErrorMsg }} 請選擇發照日期。</span>
+            <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releasePlateYearInValid || releasePLateMonthInValid || releasePlateDayInValid">{{ releasePlateYearErrorMsg }}{{ releasePLateMonthErrorMsg }}{{ releasePlateDayErrorMsg }}</span>
           </div>
         </div>
       </div>
@@ -295,7 +296,7 @@
           </div>
           <div class="col-sm-7">
             <div class="iconErrorMessageBack motoErrorIcon" style="" v-show="releaseMotoYearInValid || releaseMotoMonthInValid"></div>
-            <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releaseMotoYearInValid || releaseMotoMonthInValid">{{ releaseMotoYearErrorMsg }}{{ releaseMotoMonthErrorMsg }} 請選擇出廠年月。</span>
+            <span class="errorMessage motoErrorMsg" style="padding-right:999px;" v-show="releaseMotoYearInValid || releaseMotoMonthInValid">{{ releaseMotoYearErrorMsg }}{{ releaseMotoMonthErrorMsg }}</span>
           </div>
         </div>
       </div>
@@ -349,7 +350,7 @@
             <div class="col-sm-12">
               <button class="btn btn-primary NextButton" @click="readyToCheckInfo">下一步</button>
               <router-link to="piForm">
-                <button class="btn btn-danger NextButton">上一步</button>
+                <button class="btn btn-danger NextButton" @click="goPiForm">上一步</button>
               </router-link>
             </div>
           </div>
@@ -410,7 +411,7 @@
 
           <div class="modal-footer text-center" style="text-align: center;">
             <slot name="footer">
-              <button class="modal-default-button backToSelect pull-left" style="width:40%;min-width:124px;white-space: nowrap;" @click="toGoBackIndex">
+              <button class="modal-default-button backToSelect pull-left" style="width:40%;min-width:124px;white-space: nowrap;" @click="toGoBackIndex('reset')">
                 重選車牌方案
               </button>
               <button class="modal-default-button pull-right" style="width:40%;min-width:124px; white-space: nowrap;" @click="ccModalShow = false">
@@ -536,16 +537,55 @@ export default {
     }
   },
   methods: {
+    showingNavBar: function () {
+      $('#navbar').css({
+        'height': '300px'
+      })
+      $('#navbar').toggle()
+    },
+    goPiForm: function () {
+      this.$ga.event({
+        eventCategory: '車籍資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 上一步',
+        value: ''
+      })
+    },
+    goToActivityTwo: function () {
+      window.open('index.html#/activityPage', '_blank')
+    },
     toCheckAndValiMotorDate: function () {
       window.scrollTo(0, document.body.scrollHeight)
       this.validateMotoYear()
       this.validateMotoMonth()
     },
-    toGoBackIndex: function () {
-      this.ccModalShow = false
-      this.$router.push('/')
+    toGoBackIndex: function (val) {
+      if (val === 'reset') {
+        this.$ga.event({
+          eventCategory: '重選車牌方案',
+          eventAction: 'click',
+          eventLabel: 'User Click Logo',
+          value: ''
+        })
+        this.$router.push('/')
+      } else {
+        this.$ga.event({
+          eventCategory: '車籍資料頁',
+          eventAction: 'click',
+          eventLabel: 'User Click Logo',
+          value: ''
+        })
+        this.ccModalShow = false
+        window.open('http://www.careline.com.tw')
+      }
     },
     toGoQandAPage: function () {
+      this.$ga.event({
+        eventCategory: '車籍資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click QA',
+        value: ''
+      })
       window.open('index.html#/faqPage', '_blank')
     },
     closeModal: function () {
@@ -554,6 +594,12 @@ export default {
       this.ccModalShow = false
     },
     readyToCheckInfo: function () {
+      this.$ga.event({
+        eventCategory: '車籍資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 下一步',
+        value: ''
+      })
       if (this.toValidatePlate() &&
         this.validateMotoFac() &&
         this.validateEngineNumb() &&
@@ -573,10 +619,10 @@ export default {
           motocycleInfo['isNewPlate'] = this.newPlate
           motocycleInfo['motoBrand'] = this.motoBrand === '' ? this.motoMadeFactoryItem.name : this.motoBrand
           var rY = parseInt(this.releasePlateYearDate.slice(2, 5)) + 1911
-          var rM = parseInt(this.releasePLateMonthDate.slice(0, 1))
-          var rD = parseInt(this.releasePlateDayDate.slice(0, 1))
+          var rM = parseInt(this.releasePLateMonthDate.slice(0, 2))
+          var rD = parseInt(this.releasePlateDayDate.slice(0, 2))
           var mY = parseInt(this.releaseMotoYearDate.slice(0, 4))
-          var mM = parseInt(this.releaseMotoMonthDate.slice(0, 1))
+          var mM = parseInt(this.releaseMotoMonthDate.slice(0, 2))
 
           motocycleInfo['motoBrandItem'] = this.motoMadeFactoryItem
           motocycleInfo['releasePlateYear'] = rY
@@ -597,25 +643,29 @@ export default {
           }
           var postObj = {}
           postObj['motocycleInfo'] = motocycleInfo
-
-          axios({
-            url: '/CareLineMotor/motorbike-mbr/journey/saveMotorbikeInfo',
-            method: 'post',
-            params: {
-              data: JSON.stringify(postObj)
-            }
-          }).then(response => {
-            if (response.data.isEx === true) {
-              this.errorMsgOfFailSent = ''
-              this.backMsg = response.data.msgs
-              this.visibleError = true
-              return false
-            } else {
-              this.$router.push('/confirmPage')
-            }
-          }, response => {
-            // error callback
-          })
+          console.log(postObj)
+          if (this.$parent.$parent['isDevMode'] === true) {
+            this.$parent.$router.push('/confirmPage')
+          } else {
+            axios({
+              url: '/CareLineMotor/motorbike-mbr/journey/saveMotorbikeInfo',
+              method: 'post',
+              params: {
+                data: JSON.stringify(postObj)
+              }
+            }).then(response => {
+              if (response.data.isEx === true) {
+                this.errorMsgOfFailSent = ''
+                this.backMsg = response.data.msgs
+                this.visibleError = true
+                return false
+              } else {
+                this.$router.push('/confirmPage')
+              }
+            }, response => {
+              // error callback
+            })
+          }
         }
       } else {
         console.log('1', this.toValidatePlate())
@@ -681,7 +731,7 @@ export default {
     },
     toShowMotoDateExample: function () {
       this.validateReleasePlateYear()
-      this.validateReleasePlateMonth()
+      this.validateReleasePlateMonth('last')
       this.validateReleasePlateDay()
       this.engineNumExample = false
       this.airProduceExample = false
@@ -694,6 +744,12 @@ export default {
       this.brandExample = true
     },
     isNewPlate: function () {
+      this.$ga.event({
+        eventCategory: '車籍資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 新車無牌照',
+        value: ''
+      })
       if (!this.newPlate) {
         this.plateNumberFirstArea = ''
         this.plateNumberSecondArea = ''
@@ -722,6 +778,8 @@ export default {
             this.MCButton = false
             this.ccTextOrHp = 'cc'
             this.OtherButton = false
+            this.showOther = false
+            this.$parent.$parent.isMH = false
             break
           case 'MB':
             this.motoMadeFactory = 'MB'
@@ -732,6 +790,8 @@ export default {
             this.MCButton = false
             this.ccTextOrHp = 'cc'
             this.OtherButton = false
+            this.showOther = false
+            this.$parent.$parent.isMH = false
             break
           case 'MC':
             this.motoMadeFactory = 'MC'
@@ -742,11 +802,19 @@ export default {
             this.MAButton = false
             this.ccTextOrHp = 'cc'
             this.OtherButton = false
+            this.showOther = false
+            this.$parent.$parent.isMH = false
             break
           default:
         }
-        this.showOther = false
+        this.showOtheralse
       } else {
+        this.$ga.event({
+          eventCategory: '車籍資料頁',
+          eventAction: 'click',
+          eventLabel: 'User Click 其他廠牌',
+          value: ''
+        })
         this.OtherButton = true
         this.motoMadeFactoryItem = {id: 0, code: '', name: '請選擇您的廠牌', topDisplay: false}
         this.motoMadeFactory = this.motoMadeFactoryItem.code
@@ -809,56 +877,174 @@ export default {
       }
       if (this.releasePlateYearDate === '') {
         this.releasePlateYearInValid = true
-        this.releasePlateYearErrorMsg = ''
+        this.releasePLateMonthInValid = true
+        this.releasePlateDayInValid = true
+        this.releasePlateDayErrorMsg = '請選擇發照日期。'
         return false
       } else {
-        this.releasePlateYearInValid = false
-        return true
+        var m = parseInt(this.releasePLateMonthDate.slice(0, 2))
+        var y = parseInt(this.releasePlateYearDate.slice(2, 6)) + 1911
+        var d = parseInt(this.releasePlateDayDate.slice(0, 2))
+        let year = new Date().getFullYear()
+        let month = new Date().getMonth() + 1
+        let day = new Date().getDate()
+        if ((year === y && m > month)) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+          return false
+        } else if ((year === y && m >= month && d > day)) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+          return false
+        } else {
+          this.releasePlateYearInValid = false
+          this.releasePLateMonthInValid = false
+          this.releasePlateDayInValid = false
+          return true
+        }
       }
     },
     validateReleasePlateMonth: function (val) {
       if (this.releasePLateMonthDate === '') {
+        this.releasePlateYearInValid = true
         this.releasePLateMonthInValid = true
-        this.releasePLateMonthErrorMsg = ''
+        this.releasePlateDayInValid = true
+        this.releasePlateDayErrorMsg = '請選擇發照日期。'
         return false
       } else {
         if (val === 'last') {
-
+          var m = parseInt(this.releasePLateMonthDate.slice(0, 2))
+          var y = parseInt(this.releasePlateYearDate.slice(2, 6)) + 1911
+          var d = parseInt(this.releasePlateDayDate.slice(0, 2))
+          let year = new Date().getFullYear()
+          let month = new Date().getMonth() + 1
+          let day = new Date().getDate()
+          if ((year === y && m > month)) {
+            this.releasePlateYearInValid = true
+            this.releasePLateMonthInValid = true
+            this.releasePlateDayInValid = true
+            this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+            return false
+          } else if ((!y) || (!m) || (!d)) {
+            this.releasePlateYearInValid = true
+            this.releasePLateMonthInValid = true
+            this.releasePlateDayInValid = true
+            this.releasePlateDayErrorMsg = '請選擇發照日期。'
+            return false
+          } else if ((d > day && year === y && m >= month)) {
+            this.releasePlateYearInValid = true
+            this.releasePLateMonthInValid = true
+            this.releasePlateDayInValid = true
+            this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+            return false
+          }
         } else {
           this.releasePlateDayDate = ''
+          this.releasePlateDayErrorMsg = '請選擇發照日期。'
+          return false
         }
+        this.releasePlateYearInValid = false
         this.releasePLateMonthInValid = false
+        this.releasePlateDayInValid = false
         return true
       }
     },
     validateReleasePlateDay: function () {
       if (this.releasePlateDayDate === '') {
+        this.releasePlateYearInValid = true
+        this.releasePLateMonthInValid = true
         this.releasePlateDayInValid = true
-        this.releasePlateDayErrorMsg = ''
+        this.releasePlateDayErrorMsg = '請選擇發照日期。'
         return false
       } else {
-        this.releasePlateDayInValid = false
-        return true
+        var m = parseInt(this.releasePLateMonthDate.slice(0, 2))
+        var y = parseInt(this.releasePlateYearDate.slice(2, 6)) + 1911
+        var d = parseInt(this.releasePlateDayDate.slice(0, 2))
+        let year = new Date().getFullYear()
+        let month = new Date().getMonth() + 1
+        let day = new Date().getDate()
+        if ((year === y && m > month)) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+          return false
+        } else if ((year === y && m >= month && d > day)) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+          return false
+        } else if ((!y) || (!m) || (!d)) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '請選擇發照日期。'
+        } else {
+          this.releasePlateYearInValid = false
+          this.releasePLateMonthInValid = false
+          this.releasePlateDayInValid = false
+          return true
+        }
       }
     },
     validateMotoYear: function () {
-      if (this.releaseMotoYearDate === '') {
+      let y = new Date().getFullYear()
+      let year = parseInt(this.releaseMotoYearDate.slice(0, 4))
+      let m = new Date().getMonth() + 1
+      let month = parseInt(this.releaseMotoMonthDate.slice(0, 2))
+      if (!this.releaseMotoYearDate) {
         this.releaseMotoYearInValid = true
-        this.releaseMotoYearErrorMsg = ''
+        this.releaseMotoMonthInValid = true
+        this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
         return false
       } else {
-        this.releaseMotoYearInValid = false
-        return true
+        if (year >= y && month > m) {
+          this.releaseMotoYearInValid = true
+          this.releaseMotoMonthInValid = true
+          this.releaseMotoYearErrorMsg = '出廠年月不得超過今月。'
+          return false
+        } else if ((!year) || (!month)) {
+          this.releaseMotoYearInValid = true
+          this.releaseMotoMonthInValid = true
+          this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
+          return false
+        } else {
+          this.releaseMotoYearInValid = false
+          this.releaseMotoMonthInValid = false
+          return true
+        }
       }
     },
     validateMotoMonth: function () {
+      let y = new Date().getFullYear()
+      let year = parseInt(this.releaseMotoYearDate.slice(0, 4))
+      let m = new Date().getMonth() + 1
+      let month = parseInt(this.releaseMotoMonthDate.slice(0, 2))
       if (this.releaseMotoMonthDate === '') {
+        this.releaseMotoYearInValid = true
         this.releaseMotoMonthInValid = true
-        this.releaseMotoMonthErrorMsg = ''
+        this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
         return false
       } else {
-        this.releaseMotoMonthInValid = false
-        return true
+        if (year >= y && month > m) {
+          this.releaseMotoYearInValid = true
+          this.releaseMotoMonthInValid = true
+          this.releaseMotoYearErrorMsg = '出廠年月不得超過今月。'
+          return false
+        } else if (!year || !month) {
+          this.releaseMotoYearInValid = true
+          this.releaseMotoMonthInValid = true
+          this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
+        } else {
+          this.releaseMotoYearInValid = false
+          this.releaseMotoMonthInValid = false
+          return true
+        }
       }
     },
     validateExecution: function () {
@@ -1043,6 +1229,9 @@ export default {
     }
   },
   computed: {
+    toShowActivity: function () {
+      return this.$parent.$parent.isActivityShow
+    },
     productCC: function () {
       if (this.executionDay) {
         this.validateExecution()
@@ -1075,6 +1264,24 @@ export default {
       if (this.releasePLateMonthDate !== '') {
         var m = parseInt(this.releasePLateMonthDate.slice(0, 2))
         var y = parseInt(this.releasePlateYearDate.slice(2, 6)) + 1911
+        var d = parseInt(this.releasePlateDayDate.slice(0, 2))
+        let year = new Date().getFullYear()
+        let month = new Date().getMonth() + 1
+        let day = new Date().getDate()
+        if (year === y && m >= month && d > day) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+        } else if (year === y && m > month) {
+          this.releasePlateYearInValid = true
+          this.releasePLateMonthInValid = true
+          this.releasePlateDayInValid = true
+          this.releasePlateDayErrorMsg = '您的發照日期不得超過今日。'
+        } else {
+          this.releasePlateYearInValid = false
+          this.releasePLateMonthInValid = false
+        }
         switch (m) {
           case 1: case 3: case 5: case 7: case 8:case 10: case 12:
             return 32
@@ -1146,37 +1353,11 @@ export default {
     }
   },
   mounted () {
-    window.scrollTo(0, 0)
+    /* eslint-disable */
+    var CE_SNAPSHOT_NAME = "車籍資料 | Care Line英國凱萊 機車強制險 | 立刻投保 | Care Line英國凱萊 機車強制險"
+    /* eslint-enable */
     var motorInfo = JSON.parse(this.$localStorage.get('motorInfo'))
-    console.log(motorInfo)
     if (motorInfo) {
-      this.motoMadeFactory = motorInfo['motocycleFactory']
-      console.log(motorInfo['motoBrandItem'])
-      if (motorInfo['motocycleFactory']) {
-        switch (this.motoMadeFactory) {
-          case 'MA':
-            this.getMotoFactory('MA')
-            break
-          case 'MB':
-            this.getMotoFactory('MB')
-            break
-          case 'MC':
-            this.getMotoFactory('MC')
-            break
-          default:
-            this.OtherButton = true
-            this.motoMadeFactoryItem = motorInfo['motoBrandItem']
-            this.motoMadeFactory = this.motoMadeFactoryItem.code
-            this.checkHpOrCc()
-            this.MAButton = false
-            this.MBButton = false
-            this.MCButton = false
-            this.showOther = true
-        }
-      }
-      this.plateNumberFirstArea = motorInfo['plateEng']
-      this.plateNumberSecondArea = motorInfo['plateNum']
-      this.newPlate = motorInfo['isNewPlate']
       var motoRPD = motorInfo['motoReleasePlateDateForCheck'].split(',')
       for (let i = 0; i < motoRPD.length; i++) {
         if (i === 0) {
@@ -1195,12 +1376,47 @@ export default {
           this.releaseMotoMonthDate = motoFDC[i]
         }
       }
-      this.newPlate = motorInfo['isNewPlate']
-      this.engineNum = motorInfo['engineNumber']
-      this.executionDay = motorInfo['executionDay']
-      this.userEnteredProdcutCC = motorInfo['motocycleCC']
-    } else {
     }
+    this.$nextTick(function () {
+      var motorInfo = JSON.parse(this.$localStorage.get('motorInfo'))
+      if (this.$parent.$parent.applicantData['applicantLastName'] === undefined || this.$parent.$parent.insuredData['insuredLastName'] === undefined) {
+        this.$router.push('/')
+      }
+      if (motorInfo) {
+        this.motoMadeFactory = motorInfo['motocycleFactory']
+        console.log(motorInfo['motoBrandItem'])
+        if (motorInfo['motocycleFactory']) {
+          switch (this.motoMadeFactory) {
+            case 'MA':
+              this.getMotoFactory('MA')
+              break
+            case 'MB':
+              this.getMotoFactory('MB')
+              break
+            case 'MC':
+              this.getMotoFactory('MC')
+              break
+            default:
+              this.OtherButton = true
+              this.motoMadeFactoryItem = motorInfo['motoBrandItem']
+              this.motoMadeFactory = this.motoMadeFactoryItem.code
+              this.checkHpOrCc()
+              this.MAButton = false
+              this.MBButton = false
+              this.MCButton = false
+              this.showOther = true
+          }
+        }
+        this.plateNumberFirstArea = motorInfo['plateEng']
+        this.plateNumberSecondArea = motorInfo['plateNum']
+        this.newPlate = motorInfo['isNewPlate']
+        this.engineNum = motorInfo['engineNumber']
+        this.executionDay = motorInfo['executionDay']
+        this.userEnteredProdcutCC = motorInfo['motocycleCC']
+      } else {
+      }
+    })
+    window.scrollTo(0, 0)
   }
 }
 </script>
@@ -1216,8 +1432,7 @@ export default {
     top: -60px;
   }
   #navbar {
-    background-color:  white;
-    height: 75px!important;
+    height: 75px;
   }
   #navbar p {
     color: #777;
@@ -1256,18 +1471,30 @@ export default {
   }
 
   @media screen and (max-width: 500px) {
-
+    #carBrandCol {
+      margin-top: -15px;
+    }
+    #motorFormPage div.carPlateLineText {
+      display:none;
+    }
   }
 
   .modal-body span p {
     display: inline-block;
   }
-  @media screen and (max-width:800px) {
-    #carBrandCol {
-      margin-top: -15px;
-    }
+  @media screen and (max-width:1100px) {
     .customerForm .kymcoButton {
       margin-bottom: 23px;
     }
+    #motorFormPage div.col-sm-7 {
+      width: 100%;
+    }
+    #motorFormPage div.col-sm-5 {
+      display:none;
+    }
   }
+  .selectWrapper {
+    z-index:1;
+  }
+
 </style>

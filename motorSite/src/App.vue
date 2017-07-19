@@ -3,7 +3,7 @@
     <router-view>
     </router-view>
     <footer class="text-center">
-      <p>本站網路投保服務，由『凱萊保險代理人股份有限公司』提供 </p>
+      <p>本站網路投保服務，由『<a href="http://www.careline.com.tw" target="_blank" >凱萊保險代理人股份有限公司 </a>』提供 </p>
       <p>本站產險商品，由『泰安產物保險公司』提供 </p>
       <p ><a style="cursor:pointer;" href="/CareLineMotor/motorbike-mbr/viewpdf/term" target="_blank"  @click="principleAnnounce" >使用條款</a> | <a style="cursor:pointer;" href="/CareLineMotor/motorbike-mbr/viewpdf/privacy" target="_blank"  @click="privateAnnouce">隱私政策</a></p>
       <div class="footer-bottom">
@@ -43,6 +43,54 @@
 
 <script>
 import pdf from 'vue-pdf'
+import router from './router'
+// import VueGtm from 'vue-gtm'
+import Vue from 'vue'
+import VueAnalytics from 'vue-analytics'
+import VueFacebookPixel from 'vue-analytics-facebook-pixel'
+import Meta from 'vue-meta'
+import VueAnimateNumber from '../node_modules/vue-animate-number'
+Vue.use(VueFacebookPixel, { router })
+Vue.use(Meta)
+Vue.use(VueAnimateNumber)
+var getWinLocation = window.location.href.slice(0, 27)
+if (getWinLocation === 'https://www.careline.com.tw') {
+  Vue.use(VueFacebookPixel, { router })
+  Vue.analytics.fbq.init('1882426715333419', {
+    em: 'insert_email_variable,'
+  })
+  Vue.use(VueAnalytics, {
+    id: 'UA-81617302-1',
+    router,
+    autoTracking: {
+      pageviewTemplate: function (route) {
+        return {
+          page: '/CareLineMotor/motorbike/index.html' + route.path,
+          title: document.title,
+          location: window.location.href
+        }
+      }
+    }
+  })
+} else {
+  Vue.use(VueFacebookPixel, { router })
+  Vue.analytics.fbq.init('1323474284410783', {
+    em: 'insert_email_variable,'
+  })
+  Vue.use(VueAnalytics, {
+    id: 'UA-101013550-1',
+    router,
+    autoTracking: {
+      pageviewTemplate: function (route) {
+        return {
+          page: '/CareLineMotor/motorbike/index.html' + route.path,
+          title: document.title,
+          location: window.location.href
+        }
+      }
+    }
+  })
+}
 
 var $ = require('jquery')
 window.jQuery = $
@@ -103,10 +151,10 @@ export default {
           break
         default:
       }
-      this.$gtm.trackEvent({
-        category: pageName,
-        action: 'click',
-        label: 'User Click 使用條款',
+      this.$ga.event({
+        eventCategory: pageName,
+        eventAction: 'click',
+        eventLabel: 'User Click 使用條款',
         value: ''
       })
     },
@@ -142,10 +190,10 @@ export default {
           break
         default:
       }
-      this.$gtm.trackEvent({
-        category: pageName,
-        action: 'click',
-        label: 'User Click 隱私政策',
+      this.$ga.event({
+        eventCategory: pageName,
+        eventAction: 'click',
+        eventLabel: 'User Click 隱私政策',
         value: ''
       })
     }
@@ -153,8 +201,20 @@ export default {
   computed: {
   },
   mounted () {
-    this.$localStorage.remove('motorInfo')
-    this.$localStorage.remove('formStore')
+    this.$nextTick(function () {
+      if ($(window).width() < 500) {
+        $('.first-slide').attr('src', './static/css/img/mobileBanner.jpg')
+        $('.first-slide').css('min-width', '800px')
+      } else {
+        $('.first-slide').attr('src', './static/css/img/banner.jpg')
+      }
+    })
+    var sessionKey = sessionStorage.getItem('sessionKey')
+    if (sessionKey === 'true') {
+    } else {
+      this.$localStorage.remove('motorInfo')
+      this.$localStorage.remove('formStore')
+    }
   }
 }
 </script>
@@ -167,5 +227,57 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+@media screen and (max-width: 767px) {
+  #navbar li {
+    border: 1px solid #e2e2e2;
+  }
+  #navbar {
+    background-color: rgba(0, 0, 0, 0.56)!important;
+  }
+}
+
+#giftInfo {
+  z-index: 1;
+}
+@media screen and (max-width: 414px) and (min-width: 400px) {
+  .textDiv {
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .activityImg {
+    width: 300px;
+  }
+  #giftInfo.giftInfo .tag {
+    right: -61px;
+    width: 61px;
+  }
+  #giftInfo {
+    left: -300px;
+  }
+  .activityRow {
+    border-top: none!important;
+  }
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1000px) {
+  #navbar .navbar-right{
+    font-size:10px!important;
+    margin-top: 20px;
+  }
+  #navbar p {
+    font-size: 14px;
+    margin-left: 0px!important;
+  }
+  .logo {
+    margin-right: 6px;
+    margin-left: 10px;
+  }
 }
 </style>

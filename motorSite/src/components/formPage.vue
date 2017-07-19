@@ -3,8 +3,8 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <div class="logo" @click="toGoBackIndex()"><a><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
+          <button @click="showingNavBar" type="button" class="navbar-toggle collapsed" data-toggle="collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -13,9 +13,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" v-bind:class="{secondPageNav: alterChangeNav}">
           <ul class="nav navbar-nav navbar-right">
+            <li v-show="toShowActivity"><p @click="goToActivityTwo">活動專區<span class="sr-only">活動專區<</span></p></li>
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
             <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
-            <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
+            <li><p style="cursor:default"><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -147,7 +148,7 @@
           <div class="col-sm-6">
             <span class="formTitleSpan">要保人E-Mail:</span>
             <div class="col-sm-12">
-              <input @click="checkBirthAgain"  maxlength="100" @change="checkEmail" v-bind:class="{errorShow:emailInValid}" class="form-control" v-model="applicantEmail" type="text" name="email" placeholder="E-mail" required>
+              <input @click="checkBirthAgain"  maxlength="50" @change="checkEmail" v-bind:class="{errorShow:emailInValid}" class="form-control" v-model="applicantEmail" type="text" name="email" placeholder="E-mail" required>
               <span class="errorMessage" style="padding-right: 999px;" v-show="emailInValid">{{ emailErrorMsg }}</span>
               <div style="left:0px;" class="iconErrorMessageBack" v-show="emailInValid"></div>
             </div>
@@ -402,7 +403,7 @@
           <div class="col-sm-6">
             <span class="formTitleSpan">車主E-Mail:</span>
             <div class="col-sm-12">
-              <input @change="insuredCheckEmail" maxlength="100" :disabled="ischecked" @click="checkInsuredBDAgain" v-bind:class="{errorShow:insuredEmailInValid}" class="form-control" v-model="insuredEmail" type="text" name="email" placeholder="E-mail" required>
+              <input @change="insuredCheckEmail" maxlength="50" :disabled="ischecked" @click="checkInsuredBDAgain" v-bind:class="{errorShow:insuredEmailInValid}" class="form-control" v-model="insuredEmail" type="text" name="email" placeholder="E-mail" required>
             </div>
           </div>
         </div>
@@ -507,7 +508,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12 contractRules">
               <p><input type="checkbox" v-model="agreementRead" name="agreementCheckBox">
-                我已閱讀 << <a @click="principleAnnounce" target="">網絡保險服務聲明事項</a> >> ， << <a href="/CareLineMotor/motorbike-mbr/viewpdf/protection" @click="showPersonalAnnouce">產險業履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
+                我已閱讀 << <a @click="principleAnnounce" href="/CareLineMotor/motorbike-mbr/viewpdf/announcement" target="_blank">網絡保險服務聲明事項</a> >> ， << <a href="/CareLineMotor/motorbike-mbr/viewpdf/protection" target="_blank" @click="showPersonalAnnouce">產險業履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
             </div>
           </div>
         </div>
@@ -519,7 +520,7 @@
           </div>
           <div class="col-sm-7">
             <button class="btn btn-primary NextButton"  @click="completeStepOne">下一步</button>
-            <button class="btn btn-danger NextButton" @click="toGoBackIndex">上一步</button>
+            <button class="btn btn-danger NextButton" @click="toGoBackIndex('up')">上一步</button>
           </div>
         </div>
       </div>
@@ -612,6 +613,8 @@ export default {
       {property: 'og:email', content: 'service@careline.com.tw'},
       {property: 'og:phone_number', content: '0800234088'},
       {property: 'og:url', content: 'https://www.careline.com.tw/CareLineMotor/motorbike/piForm'}
+    ],
+    script: [
     ]
   },
   data () {
@@ -718,6 +721,15 @@ export default {
     }
   },
   methods: {
+    showingNavBar: function () {
+      $('#navbar').css({
+        'height': '300px'
+      })
+      $('#navbar').toggle()
+    },
+    goToActivityTwo: function () {
+      window.open('index.html#/activityPage', '_blank')
+    },
     closeModal: function () {
       this.ModalVisible = false
       this.visible = false
@@ -730,17 +742,20 @@ export default {
       }
     },
     showPersonalAnnouce: function () {
-      this.$gtm.trackEvent({
-        category: '車主資料頁',
-        action: 'click',
-        label: 'User Click 產險業個人資料法',
+      this.$ga.event({
+        eventCategory: '車主資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 產險業個人資料法',
         value: ''
       })
     },
     principleAnnounce: function () {
-      window.open('/CareLineMotor/motorbike-mbr/viewpdf/announcement', '_blank', 'fullscreen=yes')
-//      this.ModalVisible = true
-//      this.src = './static/assets/pdf/announcement.pdf'
+      this.$ga.event({
+        eventCategory: '車主資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 網路服務聲明事項',
+        value: ''
+      })
     },
     relationShipVali: function () {
       if (!this.withInsuredRelationShipItem || this.withInsuredRelationShipItem === '' || this.withInsuredRelationShipItem === '0') {
@@ -756,10 +771,34 @@ export default {
         return true
       }
     },
-    toGoBackIndex: function () {
-      this.$router.push('/')
+    toGoBackIndex: function (val) {
+      console.log(val)
+      if (val === 'up') {
+        this.$ga.event({
+          eventCategory: '車主資料頁',
+          eventAction: 'click',
+          eventLabel: 'User Click 上一步',
+          value: ''
+        })
+        this.$router.push('/')
+      } else {
+        this.$ga.event({
+          eventCategory: '車主資料頁',
+          eventAction: 'click',
+          eventLabel: 'User Click Logo',
+          value: ''
+        })
+        window.open('http://www.careline.com.tw')
+      }
+//      this.$router.push('/')
     },
     toGoQandAPage: function () {
+      this.$ga.event({
+        eventCategory: '車主資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click QA',
+        value: ''
+      })
       window.open('index.html#/faqPage', '_blank')
     },
     // check Applicant name
@@ -864,6 +903,33 @@ export default {
         this.BYearInValid = true
         this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
         return false
+      } else if (this.applicantBirthYear !== '' || this.applicantBirthMonth !== '' || this.applicantBirthDay !== '') {
+        var year = parseInt(this.applicantBirthYear.slice(2, 5)) + 1929
+        var month = parseInt(this.applicantBirthMonth.slice(0, 5))
+        var day = parseInt(this.applicantBirthDay.slice(0, 5))
+        var today = new Date()
+        var dd = today.getDate()
+        var mm = today.getMonth() + 1
+        var yyyy = today.getFullYear()
+        if (year === yyyy) {
+          if ((month > mm && day > dd) || (month === mm && day > dd) || (month > mm)) {
+            this.BYearInValid = true
+            this.BMonthInValid = true
+            this.BDayInValid = true
+            this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return false
+          } else {
+            this.BYearInValid = false
+            this.BMonthInValid = false
+            this.BDayInValid = false
+            return true
+          }
+        } else {
+          this.BYearInValid = false
+          this.BMonthInValid = false
+          this.BDayInValid = false
+          return true
+        }
       } else {
         this.BYearInValid = false
         this.BYearErrorMsg = ''
@@ -875,6 +941,32 @@ export default {
         this.BMonthInValid = true
         this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
         return false
+      } else if (this.applicantBirthYear !== '' || this.applicantBirthMonth !== '' || this.applicantBirthDay !== '') {
+        var year = parseInt(this.applicantBirthYear.slice(2, 5)) + 1929
+        var month = parseInt(this.applicantBirthMonth.slice(0, 5))
+        var day = parseInt(this.applicantBirthDay.slice(0, 5))
+        var today = new Date()
+        var dd = today.getDate()
+        var mm = today.getMonth() + 1
+        var yyyy = today.getFullYear()
+        if (year === yyyy) {
+          if ((month > mm && day > dd) || (month === mm && day > dd) || (month > mm)) {
+            this.BMonthInValid = true
+            this.BDayInValid = true
+            this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return false
+          } else {
+            this.BYearInValid = false
+            this.BMonthInValid = false
+            this.BDayInValid = false
+            return true
+          }
+        } else {
+          this.BYearInValid = false
+          this.BMonthInValid = false
+          this.BDayInValid = false
+          return true
+        }
       } else {
         if (val === 'last') {
         } else {
@@ -890,6 +982,32 @@ export default {
         this.BDayInValid = true
         this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲'
         return false
+      } else if (this.applicantBirthYear !== '' || this.applicantBirthMonth !== '' || this.applicantBirthDay !== '') {
+        var year = parseInt(this.applicantBirthYear.slice(2, 5)) + 1929
+        var month = parseInt(this.applicantBirthMonth.slice(0, 5))
+        var day = parseInt(this.applicantBirthDay.slice(0, 5))
+        var today = new Date()
+        var dd = today.getDate()
+        var mm = today.getMonth() + 1
+        var yyyy = today.getFullYear()
+        if (year === yyyy) {
+          if ((month > mm && day > dd) || (month === mm && day > dd) || (month > mm)) {
+            this.BMonthInValid = true
+            this.BDayInValid = true
+            this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return true
+          } else {
+            this.BYearInValid = false
+            this.BMonthInValid = false
+            this.BDayInValid = false
+            return true
+          }
+        } else {
+          this.BYearInValid = false
+          this.BMonthInValid = false
+          this.BDayInValid = false
+          return true
+        }
       } else {
         this.BDayInValid = false
         this.BMonthErrorMsg = ''
@@ -1001,6 +1119,12 @@ export default {
     },
     // insured data from here
     insuredSameAsApplicant: function (event) {
+      this.$ga.event({
+        eventCategory: '車主資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 車主資料同上',
+        value: ''
+      })
       this.ischecked = !this.ischecked
       if (this.ischecked) {
         this.ischecked = true
@@ -1139,6 +1263,32 @@ export default {
         this.insuredBYearInValid = true
         this.insuredBYearErrorMsg = '請選擇車主生日，車主須年滿18歲。'
         return false
+      } else if (this.insuredBirthYear !== '' || this.insuredBirthMonth !== '' || this.insuredBirthDay !== '') {
+        var insuredyear = parseInt(this.insuredBirthYear.slice(2, 5)) + 1929
+        var insuredmonth = parseInt(this.insuredBirthMonth.slice(0, 5))
+        var insuredday = parseInt(this.insuredBirthDay.slice(0, 5))
+        var insuredtoday = new Date()
+        var insureddd = insuredtoday.getDate()
+        var insuredmm = insuredtoday.getMonth() + 1
+        var insuredyyyy = insuredtoday.getFullYear()
+        if (insuredyear === insuredyyyy) {
+          if ((insuredmonth > insuredmm && insuredday > insureddd) || (insuredmonth === insuredmm && insuredday > insureddd) || (insuredmonth > insuredmm)) {
+            this.insuredBMonthInValid = true
+            this.insuredBDayInValid = true
+            this.insuredBYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return false
+          } else {
+            this.insuredBYearInValid = false
+            this.insuredBMonthInValid = false
+            this.insuredBDayInValid = false
+            return true
+          }
+        } else {
+          this.insuredBYearInValid = false
+          this.insuredBMonthInValid = false
+          this.insuredBDayInValid = false
+          return true
+        }
       } else {
         this.insuredBYearInValid = false
         this.insuredBYearErrorMsg = ''
@@ -1150,9 +1300,34 @@ export default {
         this.insuredBMonthInValid = true
         this.insuredBYearErrorMsg = '請選擇車主生日，車主須年滿18歲。'
         return false
+      } else if (this.insuredBirthYear !== '' || this.insuredBirthMonth !== '' || this.insuredBirthDay !== '') {
+        var insuredyear = parseInt(this.insuredBirthYear.slice(2, 5)) + 1929
+        var insuredmonth = parseInt(this.insuredBirthMonth.slice(0, 5))
+        var insuredday = parseInt(this.insuredBirthDay.slice(0, 5))
+        var insuredtoday = new Date()
+        var insureddd = insuredtoday.getDate()
+        var insuredmm = insuredtoday.getMonth() + 1
+        var insuredyyyy = insuredtoday.getFullYear()
+        if (insuredyear === insuredyyyy) {
+          if ((insuredmonth > insuredmm && insuredday > insureddd) || (insuredmonth === insuredmm && insuredday > insureddd) || (insuredmonth > insuredmm)) {
+            this.insuredBMonthInValid = true
+            this.insuredBDayInValid = true
+            this.insuredBYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return false
+          } else {
+            this.insuredBYearInValid = false
+            this.insuredBMonthInValid = false
+            this.insuredBDayInValid = false
+            return true
+          }
+        } else {
+          this.insuredBYearInValid = false
+          this.insuredBMonthInValid = false
+          this.insuredBDayInValid = false
+          return true
+        }
       } else {
         if (val === 'last') {
-
         } else {
           this.insuredBirthDay = ''
         }
@@ -1170,6 +1345,32 @@ export default {
         this.insuredBDayInValid = true
         this.insuredBYearErrorMsg = '請選擇車主生日，車主須年滿18歲。'
         return false
+      } else if (this.insuredBirthYear !== '' || this.insuredBirthMonth !== '' || this.insuredBirthDay !== '') {
+        var insuredyear = parseInt(this.insuredBirthYear.slice(2, 5)) + 1929
+        var insuredmonth = parseInt(this.insuredBirthMonth.slice(0, 5))
+        var insuredday = parseInt(this.insuredBirthDay.slice(0, 5))
+        var insuredtoday = new Date()
+        var insureddd = insuredtoday.getDate()
+        var insuredmm = insuredtoday.getMonth() + 1
+        var insuredyyyy = insuredtoday.getFullYear()
+        if (insuredyear === insuredyyyy) {
+          if ((insuredmonth > insuredmm && insuredday > insureddd) || (insuredmonth === insuredmm && insuredday > insureddd) || (insuredmonth > insuredmm)) {
+            this.insuredBMonthInValid = true
+            this.insuredBDayInValid = true
+            this.insuredBYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
+            return false
+          } else {
+            this.insuredBYearInValid = false
+            this.insuredBMonthInValid = false
+            this.insuredBDayInValid = false
+            return true
+          }
+        } else {
+          this.insuredBYearInValid = false
+          this.insuredBMonthInValid = false
+          this.insuredBDayInValid = false
+          return true
+        }
       } else {
         this.insuredBDayInValid = false
         this.insuredBYearErrorMsg = ''
@@ -1272,6 +1473,12 @@ export default {
       }, 10)
     },
     completeStepOne: function () {
+      this.$ga.event({
+        eventCategory: '車主資料頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 下一步',
+        value: ''
+      })
       console.log('1', this.relationShipVali())
       console.log('2', this.toCheckNameVal('send'))
       console.log('3', this.checkPid())
@@ -1476,30 +1683,37 @@ export default {
         } catch (e) {
         }
         console.log('2', sendDataBackFirstTime)
-        axios({
-          url: '/CareLineMotor/motorbike-mbr/journey/saveApplicantAndInsured',
-          method: 'post',
-          params: {
-            data: JSON.stringify(sendDataBackFirstTime)
-          }
-        }).then(response => {
-          if (response.data.isEx === true) {
-            this.errorMsgOfFailSent = response.data.msgs
-            this.visible = true
-            return false
-          } else {
-            console.log(response)
-            var dataId = response.data.dataId
-            this.$parent.dataId = dataId
-            this.$router.push('/viForm')
-          }
-        }, response => {
-          // error callback
-        })
+        if (this.$parent.$parent['isDevMode'] === true) {
+          this.$parent.$router.push('/viForm')
+        } else {
+          axios({
+            url: '/CareLineMotor/motorbike-mbr/journey/saveApplicantAndInsured',
+            method: 'post',
+            params: {
+              data: JSON.stringify(sendDataBackFirstTime)
+            }
+          }).then(response => {
+            if (response.data.isEx === true) {
+              this.errorMsgOfFailSent = response.data.msgs
+              this.visible = true
+              return false
+            } else {
+              console.log(response)
+              var dataId = response.data.dataId
+              this.$parent.dataId = dataId
+              this.$router.push('/viForm')
+            }
+          }, response => {
+            // error callback
+          })
+        }
       }
     }
   },
   computed: {
+    toShowActivity: function () {
+      return this.$parent.$parent.isActivityShow
+    },
     toComputedData: function () {
       if (this.ischecked) {
         this.ischecked = true
@@ -1534,55 +1748,6 @@ export default {
         this.withInsuredRelationShip = this.withInsuredRelationShipItem.value
       }
 
-      if (this.applicantBirthYear !== '' || this.applicantBirthMonth !== '' || this.applicantBirthDay !== '') {
-        var year = parseInt(this.applicantBirthYear.slice(2, 5)) + 1929
-        var month = parseInt(this.applicantBirthMonth.slice(0, 5))
-        var day = parseInt(this.applicantBirthDay.slice(0, 5))
-        var today = new Date()
-        var dd = today.getDate()
-        var mm = today.getMonth() + 1
-        var yyyy = today.getFullYear()
-        if (year === yyyy) {
-          if ((month > mm && day > dd) || (month === mm && day > dd) || (month > mm)) {
-            this.BMonthInValid = true
-            this.BDayInValid = true
-            this.BYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
-          } else {
-            this.BYearInValid = false
-            this.BMonthInValid = false
-            this.BDayInValid = false
-          }
-        } else {
-          this.BYearInValid = false
-          this.BMonthInValid = false
-          this.BDayInValid = false
-        }
-      }
-
-      if (this.insuredBirthYear !== '' || this.insuredBirthMonth !== '' || this.insuredBirthDay !== '') {
-        var insuredyear = parseInt(this.insuredBirthYear.slice(2, 5)) + 1929
-        var insuredmonth = parseInt(this.insuredBirthMonth.slice(0, 5))
-        var insuredday = parseInt(this.insuredBirthDay.slice(0, 5))
-        var insuredtoday = new Date()
-        var insureddd = insuredtoday.getDate()
-        var insuredmm = insuredtoday.getMonth() + 1
-        var insuredyyyy = insuredtoday.getFullYear()
-        if (insuredyear === insuredyyyy) {
-          if ((insuredmonth > insuredmm && insuredday > insureddd) || (insuredmonth === insuredmm && insuredday > insureddd) || (insuredmonth > insuredmm)) {
-            this.insuredBMonthInValid = true
-            this.insuredBDayInValid = true
-            this.insuredBYearErrorMsg = '請選擇要保人生日，要保人須年滿18歲。'
-          } else {
-            this.insuredBYearInValid = false
-            this.insuredBMonthInValid = false
-            this.insuredBDayInValid = false
-          }
-        } else {
-          this.insuredBYearInValid = false
-          this.insuredBMonthInValid = false
-          this.insuredBDayInValid = false
-        }
-      }
       if (this.applicantLivingCity) {
         this.areaList()
       }
@@ -1688,11 +1853,13 @@ export default {
       return this.insuredDistrict.zipCode
     }
   },
+  created () {
+  },
   mounted () {
-    window.scrollTo(0, 0)
-    if (this.$parent.userSelectedProduct === undefined) {
-      this.$router.push('/')
-    }
+    /* eslint-disable */
+    var CE_SNAPSHOT_NAME = "要保人資料 | Care Line英國凱萊 機車強制險 | 立刻投保 | Care Line英國凱萊 機車強制險"
+    /* eslint-enable */
+
     var formData = JSON.parse(this.$localStorage.get('formStore'))
     if (formData) {
       this.$parent.$parent.applicantData = formData.applicantData
@@ -1754,7 +1921,10 @@ export default {
       this.insuredCity = formData.insuredData['insuredCity']
       this.insuredCityId = formData.insuredData['insuredCity'].id
     } else {
-
+    }
+    window.scrollTo(0, 0)
+    if (this.$parent.userSelectedProduct === undefined) {
+      this.$router.push('/')
     }
   }
 }
@@ -1803,10 +1973,15 @@ export default {
     white-space: nowrap;
   }
 
-  @media screen and (max-width: 866px) {
+  @media screen and (max-width: 1094px) {
     .container .col-sm-12 .col-sm-6 {
       width: 100%!important;
     }
+  }
+
+  .formPage .container {
+    padding-right: 0px!important;
+    padding-left: 0px!important;
   }
 
 </style>

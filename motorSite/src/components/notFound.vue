@@ -4,8 +4,8 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <div class="logo" @click="toGoBackIndex('logo')"><a><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
+          <button @click="showingNavBar" type="button" class="navbar-toggle collapsed" data-toggle="collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -14,9 +14,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li v-show="toShowActivity"><p @click="goToActivityTwo">活動專區<span class="sr-only">活動專區<</span></p></li>
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
             <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
-            <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
+            <li><p style="cursor:default"><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -80,10 +81,41 @@ export default {
     }
   },
   methods: {
-    toGoBackIndex: function () {
-      this.$router.push('/')
+    showingNavBar: function () {
+      $('#navbar').css({
+        'height': '300px'
+      })
+      $('#navbar').toggle()
+    },
+    goToActivityTwo: function () {
+      window.open('index.html#/activityPage', '_blank')
+    },
+    toGoBackIndex: function (val) {
+      if (val === 'logo') {
+        this.$ga.event({
+          eventCategory: '找不到頁',
+          eventAction: 'click',
+          eventLabel: 'User Click Logo',
+          value: ''
+        })
+        window.open('http://www.careline.com.tw')
+      } else {
+        this.$ga.event({
+          eventCategory: '找不到頁',
+          eventAction: 'click',
+          eventLabel: 'User Click 回首頁',
+          value: ''
+        })
+        this.$router.push('/')
+      }
     },
     toGoQandAPage: function () {
+      this.$ga.event({
+        eventCategory: '找不到頁',
+        eventAction: 'click',
+        eventLabel: 'User Click QA',
+        value: ''
+      })
       window.open('index.html#/faqPage', '_blank')
     },
     closeModal: function () {
@@ -91,8 +123,15 @@ export default {
     }
   },
   computed: {
+    toShowActivity: function () {
+      return this.$parent.$parent.isActivityShow
+    }
   },
   mounted () {
+    /* eslint-disable */
+    var CE_SNAPSHOT_NAME = "找不到頁面 | Care Line英國凱萊 機車強制險 | 立刻投保 | Care Line英國凱萊 機車強制險"
+    /* eslint-enable */
+
     window.scrollTo(0, 0)
   }
 }
@@ -109,8 +148,7 @@ export default {
     top: -60px;
   }
   #navbar {
-    background-color:  white;
-    height: 75px!important;
+    height: 75px;
   }
   #navbar p {
     color: #777;

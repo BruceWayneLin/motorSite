@@ -9,11 +9,15 @@ import QandAPage from '@/components/qAnda'
 import ErrorPage from '@/components/errorPage'
 import FailPayment from '@/components/failPayment'
 import NotFound from '@/components/notFound'
-
+import activityPage from '@/components/activityPage'
 Vue.use(Router)
-
 export default new Router({
   routes: [
+    {
+      path: '/activityPage',
+      name: 'activityPage',
+      component: activityPage
+    },
     {
       path: '/notFound',
       name: 'notFound',

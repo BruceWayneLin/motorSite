@@ -4,8 +4,8 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="logo" @click="toGoBackIndex"><a href="#"><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <div class="logo" @click="toGoBackIndex"><a><img id="logoImg" style="max-width:180px;" src="../../static/assets/logo.png"/></a></div>
+          <button @click="showingNavBar" type="button" class="navbar-toggle collapsed" data-toggle="collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -14,9 +14,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li v-show="toShowActivity"><p @click="goToActivityTwo">活動專區<span class="sr-only">活動專區<</span></p></li>
             <li><p @click="toGoQandAPage">Q&A <span class="sr-only">(current)</span></p></li>
             <li><a href="https://www.facebook.com/kaistraventure/" target="_blank"><p><i class="fa fa-facebook-square" aria-hidden="true"></i></p></a></li>
-            <li><p><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
+            <li><p style="cursor:default"><i class="fa fa-phone" aria-hidden="true"></i>免費客服專線 0800-234-088 (周一~周五 09:30~18:00)</p></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -29,18 +30,18 @@
     </div>
 
     <div style="margin:20px auto;" class="container customerInfo animated slideInLeft">
-      <div class="container-fluid">
+      <div id="mobileRWD" class="container-fluid">
         <div class="row title">
           <div class="col-sm-12 text-center">
-            <h3>投保資料確認</h3>
+            <h3 style="font-weight: bold;">投保資料確認</h3>
           </div>
         </div>
 
-        <div class="row">
+        <div id="needToMobRWD" class="row">
           <div class="col-sm-12">
             <!--要保人資料-->
-            <div class="col-sm-6">
-              <div class="col-sm-12">
+            <div class="col-sm-6 specialColSm">
+              <div style="padding: 0 15px;" class="col-sm-12">
                 <h4>要保人資料</h4>
               </div>
               <div class="col-sm-12">
@@ -77,32 +78,32 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
-                  <p class="mobileTitle">手機號碼:</p>
-                </div>
-                <div class="col-sm-9 text-left">
-                  <p>{{ applicant.applicantMobile }}</p>
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="col-sm-3">
-                  <p class="mobileTitle">地址:</p>
-                </div>
-                <div class="col-sm-9 text-left">
-                  <p class="wordWrap">{{applicant.applicantCity['name']}} {{applicant.applicantDistrict['name']}} {{ applicant.applicantAddr }}</p>
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="col-sm-3">
                   <p class="mobileTitle">E-Mail信箱:</p>
                 </div>
                 <div class="col-sm-9 text-left">
                   <p style="word-break:break-all">{{ applicant.applicantEmail }}</p>
                 </div>
               </div>
+              <div class="col-sm-12">
+                <div class="col-sm-3">
+                  <p class="mobileTitle">手機號碼:</p>
+                </div>
+                <div class="col-sm-9 text-left">
+                  <p>{{ applicant.applicantMobile }}</p>
+                </div>
+              </div>
+              <div class="col-sm-12" >
+                <div class="col-sm-3">
+                  <p class="mobileTitle">地址:</p>
+                </div>
+                <div class="col-sm-9 text-left wordWrap">
+                  <p class="">{{applicant.applicantCity['name']}} {{applicant.applicantDistrict['name']}} {{ applicant.applicantAddr }}</p>
+                </div>
+              </div>
             </div>
             <!--被保人資料-->
-            <div class="col-sm-6">
-              <div class="col-sm-12">
+            <div class="col-sm-6 specialColSm">
+              <div style="padding: 0 15px;" class="col-sm-12">
                 <h4>被保人資料({{ insuredPP.withInsuredRelationShipItemText }})</h4>
               </div>
               <div class="col-sm-12">
@@ -139,6 +140,14 @@
               </div>
               <div class="col-sm-12">
                 <div class="col-sm-3">
+                  <p class="mobileTitle">E-Mail信箱:</p>
+                </div>
+                <div class="col-sm-9 text-left">
+                  <p style="word-break:break-all">{{ insuredPP.insuredEmail }}</p>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="col-sm-3">
                   <p class="mobileTitle">手機號碼:</p>
                 </div>
                 <div class="col-sm-9 text-left">
@@ -149,16 +158,8 @@
                 <div class="col-sm-3">
                   <p class="mobileTitle">地址:</p>
                 </div>
-                <div class="col-sm-9 text-left">
-                  <p class="wordWrap">{{insuredPP.insuredCity['name']}} {{insuredPP.insuredDistrict['name']}} {{ insuredPP.insuredAddr }}</p>
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="col-sm-3">
-                  <p class="mobileTitle">E-Mail信箱:</p>
-                </div>
-                <div class="col-sm-9 text-left">
-                  <p style="word-break:break-all">{{ insuredPP.insuredEmail }}</p>
+                <div class="col-sm-9 text-left wordWrap">
+                  <p class="">{{insuredPP.insuredCity['name']}} {{insuredPP.insuredDistrict['name']}} {{ insuredPP.insuredAddr }}</p>
                 </div>
               </div>
             </div>
@@ -166,7 +167,7 @@
         </div>
       </div>
 
-      <div id="mobileRWD" class="container-fluid" style="margin-top: 0px;">
+      <div id="mobileRWD" class="container-fluid toBeingPadding">
         <div class="row">
           <div class="col-sm-12">
             <div class="col-sm-12">
@@ -175,7 +176,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div id="needToMobRWD" class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
               <div class="col-sm-3"><p class="mobileTitle">車牌:</p></div>
@@ -188,7 +189,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div id="needToMobRWD" class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
               <div class="col-sm-3"><p class="mobileTitle">車子品牌:</p></div>
@@ -201,7 +202,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div id="needToMobRWD" class="row">
           <div class="col-sm-12">
             <div class="col-sm-6">
               <div class="col-sm-3"><p class="mobileTitle">排氣量:</p></div>
@@ -209,42 +210,42 @@
             </div>
             <div class="col-sm-6">
               <div class="col-sm-3"><p class="mobileTitle">引擊/車身號碼:</p></div>
-              <div class="col-sm-9 text-left"><p>{{motoInfo.engineNumber}}</p></div>
+              <div id="motorEngine" class="col-sm-9 text-left"><p>{{motoInfo.engineNumber}}</p></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="mobileRWD" class="container-fluid" style="margin-top:0px;">
+      <div id="mobileRWD" class="container-fluid ulNoPadding" style="margin-top:0px;">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-sm-12">
             <div class="col-sm-12">
               <h4>保單資料</h4>
             </div>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row lastRow">
           <div class="col-sm-12">
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p class="mobileTitle">保險種類</p>
+                  <p class="mobileTitle">保險種類:</p>
                 </li>
-                <li>
+                <li class="specialLi">
                   <p>{{ productInfo.prodInfo['title']  }}</p>
                 </li>
-                <li>
-                  <a @click="toCMotorResponsbility">保險相關條款</a>
+                <li class="specialLi">
+                  <a href="/CareLineMotor/motorbike-mbr/viewpdf/motorRe" target="_blank" @click="toCMotorResponsbility">保險相關條款</a>
                 </li>
               </ul>
             </div>
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p class="mobileTitle">保險金額</p>
+                  <p class="mobileTitle">保險金額:</p>
                 </li>
-                <li v-for="item in productInfo.prodInfo['content']">
+                <li class="specialLi" v-for="item in productInfo.prodInfo['content']">
                   <p>{{ item }}</p>
                 </li>
               </ul>
@@ -252,12 +253,12 @@
             <div class="col-sm-4">
               <ul>
                 <li>
-                  <p class="mobileTitle">保險開始日</p>
+                  <p class="mobileTitle">保險開始日:</p>
                 </li>
-                <li>
+                <li class="specialLi">
                   <p>{{motoInfo.executionDay}}</p>
                 </li>
-                <li>
+                <li class="specialLi">
                   <p>中午12點起保({{ productInfo.prodInfo['year'] }}年期)</p>
                 </li>
               </ul>
@@ -266,8 +267,8 @@
         </div>
 
         <div class="row lastColumn">
-          <div class="col-xs-12">
-            <div class="col-sm-6 text-left" style="margin-top: 35px;">
+          <div class="col-sm-12">
+            <div class="col-sm-6 text-left">
               <strong>總保費</strong>
             </div>
             <div class="col-sm-6 text-right">
@@ -276,7 +277,7 @@
                   <p style="text-decoration: line-through; display:inline-block;"> {{ productInfo.prodInfo['discountPrice'] }}</p>
                 </li>
                 <li>
-                  <strong>NT$ {{ productInfo.prodInfo['price'] }}</strong>
+                  <strong style="color: #e84466;">NT$ {{ productInfo.prodInfo['price'] }}</strong>
                 </li>
               </ul>
             </div>
@@ -362,10 +363,22 @@ export default {
     }
   },
   methods: {
+    showingNavBar: function () {
+      $('#navbar').css({
+        'height': '300px'
+      })
+      $('#navbar').toggle()
+    },
+    goToActivityTwo: function () {
+      window.open('index.html#/activityPage', '_blank')
+    },
     toCMotorResponsbility: function () {
-      window.open('/CareLineMotor/motorbike-mbr/viewpdf/motorRe', '_blank', 'fullscreen=yes')
-//      this.theMotorModal = true
-//      this.src = './static/assets/pdf/motorRe.pdf'
+      this.$ga.event({
+        eventCategory: '投保資料確認頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 保險相關條款',
+        value: ''
+      })
     },
     closeMotorModal: function () {
       this.theMotorModal = false
@@ -380,12 +393,31 @@ export default {
       }
     },
     toGoBackIndex: function () {
-      this.$router.push('/')
+      this.$ga.event({
+        eventCategory: '投保資料確認頁',
+        eventAction: 'click',
+        eventLabel: 'User Click Logo',
+        value: ''
+      })
+      window.open('http://www.careline.com.tw')
+//      this.$router.push('/')
     },
     goBack: function () {
+      this.$ga.event({
+        eventCategory: '投保資料確認頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 上一步',
+        value: ''
+      })
       this.$router.push('/viForm')
     },
     toGoOnNextPay: function () {
+      this.$ga.event({
+        eventCategory: '投保資料確認頁',
+        eventAction: 'click',
+        eventLabel: 'User Click 前往付款',
+        value: ''
+      })
       this.$localStorage.remove('motorInfo')
       this.$localStorage.remove('formStore')
       var dataIdx = this.$parent.dataId
@@ -393,10 +425,19 @@ export default {
       window.location.href = '/CareLineMotor/motorbike-mbr/payment/goToPaymentPage?dataId=' + dataUrl
     },
     toGoQandAPage: function () {
+      this.$ga.event({
+        eventCategory: '投保資料確認頁',
+        eventAction: 'click',
+        eventLabel: 'User Click QA',
+        value: ''
+      })
       window.open('index.html#/faqPage', '_blank')
     }
   },
   computed: {
+    toShowActivity: function () {
+      return this.$parent.$parent.isActivityShow
+    },
     applicant: function () {
       return this.$parent.$parent.applicantData
     },
@@ -422,6 +463,10 @@ export default {
     }
   },
   mounted () {
+    /* eslint-disable */
+    var CE_SNAPSHOT_NAME = "車籍資料 | Care Line英國凱萊 機車強制險 | 立刻投保 | Care Line英國凱萊 機車強制險"
+    /* eslint-enable */
+
     window.scrollTo(0, 0)
     console.log(this.$parent.$parent.applicantData['applicantLastName'])
     console.log(this.$parent.$parent.insuredData['insuredLastName'])
@@ -438,13 +483,19 @@ export default {
     height: 40px;
     widht: auto;
   }
+  .mobileTitle {
+    font-weight:700;
+    white-space: nowrap;
+  }
+  .customerInfo {
+    padding-bottom: 10px;
+  }
   .carousel {
     position: relative;
     top: -60px;
   }
   #navbar {
-    background-color:  white;
-    height: 75px!important;
+    height: 75px;
   }
   #navbar p {
     color: #777;
@@ -455,6 +506,52 @@ export default {
     padding-top: 18px;
   }
 
+  @media screen and (min-width: 1366px) {
+    #motorEngine {
+      padding-left:14px;
+    }
+    .toBeingPadding {
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: 1366px) and (min-width: 1000px){
+    #motorEngine {
+      padding-left:28px;
+    }
+  }
+  @media screen and (min-width: 910px) and (max-width: 1000px) {
+    p {
+      font-size: 13px;
+    }
+    #motorEngine {
+      padding-left: 28px;
+    }
+  }
+
+  @media screen and (min-width: 691px) {
+    .container.customerInfo.animated.slideInLeft {
+      font-size: 17px;
+    }
+    .ulNoPadding ul {
+      padding: 0px!important;
+    }
+    .customerInfo h4 {
+      font-size: 22px;
+    }
+    .mobileTitle {
+      text-align: left;
+    }
+    .toBeingPadding .col-sm-6 {
+      padding-left: 30px;
+    }
+    .lastRow .mobileTitle {
+      text-align: center;
+    }
+    #mobileRWD.container-fluid.toBeingPadding {
+      margin-bottom: 25px;
+    }
+  }
+
   @media screen and (max-width:769px) and (min-width:758px) {
     ul.nav.navbar-nav.navbar-right {
       font-size: 15px!important;
@@ -462,14 +559,20 @@ export default {
     div.col-sm-6 {
       width: 100%!important;
     }
+    .specialColSm {
+      margin-bottom: 25px;
+    }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 690px) {
+    .specialColSm {
+      margin-bottom: 25px;
+    }
     .customerInfo h4 {
       text-align: left;
     }
     .customerInfo .col-sm-6 .col-sm-12, .customerInfo .col-sm-6 {
-      padding: 0px;
+      padding: 3px 0px;
     }
     .customerInfo .col-sm-3 p, .customerInfo .col-sm-4 p {
       text-align: left;
@@ -480,7 +583,7 @@ export default {
     .customerInfo .col-sm-4 a {
       display: block;
       position:relative;
-      left: -38%;
+      text-align: left;
     }
     .customerInfo h3 {
       font-weight: bold;
@@ -493,6 +596,28 @@ export default {
     }
     .lastColumn {
       padding:15px;
+    }
+    #needToMobRWD .col-sm-9.text-left {
+      position:absolute;
+      left: 100px;
+      top: 5px;
+    }
+    .specialLi {
+      position: relative;
+      left: 100px;
+      top: -30px;
+    }
+    .lastRow ul {
+      height: 50px;
+    }
+    .customerInfo {
+      border-bottom: none!important;
+    }
+    .lastColumn ul {
+      border-top: 1px solid #ddd;
+    }
+    #mobileRWD.container-fluid.toBeingPadding {
+      margin-bottom: 25px!important;
     }
   }
 </style>

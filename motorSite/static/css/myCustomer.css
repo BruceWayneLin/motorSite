@@ -28,14 +28,15 @@ i.fa.fa-chevron-left, i.fa.fa-chevron-right {
   color: #fff;
   text-shadow: 2px 2px 2px black;
   position: relative;
-  top: 67px;
+  top: 30px;
   width: 310px;
+  margin-left: 10px;
 }
 
 .priceDiscount {
   position: relative;
-  top: -80px;
-  left: 28%;
+  top: -25px;
+  left: 110px;
   text-decoration: line-through;
   font-size: 18px;
 }
@@ -197,7 +198,6 @@ button.btn.btn-danger.NextButton:hover {
 }
 
 .customerInfo .container-fluid {
-  margin: 5% 0px;
   margin-top: 0px;
 }
 
@@ -363,6 +363,8 @@ i.fa {
 
 .title {
   padding: 15px;
+  min-width: 150px;
+  padding-bottom: 30px;
 }
 
 .cardPlateImg {
@@ -643,7 +645,7 @@ nav {
 
 @media screen and (max-width:1120px) and (min-width:1013px){
   .priceDiv {
-    left: -8%;
+    margin-left: -23px;
   }
 }
 
@@ -660,7 +662,7 @@ nav {
 }
 @media screen and (max-width:879px) and (min-width:767px){
   .priceDiv {
-    left: -30%;
+    left: -73px;
   }
 }
 
@@ -704,7 +706,8 @@ select.form-control {
   width:100%;
   height:48px;
   border:0px;
-  outline:none;
+  background-color: transparent;
+  transition: unset;
 }
 
 input.form-control {
@@ -732,13 +735,10 @@ input.form-control {
   border-radius: 36px;
   display:inline-block;
   overflow:hidden;
-  background: white;
+  background: transparent;
   border:1px solid #ccc;
 }
 
-.navbar-header .icon-bar {
-  background-color: #fff;
-}
 
 @media screen and (max-width:992px) and (min-width:768px){
   .plateColor span {
@@ -845,7 +845,7 @@ input.form-control {
   background-color: rgba(0, 0, 0, 0.56);
   margin-left: -15px;
   margin-right: -15px;
-  height: 75px!important;
+  height: 75px;
 }
 
 .shadowUse {
@@ -1000,7 +1000,7 @@ input.form-control {
   background-repeat: no-repeat;
   width: 800px;
   background-size: contain;
-  z-index: 9999999999999999;
+  z-index: 0;
   left: 16%;
   top: 30%;
 }
@@ -1023,7 +1023,7 @@ input.form-control {
 
 @media screen and (max-width: 1378px) {
   .textDiv {
-    left: 3%;
+    left: 1%;
   }
 }
 
@@ -1118,9 +1118,11 @@ html,body
     font-size: 33px;
   }
   .priceDiscount {
-    top: -69px;
-    left: 15%;
-    font-size: 15px;
+    left: 89px;
+    top: -23px;
+  }
+  .title.OneYearTitle {
+    left: 33px!important;
   }
   .moneySign {
     font-size: 16px;
@@ -1178,7 +1180,6 @@ html,body
 input.form-control.text-center.btn-sm.isActiveBtnAbove {
   background-color: #e84466!important;
   color: white!important;
-  padding: 0px 20%;
 }
 
 .formTitleSpan {
@@ -1207,7 +1208,6 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
 
   }
   #navbar ul li{
-    border: 1px solid white!important;
     margin: 10px;
     background-color: white;
   }
@@ -1215,7 +1215,7 @@ input.form-control.text-center.btn-sm.isActiveBtnAbove {
     color: #777777!important;
   }
   #navbar.navbar-collapse.collapse.in {
-    min-height: 250px!important;
+    min-height: 310px!important;
     background-color: rgba(0, 0, 0, 0.53)!important;
   }
   #navbar ul li p:nth-child(1){
@@ -1258,9 +1258,9 @@ input.sameAsApplicant.form-control.text-center.btn-sm {
   margin-top: 10px;
 }
 
-.priceDiv a: hover {
+.priceDiv a:hover {
   border:none!important;
-  color: none!important;
+  color:none!important;
 }
 
 @media screen and (max-width: 789px) and (min-width: 767px) {
@@ -1288,7 +1288,7 @@ a {
 }
 
 ul.nav.navbar-nav.navbar-right p {
-  cursor: pointer!important;
+  cursor: pointer;
 }
 
 /*modal css*/
