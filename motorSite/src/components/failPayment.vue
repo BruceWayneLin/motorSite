@@ -34,10 +34,12 @@
         <div class="col-sm-12 thanksDiv">
           <div class="col-sm-12 text-center" style="margin-bottom:10px; padding-top:10%;">
             <h2>付款失敗</h2>
-            <h3 style=" margin-bottom: 20px;border:none;">銀行系統維護中, 錯誤代碼 {{errorCode}}</h3>
+            <h3 style=" margin-bottom: 20px;border:none;"><span v-show="!errorCodeE3001">銀行系統維護中,</span>錯誤代碼: {{errorCode}}<span  v-show="errorCodeE3001">發卡銀行拒絕授權</span></h3>
             <img src="../assets/failPayment.png" alt="img-responsive" style="height:100px; width:auto;">
-            <h4 style="border-bottom:none;margin-top:30px;">請洽原發卡行詢問或再重新操作一次，</h4>
-            <h4>若仍需要協助請撥打英國凱萊客服專線洽詢，英國凱萊感謝您。</h4>
+            <h4 v-show="errorCodeE3001" style="border-bottom:none;margin-top:30px;">請洽原發卡行詢問或撥打英國凱萊客服專線洽詢，</h4>
+            <h4 v-show="errorCodeE3001">英國凱萊感謝您。</h4>
+            <h4 v-show="!errorCodeE3001" style="border-bottom:none;margin-top:30px;">請洽原發卡行詢問或再重新操作一次，</h4>
+            <h4 v-show="!errorCodeE3001">若仍需要協助請撥打英國凱萊客服專線洽詢，英國凱萊感謝您。</h4>
           </div>
           <div class="col-sm-12">
             <div class="thanksWords text-center">
@@ -97,7 +99,8 @@ export default {
     return {
       visible: false,
       errorMsgOfFailSent: '',
-      errorCode: ''
+      errorCode: '',
+      errorCodeE3001: false
     }
   },
   head: {
@@ -205,6 +208,9 @@ export default {
         return false
       } else {
         this.errorCode = response.data.statusCode
+        if (this.errorCode === 'E001') {
+          this.errorCodeE3001 = true
+        }
       }
     }, response => {
       // error callback

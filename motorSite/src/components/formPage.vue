@@ -508,7 +508,7 @@
           <div class="col-sm-6">
             <div class="col-sm-12 contractRules">
               <p><input type="checkbox" v-model="agreementRead" name="agreementCheckBox">
-                我已閱讀 << <a @click="principleAnnounce" href="/CareLineMotor/motorbike-mbr/viewpdf/announcement" target="_blank">網絡保險服務聲明事項</a> >> ， << <a href="/CareLineMotor/motorbike-mbr/viewpdf/protection" target="_blank" @click="showPersonalAnnouce">產險業履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
+                我已閱讀 << <a @click="principleAnnounce" href="/CareLineMotor/motorbike-mbr/viewpdf/announcement" target="_blank">網絡保險服務聲明事項</a> >> ， << <a href="/CareLineMotor/motorbike-mbr/viewpdf/protection?v=1" target="_blank" @click="showPersonalAnnouce">保險代理人履行個人資料保護法告知義務內容</a> >>文件，並同意。</p>
             </div>
           </div>
         </div>
@@ -1859,7 +1859,6 @@ export default {
     /* eslint-disable */
     var CE_SNAPSHOT_NAME = "要保人資料 | Care Line英國凱萊 機車強制險 | 立刻投保 | Care Line英國凱萊 機車強制險"
     /* eslint-enable */
-
     var formData = JSON.parse(this.$localStorage.get('formStore'))
     if (formData) {
       this.$parent.$parent.applicantData = formData.applicantData

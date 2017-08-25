@@ -282,6 +282,17 @@
               </ul>
             </div>
           </div>
+          <div class="col-sm-6">
+
+          </div>
+          <div class="col-sm-6">
+            <div class="givenCard text-right">
+              <img src="../assets/pics/kaiTalk.png" alt="">
+              <span>
+              您的150元全家禮物卡將同保卡掛號寄出！
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -619,5 +630,32 @@ export default {
     #mobileRWD.container-fluid.toBeingPadding {
       margin-bottom: 25px!important;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    .givenCard span{
+      font-size: 16px;
+      color: #01a29a;
+      font-weight: 800;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .givenCard span{
+      font-size: 13px;
+      color: #01a29a;
+      font-weight: 800;
+    }
+  }
+
+
+  .givenCard {
+    font-size: 18px;
+    color: #01a29a;
+    font-weight: 800;
+  }
+
+  .givenCard img{
+    margin-bottom: 5px;
   }
 </style>

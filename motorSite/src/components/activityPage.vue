@@ -52,6 +52,9 @@
                 </ul>
             </div>
             <div class="col-sm-12" style="">
+              <a href="https://www.facebook.com/kaistraventure/videos/vb.1856981887921157/1930400740579271/?type=2&theater" target="_blank"><span style="color: #0000ff;"><strong style="font-size:18px;">點我看 七月份抽獎直播</strong></span></a>
+            </div>
+            <div class="col-sm-12" style="">
                 <a href="https://goo.gl/Mvjhgb" target="_blank"><span style="color: #0000ff;"><strong style="font-size:18px;">點我看 獎品開箱文</strong></span></a>
             </div>
             <div class="col-sm-12" style="padding:0px;">

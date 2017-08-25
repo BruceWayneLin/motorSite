@@ -270,7 +270,7 @@
             </div>
             <div class="col-sm-3">
               <div class="selectWrapper" v-bind:class="{errorShow:releaseMotoYearInValid}">
-                <select @click="toShowMotoDateExample" class="form-control" @change="validateMotoYear" v-model="releaseMotoYearDate" name="releaseMotoYearDate" id="releaseMotoYearDate">
+                <select @click="toShowMotoDateExample('firstInput')" @change="validateMotoYear('firstInput')" class="form-control" v-model="releaseMotoYearDate" name="releaseMotoYearDate" id="releaseMotoYearDate">
                   <option value="">西元年</option>
                   <option v-for=" year in westernYear ">{{ year }}年</option>
                 </select>
@@ -729,10 +729,15 @@ export default {
       this.carLicenseExample = false
       this.brandExample = false
     },
-    toShowMotoDateExample: function () {
-      this.validateReleasePlateYear()
-      this.validateReleasePlateMonth('last')
-      this.validateReleasePlateDay()
+    toShowMotoDateExample: function (inputVal) {
+      if (inputVal === 'firstInput') {
+
+      } else {
+        this.validateReleasePlateYear()
+        this.validateReleasePlateMonth('last')
+        this.validateReleasePlateDay()
+      }
+
       this.engineNumExample = false
       this.airProduceExample = false
       this.issuedDayExample = false
@@ -992,31 +997,38 @@ export default {
         }
       }
     },
-    validateMotoYear: function () {
-      let y = new Date().getFullYear()
-      let year = parseInt(this.releaseMotoYearDate.slice(0, 4))
-      let m = new Date().getMonth() + 1
-      let month = parseInt(this.releaseMotoMonthDate.slice(0, 2))
-      if (!this.releaseMotoYearDate) {
-        this.releaseMotoYearInValid = true
-        this.releaseMotoMonthInValid = true
-        this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
-        return false
-      } else {
-        if (year >= y && month > m) {
+    validateMotoYear: function (valueOfInput) {
+      if (valueOfInput === 'firstInput') {
+        if (!this.releaseMotoYearDate) {
           this.releaseMotoYearInValid = true
-          this.releaseMotoMonthInValid = true
-          this.releaseMotoYearErrorMsg = '出廠年月不得超過今月。'
-          return false
-        } else if ((!year) || (!month)) {
+          this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
+        }
+      } else {
+        let y = new Date().getFullYear()
+        let year = parseInt(this.releaseMotoYearDate.slice(0, 4))
+        let m = new Date().getMonth() + 1
+        let month = parseInt(this.releaseMotoMonthDate.slice(0, 2))
+        if (!this.releaseMotoYearDate) {
           this.releaseMotoYearInValid = true
           this.releaseMotoMonthInValid = true
           this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
           return false
         } else {
-          this.releaseMotoYearInValid = false
-          this.releaseMotoMonthInValid = false
-          return true
+          if (year >= y && month > m) {
+            this.releaseMotoYearInValid = true
+            this.releaseMotoMonthInValid = true
+            this.releaseMotoYearErrorMsg = '出廠年月不得超過今月。'
+            return false
+          } else if ((!year) || (!month)) {
+            this.releaseMotoYearInValid = true
+            this.releaseMotoMonthInValid = true
+            this.releaseMotoYearErrorMsg = '請選擇出廠年月。'
+            return false
+          } else {
+            this.releaseMotoYearInValid = false
+            this.releaseMotoMonthInValid = false
+            return true
+          }
         }
       }
     },

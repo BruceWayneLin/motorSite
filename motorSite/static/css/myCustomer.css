@@ -217,7 +217,7 @@ button.btn.btn-danger.NextButton:hover {
 }
 
 .customerInfo strong {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 @media screen and (min-width: 500px) {
@@ -831,7 +831,7 @@ input.form-control {
   font-size: 20px;
   cursor: pointer;
   border: 2px solid rgba(216, 91, 116, 0.68);
-  margin-top: 45px;
+  margin-top: 55px;
   z-index: 999999999999;
 }
 
@@ -1002,7 +1002,7 @@ input.form-control {
   background-size: contain;
   z-index: 0;
   left: 16%;
-  top: 30%;
+  top: 33%;
 }
 
 @media screen and (max-width: 1120px) {
@@ -1022,6 +1022,18 @@ input.form-control {
 }
 
 @media screen and (max-width: 1378px) {
+  .textDiv {
+    left: 6%;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width:1024px) {
+  .textDiv {
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width:900px) {
   .textDiv {
     left: 1%;
   }
